@@ -9,14 +9,7 @@ use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFact
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 use PrePayment\Methods\PrePaymentPaymentMethod;
-
-use Plenty\Plugin\ServiceProvider;
-use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
-use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
-use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
-
 use PrePayment\Helper\PrePaymentHelper;
-use PrePayment\Methods\PrePaymentPaymentMethod;
 
 
 /**
