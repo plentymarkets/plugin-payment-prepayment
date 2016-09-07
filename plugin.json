@@ -1,6 +1,6 @@
 {
   "version": 0.9,
-  "name": "Vorkasse",
+  "name": "PrePayment",
   "description": "Pre payment plugin for plentymarkets",
   "author": "plentymarkets GmbH",
   "keywords": ["prepayment", "Vorkasse", "official", "plentymarkets", "payment"],

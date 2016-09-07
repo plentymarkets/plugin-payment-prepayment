@@ -10,6 +10,14 @@ use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 use PrePayment\Methods\PrePaymentPaymentMethod;
 
+use Plenty\Plugin\ServiceProvider;
+use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
+use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
+use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
+
+use PrePayment\Helper\PrePaymentHelper;
+use PrePayment\Methods\PrePaymentPaymentMethod;
+
 
 /**
  * Class PrePaymentServiceProvider
@@ -17,59 +25,19 @@ use PrePayment\Methods\PrePaymentPaymentMethod;
  */
 class PrePaymentServiceProvider extends ServiceProvider
 {
-    private PaymentMethodRepositoryContract $paymentMethodRepository;
-
-    public function __construct(\Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract $mopRepository)
-    {
-        $this->paymentMethodRepository = $mopRepository;
-    }
-
-    /**
-     * @param PaymentMethodContainer $mopContainer
-     */
-    public function boot(PaymentMethodContainer $mopContainer):void
-    {
-        $this->createMopIfNotExists();
-        $mopContainer->register('PrePayment::prepayment', PrePaymentPaymentMethod::class, [\Plenty\Modules\Basket\Events\Basket\AfterBasketChanged::class]);
-    }
-
-    /**
-     *
-     */
     public function register():void
     {
 
     }
 
-    /**
-     *
-     */
-    public function createMopIfNotExists():void
+    public function boot(PrePaymentHelper $paymentHelper,
+                         PaymentMethodContainer $payContainer):void
     {
-        if($this->getMop() == 'no_paymentmethod_found')
-        {
-            $paymentMethodData = array( 'pluginKey' => 'PrePayment',
-                'paymentKey' => 'prepayment',
-                'name' => 'Vorkasse');
+        $paymentHelper->createMopIfNotExists();
 
-            $this->paymentMethodRepository->createPaymentMethod($paymentMethodData);
-        }
+        $payContainer->register('PrePayment::PREPAYMENT', PrePaymentPaymentMethod::class,
+            [\Plenty\Modules\Basket\Events\Basket\AfterBasketChanged::class,
+                \Plenty\Modules\Basket\Events\Basket\AfterBasketCreate::class]);
+
     }
-
-
-    /**
-     * @return mixed
-     */
-    public function getMop():mixed
-    {
-        $paymentMethods = $this->paymentMethodRepository->allForPlugin('PrePayment');
-
-        if(count($paymentMethods))
-        {
-            return $paymentMethods[0]->id;
-        }
-
-        return 'no_paymentmethod_found';
-    }
-
 }
