@@ -1,0 +1,11 @@
+{
+  "version": 0.9,
+  "name": "Vorkasse",
+  "description": "Pre payment plugin for plentymarkets",
+  "author": "plentymarkets GmbH",
+  "keywords": ["prepayment", "Vorkasse", "official", "plentymarkets", "payment"],
+  "type": "payment",
+  "namespace": "PrePayment",
+  "require": [],
+  "serviceProvider": "PrePayment\\Providers\\PrePaymentServiceProvider"
+}
