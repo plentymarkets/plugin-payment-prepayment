@@ -19,9 +19,9 @@ private PaymentMethodRepositoryContract $paymentMethodRepository;
     {
         if($this->getMop() == 'no_paymentmethod_found')
         {
-            $paymentMethodData = array( 'pluginKey' => 'PrePayment',
+            $paymentMethodData = array( 'pluginKey' => 'plenty_prepayment',
                 'paymentKey' => 'PREPAYMENT',
-                'name' => 'PrePayment');
+                'name' => 'Vorkasse');
 
             $this->paymentMethodRepository->createPaymentMethod($paymentMethodData);
         }
@@ -29,7 +29,7 @@ private PaymentMethodRepositoryContract $paymentMethodRepository;
 
     public function getMop():mixed
     {
-        $paymentMethods = $this->paymentMethodRepository->allForPlugin('PrePayment');
+        $paymentMethods = $this->paymentMethodRepository->allForPlugin('plenty_prepayment');
 
         if(count($paymentMethods))
         {

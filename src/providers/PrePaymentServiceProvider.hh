@@ -28,7 +28,7 @@ class PrePaymentServiceProvider extends ServiceProvider
     {
         $paymentHelper->createMopIfNotExists();
 
-        $payContainer->register('PrePayment::PREPAYMENT', PrePaymentPaymentMethod::class,
+        $payContainer->register('plenty_prepayment::PREPAYMENT', PrePaymentPaymentMethod::class,
             [\Plenty\Modules\Basket\Events\Basket\AfterBasketChanged::class,
                 \Plenty\Modules\Basket\Events\Basket\AfterBasketCreate::class]);
 
