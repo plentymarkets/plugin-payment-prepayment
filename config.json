@@ -1,25 +1,106 @@
 [
   {
+    "tab": "Einstellungen",
+    "key": "active",
+    "label": "Aktiv",
+    "type": "checkbox",
+    "default": false
+  },
+  {
+    "tab": "Einstellungen",
     "key": "name",
     "label": "Name",
     "type": "text",
     "default": "Vorkasse"
   },
   {
+    "tab": "Einstellungen",
+    "key": "infoPage.type",
+    "label": "Infoseite",
+    "type": "dropdown",
+    "possibleValues":
+    {
+      "0": "Keine",
+      "1": "Externe Seite",
+      "2": "Interne Seite"
+    },
+    "default": "0"
+  },
+  {
+    "tab": "Einstellungen",
+    "key": "infoPage.intern",
+    "label": "Infoseite Intern",
+    "type": "category_select"
+  },
+  {
+    "tab": "Einstellungen",
+    "key": "infoPage.extern",
+    "label": "Infoseite Extern",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "tab": "Einstellungen",
+    "key": "shippingCountry",
+    "label": "Lieferländer",
+    "type": "multi_select",
+    "possibleValues": {
+      "shippingCountry.de": "Deutschland",
+      "shippingCountry.at": "Östereich",
+      "shippingCountry.ch": "Schweiz",
+      "shippingCountry.es": "Spanien",
+      "shippingCountry.uk": "Großbritanien",
+      "shippingCountry.fr": "Frankreich",
+      "shippingCountry.gr": "Griechenland",
+      "shippingCountry.it": "Italien"
+    },
+    "default": ""
+  },
+  {
+    "tab": "Einstellungen",
     "key": "logo",
     "label": "Logo",
     "type": "dropdown",
     "possibleValues":
     {
-      "0": "Default-Logo",
-      "1": "Without-Logo"
+      "0": "Ohne Logo",
+      "1": "Logo Url"
     },
     "default": "0"
   },
   {
-    "key": "url",
+    "tab": "Einstellungen",
+    "key": "logo.url",
     "label": "Logo URL",
     "type": "text",
-    "default": "https://myelisa.com/manual_upload_zusatzseiten/zahlungsdetails/vorkasse.png"
+    "default": ""
   },
+  {
+    "tab": "Schnittstelle",
+    "key": "fee.domestic",
+    "label": "Aufpreis Inland",
+    "type": "text",
+    "default": "0,00"
+  },
+  {
+    "tab": "Schnittstelle",
+    "key": "fee.foreign",
+    "label": "Aufpreis Ausland",
+    "type": "text",
+    "default": "0,00"
+  },
+  {
+    "tab": "Schnittstelle",
+    "key": "showBankData",
+    "label": "Bankdaten anzeigen",
+    "type": "checkbox",
+    "default": false
+  },
+  {
+    "tab": "Schnittstelle",
+    "key": "showBookingText",
+    "label": "Verwendungszweck anzeigen",
+    "type": "checkbox",
+    "default": false
+  }
 ]
