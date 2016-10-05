@@ -46,9 +46,15 @@ class PrePaymentPaymentMethod extends PaymentMethodService
             return true;
       }
 
+      /**
+       * Get shown name
+       *
+       * @return string
+       */
       public function getName()
       {
             $name = $this->configRepo->get('PrePayment.name');
+
             return $name;
       }
 
