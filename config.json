@@ -1,20 +1,20 @@
 [
   {
-    "tab": "Einstellungen",
+    "tab": "Settings",
     "key": "active",
     "label": "Aktiv",
     "type": "checkbox",
     "default": false
   },
   {
-    "tab": "Einstellungen",
+    "tab": "Settings",
     "key": "name",
     "label": "Name",
     "type": "text",
     "default": "Vorkasse"
   },
   {
-    "tab": "Einstellungen",
+    "tab": "Settings",
     "key": "infoPage.type",
     "label": "Infoseite",
     "type": "dropdown",
@@ -27,20 +27,20 @@
     "default": "0"
   },
   {
-    "tab": "Einstellungen",
+    "tab": "Settings",
     "key": "infoPage.intern",
     "label": "Infoseite Intern",
     "type": "category_select"
   },
   {
-    "tab": "Einstellungen",
+    "tab": "Settings",
     "key": "infoPage.extern",
     "label": "Infoseite Extern",
     "type": "text",
     "default": ""
   },
   {
-    "tab": "Einstellungen",
+    "tab": "Settings",
     "key": "shippingCountry",
     "label": "Lieferländer",
     "type": "multi_select",
@@ -57,7 +57,7 @@
     "default": ""
   },
   {
-    "tab": "Einstellungen",
+    "tab": "Settings",
     "key": "logo",
     "label": "Logo",
     "type": "dropdown",
@@ -69,38 +69,39 @@
     "default": "0"
   },
   {
-    "tab": "Einstellungen",
+    "tab": "Settings",
     "key": "logo.url",
     "label": "Logo URL",
     "type": "text",
     "default": ""
   },
   {
-    "tab": "Schnittstelle",
+    "tab": "Settings",
     "key": "fee.domestic",
     "label": "Aufpreis Inland",
     "type": "text",
     "default": "0,00"
   },
   {
-    "tab": "Schnittstelle",
+    "tab": "Settings",
     "key": "fee.foreign",
     "label": "Aufpreis Ausland",
     "type": "text",
     "default": "0,00"
   },
   {
-    "tab": "Schnittstelle",
+    "tab": "Interface",
     "key": "showBankData",
     "label": "Bankdaten anzeigen",
     "type": "checkbox",
     "default": false
   },
   {
-    "tab": "Schnittstelle",
+    "tab": "Interface",
     "key": "showBookingText",
     "label": "Verwendungszweck anzeigen",
     "type": "checkbox",
     "default": false
   }
+
 ]
