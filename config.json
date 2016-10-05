@@ -1,13 +1,6 @@
 [
   {
     "tab": "Settings",
-    "key": "active",
-    "label": "Aktiv",
-    "type": "checkbox",
-    "default": false
-  },
-  {
-    "tab": "Settings",
     "key": "name",
     "label": "Name",
     "type": "text",

@@ -6,7 +6,11 @@ use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
 use Plenty\Modules\Payment\Method\Models\PaymentMethod;
 
 class PrePaymentHelper
-      {
+{
+
+      /**
+       * @var PaymentMethodRepositoryContract
+       */
       private $paymentMethodRepository;
 
       /**

@@ -43,10 +43,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
        */
       public function isActive()
       {
-            // Read from config file the Pre Payment Active option
-            $active = $this->configRepo->get('PrePayment.active') == 1 ? true : false;
-
-            return $active;
+            return true;
       }
 
 
