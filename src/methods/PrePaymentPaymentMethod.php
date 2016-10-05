@@ -46,6 +46,12 @@ class PrePaymentPaymentMethod extends PaymentMethodService
             return true;
       }
 
+      public function getName()
+      {
+            $name = $this->configRepo->get('PrePayment.name');
+            return $name;
+      }
+
 
       /**
        * Get Prepayment Fee
@@ -95,9 +101,17 @@ class PrePaymentPaymentMethod extends PaymentMethodService
       {
             switch($this->configRepo->get('PrePayment.infoPage.type'))
             {
-                  case 1: return $this->configRepo->get('PrePayment.infoPage.extern'); break;
-                  case 2: return $this->configRepo->get('PrePayment.infoPage.intern'); break;
-                  default: return ''; break;
+                  case 1:
+                        return $this->configRepo->get('PrePayment.infoPage.extern');
+                        break;
+
+                  case 2:
+                        return $this->configRepo->get('PrePayment.infoPage.intern');
+                        break;
+
+                  default:
+                        return '';
+                        break;
             }
       }
 
