@@ -8,6 +8,7 @@
   "namespace": "PrePayment",
   "require": [],
   "serviceProvider": "PrePayment\\Providers\\PrePaymentServiceProvider",
+  "dataProviders": [ {"name":"PrePayment\\Providers\\PrePaymentOrderConfirmationDataProvider", "description":"Test"} ],
   "runOnBuild": [
     "PrePayment\\Migrations\\CreatePaymentMethod"
   ]
