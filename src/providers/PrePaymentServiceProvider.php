@@ -38,8 +38,6 @@ class PrePaymentServiceProvider extends ServiceProvider
        */
       public function boot(Dispatcher $eventDispatcher, PrePaymentHelper $prePaymentHelper, PaymentMethodContainer $payContainer)
       {
-            $prePaymentHelper->createMopIfNotExists();
-
             //Register the Pre Payment Plugin
             $payContainer->register('plenty_prepayment::PREPAYMENT', PrePaymentPaymentMethod::class,
                                     [AfterBasketChanged::class, AfterBasketCreate::class]   );

@@ -23,26 +23,6 @@ class PrePaymentHelper
             $this->paymentMethodRepository = $paymentMethodRepository;
       }
 
-
-      /**
-       * Create Method of Payment ID for Prepayment if it doesn't exist
-       *
-       */
-      public function createMopIfNotExists()
-      {
-
-            if($this->getPrePaymentMopId() == 'no_paymentmethod_found')
-            {
-                  $paymentMethodData = array( 'pluginKey'     => 'plenty_prepayment',
-                                              'paymentKey'    => 'PREPAYMENT',
-                                              'name'          => 'Vorkasse');
-
-                  //Call Payment Method Repository and Save data to DB
-                  $this->paymentMethodRepository->createPaymentMethod($paymentMethodData);
-            }
-      }
-
-
       /**
        * Get Prepayment Method of Payment ID
        *
