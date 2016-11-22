@@ -47,8 +47,8 @@ class CreatePaymentMethod
         if($this->prePaymentHelper->getPrePaymentMopId() == 'no_paymentmethod_found')
         {
             $paymentMethodData = array( 'pluginKey'     => 'plenty_prepayment',
-                'paymentKey'    => 'PREPAYMENT',
-                'name'          => 'Vorkasse');
+                                        'paymentKey'    => 'PREPAYMENT',
+                                        'name'          => 'Vorkasse');
 
             //Call Payment Method Repository and Save data to DB
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
