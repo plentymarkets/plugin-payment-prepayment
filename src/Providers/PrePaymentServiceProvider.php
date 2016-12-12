@@ -43,7 +43,7 @@ class PrePaymentServiceProvider extends ServiceProvider
                                     [AfterBasketChanged::class, AfterBasketCreate::class]   );
 
             //Listen for the event to show bank data to the customer
-            $eventDispatcher->listen(GetPaymentMethodContent::class,
+            /*$eventDispatcher->listen(GetPaymentMethodContent::class,
                                       function(GetPaymentMethodContent $event) use( $prePaymentHelper)
                                       {
                                             if($event->getMop() == $prePaymentHelper->getPrePaymentMopId())
@@ -53,7 +53,7 @@ class PrePaymentServiceProvider extends ServiceProvider
                                                   $event->setType( 'htmlContent');
                                             }
 
-                                      }   );
+                                      }   );*/
 
             //Listen for the event which executes the payment
             $eventDispatcher->listen(ExecutePayment::class,
