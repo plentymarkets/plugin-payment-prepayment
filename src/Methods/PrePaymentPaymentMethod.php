@@ -71,11 +71,11 @@ class PrePaymentPaymentMethod extends PaymentMethodService
             // Shipping Country ID with ID = 1 belongs to Germany
             if($basket->shippingCountryId == 1)
             {
-                  return $this->configRepo->get('PrePayment.fee.domestic');
+                  return (float)$this->configRepo->get('PrePayment.fee.domestic');
             }
             else
             {
-                  return $this->configRepo->get('PrePayment.fee.foreign');
+                  return (float)$this->configRepo->get('PrePayment.fee.foreign');
             }
 
       }
