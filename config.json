@@ -1,6 +1,13 @@
 [
   {
     "tab": "Settings",
+    "key": "orderConfirmationText",
+    "label": "orderConfirmationText",
+    "type": "text",
+    "default": "Verwendungszweck"
+  },
+  {
+    "tab": "Settings",
     "key": "name",
     "label": "Name",
     "type": "text",
