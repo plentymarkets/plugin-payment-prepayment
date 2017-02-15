@@ -1,15 +1,37 @@
 {
-  "version": 1.0,
-  "name": "PrePayment",
-  "description": "Pre payment plugin for plentymarkets",
-  "author": "plentymarkets GmbH",
-  "keywords": ["prepayment", "Vorkasse", "official", "plentymarkets", "payment"],
-  "type": "payment",
-  "namespace": "PrePayment",
-  "require": [],
-  "serviceProvider": "PrePayment\\Providers\\PrePaymentServiceProvider",
-  "dataProviders": [ {"key":"PrePayment\\Providers\\PrePaymentOrderConfirmationDataProvider", "name":"Pre Payment Order Confirmation", "description":"Test"} ],
-  "runOnBuild": [
-    "PrePayment\\Migrations\\CreatePaymentMethod"
-  ]
+    "version"           : "1.0.0",
+    "name"              : "PrePayment",
+    "license"           : "AGPL-3.0",
+    "pluginIcon"        : "icon_plugin_xs.png",
+    "price"             : 0.00,
+    "description"       : "Pre payment plugin for plentymarkets online stores",
+    "shortDescription"  : {"de": "Zahlungsart Vorkasse für plentymarkets Webshops","en": "Payment method prepayment for plentymarkets online stores"},
+    "categories"        : ["3519"],
+    "author"            : "plentymarkets GmbH",
+    "authorIcon"        : "icon_author_xs.png",
+    "email"             : "sales@plentymarkets.com",
+    "phone"             : "+49 561 98 681 100",
+
+    "keywords"          : ["prepayment", "Vorkasse", "official", "plentymarkets", "payment"],
+    "type"              : "payment",
+    "require"           : [],
+    "namespace"         : "PrePayment",
+    "serviceProvider"   : "PrePayment\\Providers\\PrePaymentServiceProvider",
+    "javaScriptFiles"   : [],
+    "containers"        : [],
+    "dataProviders"     :
+    [
+        {
+            "key"           :"PrePayment\\Containers\\IconContainer",
+            "name"          :"Prepayment icon",
+            "description"   :"Display the icon for this payment method"
+        },
+        {
+            "key"           :"PrePayment\\Providers\\PrePaymentOrderConfirmationDataProvider",
+            "name"          :"Pre Payment Order Confirmation",
+            "description"   :"Test"
+        }
+    ],
+    "dependencies"      : [],
+    "runOnBuild"        : ["PrePayment\\Migrations\\CreatePaymentMethod"]
 }
