@@ -5,7 +5,7 @@ namespace PrePayment\Containers;
 use Plenty\Plugin\Templates\Twig;
 
 
-class PrePaymentContainer
+class IconContainer
 {
     public function call(Twig $twig):string
     {

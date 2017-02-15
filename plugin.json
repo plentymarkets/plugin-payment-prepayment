@@ -11,7 +11,6 @@
     "authorIcon"        : "icon_author_xs.png",
     "email"             : "sales@plentymarkets.com",
     "phone"             : "+49 561 98 681 100",
-
     "keywords"          : ["prepayment", "Vorkasse", "official", "plentymarkets", "payment"],
     "type"              : "payment",
     "require"           : [],
