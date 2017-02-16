@@ -27,17 +27,15 @@ class PrePaymentOrderConfirmationDataProvider
 
         if($basket->methodOfPaymentId == 0)
         {
-            if($configRepository->get('PrePayment.showBookingText'))
-            {
-                $content .=  $twig->render('PrePayment::TransferReason', array());
-            }
-            $content .=  $twig->render('PrePayment::TransferReason', array());
-
             if($configRepository->get('PrePayment.showBankData'))
             {
                 $content .= $twig->render('PrePayment::BankDetails');
             }
-            $content .= $twig->render('PrePayment::BankDetails');
+
+            if($configRepository->get('PrePayment.showBookingText'))
+            {
+                $content .=  $twig->render('PrePayment::TransferReason', array());
+            }
         }
 
         return $content;

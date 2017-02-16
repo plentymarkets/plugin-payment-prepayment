@@ -1,17 +1,10 @@
 [
   {
     "tab": "Settings",
-    "key": "orderConfirmationText",
-    "label": "orderConfirmationText",
-    "type": "text",
-    "default": "Verwendungszweck"
-  },
-  {
-    "tab": "Settings",
     "key": "name",
     "label": "Name",
     "type": "text",
-    "default": "Cash in advance"
+    "default": "Vorkasse"
   },
   {
     "tab": "Settings",
@@ -64,14 +57,14 @@
     "possibleValues":
     {
       "0": "Ohne Logo",
-      "1": "Logo Url"
+      "1": "Logo-URL"
     },
     "default": "0"
   },
   {
     "tab": "Settings",
     "key": "logo.url",
-    "label": "Logo URL",
+    "label": "Logo-URL",
     "type": "text",
     "default": ""
   },
@@ -89,12 +82,47 @@
     "type": "text",
     "default": "0,00"
   },
+    {
+    "tab": "Interface",
+    "key": "bankAccountOwner",
+    "label": "Kontoinhaber",
+    "type": "text",
+    "default": "Bank account owner"
+  },
+    {
+    "tab": "Interface",
+    "key": "bankName",
+    "label": "Bank",
+    "type": "text",
+    "default": "Name of the bank"
+  },
+    {
+    "tab": "Interface",
+    "key": "bankIban",
+    "label": "IBAN",
+    "type": "text",
+    "default": "IBAN"
+  },
+    {
+    "tab": "Interface",
+    "key": "bankSwift",
+    "label": "BIC",
+    "type": "text",
+    "default": "BIC"
+  },
   {
     "tab": "Interface",
     "key": "showBankData",
     "label": "Bankdaten anzeigen",
     "type": "checkbox",
     "default": false
+  },
+    {
+    "tab": "Interface",
+    "key": "orderConfirmationText",
+    "label": "Verwendungszweck",
+    "type": "text",
+    "default": "Verwendungszweck"
   },
   {
     "tab": "Interface",

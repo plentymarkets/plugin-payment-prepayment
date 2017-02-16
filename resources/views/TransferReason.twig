@@ -1,8 +1,7 @@
-<div>
-    Die Versandabwicklung der Bestellung erfolgt erst nach Zahlungseingang
-</div>
-<div>
-    <span>Bitte geben Sie folgenden Verwedungszweck an:</span>
-    <span>ORDER {{ orderId }}</span>
+{% set orderConfirmationText = config("PrePayment.orderConfirmationText") %}
+<hr>
+<div class="row">
+    <strong class="col-xs-6 col-sm-5">Verwendungszweck</strong>
+    <span class="col-xs-6 col-sm-7">Die Versandabwicklung der Bestellung erfolgt erst nach Zahlungseingang. Bitte geben Sie folgenden Verwendungszweck an:<br /> <b>{{ orderConfirmationText }}</b></span>
 </div>
 

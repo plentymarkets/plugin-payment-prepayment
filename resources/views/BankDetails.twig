@@ -1,22 +1,31 @@
-<p>Nur oben genannten Verwendungszweck nutzen um Verzögerungen und Fehler zu vermeiden.</p>
-<h2>Bankdaten:</h2>
-<table border="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td align="left">Inhaber:</td>
-            <td align="right">$BankAccountOwner</td>
-        </tr>
-        <tr>
-            <td align="left">Institut:</td>
-            <td align="right">$BankName</td>
-        </tr>
-        <tr>
-            <td align="left">IBAN:</td>
-            <td align="right">$BankIban</td>
-        </tr>
-        <tr>
-            <td align="left">BIC/SWIFT</td>
-            <td align="right">$BankSwift</td>
-        </tr>
-    </tbody>
-</table>
+{% set bankAccountOwner = config("PrePayment.bankAccountOwner") %}
+{% set bankName = config("PrePayment.bankName") %}
+{% set bankIban = config("PrePayment.bankIban") %}
+{% set bankSwift = config("PrePayment.bankSwift") %}
+
+<hr>
+<div class="row">
+    <strong class="col-xs-6 col-sm-5">Bankdaten</strong>
+    <span class="col-xs-6 col-sm-7">
+        <table border="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td align="left">Inhaber:</td>
+                    <td align="right">{{ bankAccountOwner }}</td>
+                </tr>
+                <tr>
+                    <td align="left">Institut:</td>
+                    <td align="right">{{ bankName }}</td>
+                </tr>
+                <tr>
+                    <td align="left">IBAN:</td>
+                    <td align="right">{{ bankIban }}</td>
+                </tr>
+                <tr>
+                    <td align="left">BIC/SWIFT:</td>
+                    <td align="right">{{ bankSwift }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </span>
+</div>
