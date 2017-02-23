@@ -5,24 +5,24 @@
 
 <hr>
 <div class="row">
-    <strong class="col-xs-6 col-sm-5">Bankdaten</strong>
+    <strong class="col-xs-6 col-sm-5">{{ trans("PrePayment::PaymentMethod.bankDetails") }}</strong>
     <span class="col-xs-6 col-sm-7">
         <table border="0" cellpadding="0">
             <tbody>
                 <tr>
-                    <td align="left">Inhaber:</td>
+                    <td align="left">{{ trans("PrePayment::PaymentMethod.bankAccountOwner") }}</td>
                     <td align="right">{{ bankAccountOwner }}</td>
                 </tr>
                 <tr>
-                    <td align="left">Institut:</td>
+                    <td align="left">{{ trans("PrePayment::PaymentMethod.bankName") }}</td>
                     <td align="right">{{ bankName }}</td>
                 </tr>
                 <tr>
-                    <td align="left">IBAN:</td>
+                    <td align="left">{{ trans("PrePayment::PaymentMethod.bankIban") }}</td>
                     <td align="right">{{ bankIban }}</td>
                 </tr>
                 <tr>
-                    <td align="left">BIC/SWIFT:</td>
+                    <td align="left">{{ trans("PrePayment::PaymentMethod.bankSwift") }}</td>
                     <td align="right">{{ bankSwift }}</td>
                 </tr>
             </tbody>
