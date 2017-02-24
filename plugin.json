@@ -31,5 +31,8 @@
         }
     ],
     "dependencies"      : [],
-    "runOnBuild"        : ["PrePayment\\Migrations\\CreatePaymentMethod"]
+    "runOnBuild"        : [
+        "PrePayment\\Migrations\\CreatePaymentMethod",
+        "PrePayment\\Migrations\\CreateSettings_1_0_0"
+    ]
 }
