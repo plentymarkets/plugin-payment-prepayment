@@ -21,14 +21,14 @@ use Plenty\Modules\Plugin\DataBase\Contracts\Model;
 class Settings extends Model
 {
     const AVAILABLE_SETTINGS = array("name"                  ,
-                                     "infoPage.type"         ,
-                                     "infoPage.intern"       ,
-                                     "infoPage.extern"       ,
+                                     "infoPageType"         ,
+                                     "infoPageIntern"       ,
+                                     "infoPageExtern"       ,
                                      "shippingCountry"       ,
                                      "logo"                  ,
-                                     "logo.url"              ,
-                                     "fee.domestic"          ,
-                                     "fee.foreign"           ,
+                                     "logoUrl"              ,
+                                     "feeDomestic"          ,
+                                     "feeForeign"           ,
                                      "showBankData"          ,
                                      "orderConfirmationText" ,
                                      "showBookingText"       ,);
