@@ -10,6 +10,9 @@ namespace PrePayment\Migrations;
 
 use Plenty\Modules\Plugin\DataBase\Contracts\Migrate;
 use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
+use Plenty\Modules\System\Contracts\WebstoreRepositoryContract;
+
+use Plenty\Modules\System\Models\Webstore;
 use PrePayment\Models\Settings;
 
 class CreateSettings_1_0_0
@@ -19,22 +22,46 @@ class CreateSettings_1_0_0
     {
         $migrate->createTable(Settings::class);
 
+
+
         $this->setInitialSettings($db);
     }
 
     private function setInitialSettings(DataBase $db)
     {
-        foreach( Settings::AVAILABLE_SETTINGS as $setting)
+        foreach($this->getClients() as $plentyId)
         {
-            /** @var Settings $newSetting */
-            $newSetting = pluginApp(Settings::class);
-            $newSetting->name = $setting;
-            $newSetting->updatedAt = date('Y-m-d H:i:s');
+            foreach (Settings::AVAILABLE_SETTINGS as $setting)
+            {
+                /** @var Settings $newSetting */
+                $newSetting            = pluginApp(Settings::class);
+                $newSetting->plentyId  = $plentyId;
+                $newSetting->name      = $setting;
+                $newSetting->updatedAt = date('Y-m-d H:i:s');
 
-            $db->save($newSetting);
+                $db->save($newSetting);
+            }
         }
-
     }
 
+    private function getClients()
+    {
+        /** @var WebstoreRepositoryContract $wsRepo */
+        $wsRepo = pluginApp(WebstoreRepositoryContract::class);
+
+        $clients    = array();
+
+        /** @var Webstore[] $result */
+        $result = $wsRepo->loadAll();
+
+        /** @var Webstore $record */
+        foreach($result as $record)
+        {
+
+            $clients[] = $record->storeIdentifier;
+        }
+
+        return $clients;
+    }
 
 }

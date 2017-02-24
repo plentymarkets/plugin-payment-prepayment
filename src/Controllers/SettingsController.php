@@ -18,9 +18,9 @@ use Plenty\Repositories\Traits\GateProvider;
 class SettingsController extends Controller
 {
 
-    public function loadSettings( Response $response, SettingsService $service)
+    public function loadSettings( $plentyId, Response $response, SettingsService $service)
     {
-        return $response->json($service->loadSettings());
+        return $response->json($service->getSettingsForPlentyId($plentyId));
     }
 
     public function saveSettings(Request $request, Response $response, SettingsService $service)

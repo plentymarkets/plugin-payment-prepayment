@@ -14,29 +14,32 @@ use Plenty\Modules\Plugin\DataBase\Contracts\Model;
  * Class Settings
  *
  * @property int $id
+ * @property int $plentyId
  * @property string $name
  * @property string $value
  * @property string $updatedAt
  */
 class Settings extends Model
 {
-    const AVAILABLE_SETTINGS = array("name"                  ,
-                                     "infoPageType"         ,
-                                     "infoPageIntern"       ,
-                                     "infoPageExtern"       ,
+    const AVAILABLE_SETTINGS = array("plentyId"              ,
+                                     "name"                  ,
+                                     "infoPageType"          ,
+                                     "infoPageIntern"        ,
+                                     "infoPageExtern"        ,
                                      "shippingCountry"       ,
                                      "logo"                  ,
-                                     "logoUrl"              ,
-                                     "feeDomestic"          ,
-                                     "feeForeign"           ,
+                                     "logoUrl"               ,
+                                     "feeDomestic"           ,
+                                     "feeForeign"            ,
                                      "showBankData"          ,
                                      "orderConfirmationText" ,
-                                     "showBookingText"       ,);
-
-    public $id          = 0;
+                                     "showBookingText"       );
+    public $id;
+    public $plentyId;
     public $name        = '';
     public $value       = '';
     public $updatedAt   = '';
+
 
     /**
      * @return string

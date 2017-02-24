@@ -19,8 +19,8 @@ class PrePaymentRouteServiceProvider extends RouteServiceProvider
      */
     public function map(Router $router)
     {
-        $router->get('payment/prepayment/settings', 'PrePayment\Controllers\SettingsController@loadSettings');
-        $router->put('payment/prepayment/settings', 'PrePayment\Controllers\SettingsController@saveSettings');
+        $router->get('payment/prepayment/settings/{plentyId}'   , 'PrePayment\Controllers\SettingsController@loadSettings');
+        $router->put('payment/prepayment/settings'              , 'PrePayment\Controllers\SettingsController@saveSettings');
     }
 
 }
