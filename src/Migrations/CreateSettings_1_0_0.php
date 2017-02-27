@@ -29,7 +29,10 @@ class CreateSettings_1_0_0
 
     private function setInitialSettings(DataBase $db)
     {
-        foreach($this->getClients() as $plentyId)
+        $clients = $this->getClients();
+        $this->printArray($clients);
+
+        foreach($clients as $plentyId)
         {
             foreach (Settings::AVAILABLE_SETTINGS as $setting)
             {
@@ -62,6 +65,40 @@ class CreateSettings_1_0_0
         }
 
         return $clients;
+    }
+
+    /**
+     * @param array $propertyArray
+     * @param string $indent
+     */
+    private function printArray(array $propertyArray, $indent = '')
+    {
+        $bracketsIndent = $indent;
+        echo "\n" . $bracketsIndent . "{";
+        $indent = $indent . $this->getIndent();
+        foreach($propertyArray as $key => $value)
+        {
+            if(is_array($value))
+            {
+                echo "\n" . $indent . $key . ":";
+                $this->printArray($value, $indent);
+            }
+            else
+            {
+                echo "\n" . $indent . $key . ": " . $value;
+            }
+
+        }
+
+        echo "\n" . $bracketsIndent . "}\n";
+    }
+
+    /**
+     * @return string
+     */
+    private function getIndent()
+    {
+        return "    ";
     }
 
 }

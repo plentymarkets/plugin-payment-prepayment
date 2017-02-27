@@ -26,7 +26,7 @@ class Settings extends Model
                                      "infoPageType"          ,
                                      "infoPageIntern"        ,
                                      "infoPageExtern"        ,
-                                     "shippingCountry"       ,
+                                     "shippingCountries"     ,
                                      "logo"                  ,
                                      "logoUrl"               ,
                                      "feeDomestic"           ,
