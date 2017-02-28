@@ -20,7 +20,7 @@ class SettingsController extends Controller
 
     public function loadSettings( $plentyId, Response $response, SettingsService $service)
     {
-        return $response->json($service->getSettingsForPlentyId($plentyId));
+        return $service->getSettingsForPlentyId($plentyId);
     }
 
     public function saveSettings(Request $request, Response $response, SettingsService $service)

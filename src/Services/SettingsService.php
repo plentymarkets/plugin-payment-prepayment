@@ -156,7 +156,7 @@ class SettingsService
         {
             $this->updateClients();
             $clientSettings = $this->db->query('PrePayment\Models\Settings')
-                                        ->where('plentyId', '=', $plentyId)->get();
+                ->where('plentyId', '=', $plentyId)->get();
         }
 
         if(!count($clientSettings) > 0)
@@ -258,8 +258,7 @@ class SettingsService
         {
             if(!is_array($type))
             {
-                $convertedSettings[$setting] = $settings[$setting];
-                $this->setType($convertedSettings[$setting], $type);
+                $convertedSettings[$setting] = $this->setType($settings[$setting], $type);
             }
             else
             {
@@ -281,15 +280,15 @@ class SettingsService
         return $convertedSettings;
     }
 
-    private function setType(&$value, $type)
+    private function setType($value, $type)
     {
         switch($type)
         {
             case "boolean": return $value == 0 ? false : true;
             case "bool":    return $value == 0 ? false : true;
-            case "integer": return number_format($value,0);
-            case "int":     return number_format($value,0);
-            case "float":   return number_format($value,4);
+            case "integer": return (int)$value;
+            case "int":     return (int)$value;
+            case "float":   return (float)$value;
             case "string":  return (string)$value;
         }
     }
