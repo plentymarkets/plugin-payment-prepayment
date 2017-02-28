@@ -123,7 +123,7 @@ class SettingsService
                 {
                     if (is_array($data[$setting->name]))
                     {
-                        $data[$setting->name] = implode('-/', $data[$setting->name]);
+                        $data[$setting->name] = implode('-/-', $data[$setting->name]);
                     }
                     $setting->value     = (string)$data[$setting->name];
                     $setting->updatedAt = date('Y-m-d H:i:s');
@@ -265,7 +265,7 @@ class SettingsService
             {
                 if($settings[$setting] != "")
                 {
-                    $settingArray = explode('-/', $settings[$setting]);
+                    $settingArray = explode('-/-', $settings[$setting]);
                     $arrayType    = array();
                     for($x = 0; $x < count($settingArray); $x++){ $arrayType[] = $type[0]; }
                     $convertedSettings[$setting] = $this->convertSettingsToCorrectFormat($settingArray, $arrayType);
