@@ -21,31 +21,36 @@ use PrePayment\Models\Settings;
 class SettingsService
 {
 
+    /** @var Application  */
+    private $app;
+
     /** @var  DataBase */
     private $db;
 
     /** @var  array */
     private $loadedSettings;
 
-    public function __construct(DataBase $db)
+    public function __construct(Application $app, DataBase $db)
     {
-        $this->db           = $db;
+        $this->app = $app;
+        $this->db  = $db;
     }
 
     /**
      * Load a specific setting for system client by plentyId
      *
-     * @param $plentyId
      * @param string $name
      *
      * @return mixed|Settings
      * @throws ValidationException
      */
-    public function loadSetting($plentyId, string $name)
+    public function getSetting(string $name)
     {
+        $plentyId = $this->app->getPlentyId();
+
         if(empty($loadedSettings))
         {
-            $this->loadedSettings = $this->getSettingsForPlentyId($plentyId);
+            $this->loadedSettings = $this->convertSettingsToCorrectFormat( $this->getSettingsForPlentyId($plentyId), Settings::AVAILABLE_SETTINGS);
         }
 
         if(array_key_exists($name, $this->loadedSettings))
@@ -280,6 +285,14 @@ class SettingsService
         return $convertedSettings;
     }
 
+    /**
+     * settype() is not allowed, this method should do nearly the same except for array / object / null.
+     *
+     * @param $value
+     * @param $type
+     *
+     * @return bool|float|int|string
+     */
     private function setType($value, $type)
     {
         switch($type)

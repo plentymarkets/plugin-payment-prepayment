@@ -13,8 +13,6 @@ use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Http\Response;
 
-use Plenty\Repositories\Traits\GateProvider;
-
 class SettingsController extends Controller
 {
 

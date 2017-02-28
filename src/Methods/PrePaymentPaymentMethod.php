@@ -6,6 +6,8 @@ use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Plugin\ConfigRepository;
 
+use PrePayment\Services\SettingsService;
+
 /**
  * Class PrePaymentPaymentMethod
  * @package PrePayment\Methods
@@ -13,113 +15,107 @@ use Plenty\Plugin\ConfigRepository;
 class PrePaymentPaymentMethod extends PaymentMethodService
 {
 
-      /**
-       * @var BasketRepositoryContract
-       */
-      private $basketRepo;
+    /** @var BasketRepositoryContract */
+    private $basketRepo;
+
+    /** @var  SettingsService */
+    private $settings;
+
+    /**
+    * PrePaymentPaymentMethod constructor.
+    * @param BasketRepositoryContract   $basketRepo
+    * @param SettingsService             $service
+    */
+    public function __construct(  BasketRepositoryContract    $basketRepo,
+                                  SettingsService             $service)
+    {
+        $this->basketRepo     = $basketRepo;
+        $this->settings       = $service;
+    }
+
+    /**
+    * Check whether Prepayment is active or not
+    *
+    * @return bool
+    */
+    public function isActive()
+    {
+        return true;
+    }
+
+    /**
+    * Get shown name
+    *
+    * @return string
+    */
+    public function getName()
+    {
+        $name = $this->settings->getSetting('name');
+
+        return $name;
+    }
 
 
-      /**
-       * @var ConfigRepository
-       */
-      private $configRepo;
+    /**
+    * Get Prepayment Fee
+    *
+    * @return float
+    */
+    public function getFee()
+    {
+        $basket = $this->basketRepo->load();
 
-      /**
-       * PrePaymentPaymentMethod constructor.
-       * @param BasketRepositoryContract $basketRepo
-       * @param ConfigRepository $configRepo
-       */
-      public function __construct(BasketRepositoryContract    $basketRepo,
-                                  ConfigRepository            $configRepo)
-      {
-            $this->basketRepo     = $basketRepo;
-            $this->configRepo     = $configRepo;
-      }
+        // Shipping Country ID with ID = 1 belongs to Germany
+        if($basket->shippingCountryId == 1)
+        {
+              return $this->settings->getSetting('feeDomestic');
+        }
+        else
+        {
+              return $this->settings->getSetting('feeForeign');
+        }
 
-      /**
-       * Check whether Prepayment is active or not
-       *
-       * @return bool
-       */
-      public function isActive()
-      {
-            return true;
-      }
-
-      /**
-       * Get shown name
-       *
-       * @return string
-       */
-      public function getName()
-      {
-            $name = $this->configRepo->get('PrePayment.name');
-
-            return $name;
-      }
+    }
 
 
-      /**
-       * Get Prepayment Fee
-       *
-       * @return float
-       */
-      public function getFee()
-      {
-            $basket = $this->basketRepo->load();
+    /**
+    * Get Prepayment Icon
+    *
+    * @return string
+    */
+    public function getIcon( )
+    {
+        if( $this->settings->getSetting('logo') == 1)
+        {
+              return $this->settings->getSetting('logoUrl');
+        }
 
-            // Shipping Country ID with ID = 1 belongs to Germany
-            if($basket->shippingCountryId == 1)
-            {
-                  return (float)$this->configRepo->get('PrePayment.fee.domestic');
-            }
-            else
-            {
-                  return (float)$this->configRepo->get('PrePayment.fee.foreign');
-            }
-
-      }
+        return '';
+    }
 
 
-      /**
-       * Get Prepayment Icon
-       *
-       * @return string
-       */
-      public function getIcon( ConfigRepository $config )
-      {
-            if($config->get('PrePayment.logo') == 1)
-            {
-                  return $this->configRepo->get('Prepayment.logo.url');
-            }
+    /**
+    * Get PrepaymentDescription
+    *
+    * @return string
+    */
+    public function getDescription( )
+    {
+        switch($this->settings->getSetting('infoPageType'))
+        {
+              case 1:
+                    return $this->settings->getSetting('infoPageExtern');
+                    break;
 
-            return '';
-      }
+              case 2:
+                    return $this->settings->getSetting('infoPageIntern');
+                    break;
 
-
-      /**
-       * Get PrepaymentDescription
-       *
-       * @param ConfigRepository $config
-       * @return string
-       */
-      public function getDescription( ConfigRepository $config )
-      {
-            switch($this->configRepo->get('PrePayment.infoPage.type'))
-            {
-                  case 1:
-                        return $this->configRepo->get('PrePayment.infoPage.extern');
-                        break;
-
-                  case 2:
-                        return $this->configRepo->get('PrePayment.infoPage.intern');
-                        break;
-
-                  default:
-                        return '';
-                        break;
-            }
-      }
+              default:
+                    return '';
+                    break;
+        }
+    }
 
 
 }
