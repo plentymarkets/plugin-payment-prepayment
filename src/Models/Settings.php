@@ -21,19 +21,31 @@ use Plenty\Modules\Plugin\DataBase\Contracts\Model;
  */
 class Settings extends Model
 {
-    const AVAILABLE_SETTINGS = array("plentyId"              ,
-                                     "name"                  ,
-                                     "infoPageType"          ,
-                                     "infoPageIntern"        ,
-                                     "infoPageExtern"        ,
-                                     "shippingCountries"     ,
-                                     "logo"                  ,
-                                     "logoUrl"               ,
-                                     "feeDomestic"           ,
-                                     "feeForeign"            ,
-                                     "showBankData"          ,
-                                     "orderConfirmationText" ,
-                                     "showBookingText"       );
+    const AVAILABLE_SETTINGS = array(        "plentyId"            => "int"     ,
+                                             "name"                => "string"  ,
+                                             "infoPageType"        => "int"     ,
+                                             "infoPageIntern"      => "int"     ,
+                                             "infoPageExtern"      => "string"  ,
+                                             "shippingCountries"   => ['int']   ,
+                                             "logo"                => "int"     ,
+                                             "logoUrl"             => "string"  ,
+                                             "feeDomestic"         => "float"   ,
+                                             "feeForeign"          => "float"   ,
+                                             "showBankData"        => "bool"    ,
+                                             "transferReasonText"  => "string"  ,
+                                             "showTransferReason"  => "bool"    );
+    const SETTINGS_DEFAULT_VALUES = array(   "name"                => "Vorkasse"         ,
+                                             "infoPageType"        => "0"                ,
+                                             "infoPageIntern"      => ""                 ,
+                                             "infoPageExtern"      => ""                 ,
+                                             "shippingCountries"   => ""                 ,
+                                             "logo"                => "0"                ,
+                                             "logoUrl"             => ""                 ,
+                                             "feeDomestic"         => "0.00"             ,
+                                             "feeForeign"          => "0.00"             ,
+                                             "showBankData"        => "0"                ,
+                                             "transferReasonText"  => "Verwendungszweck" ,
+                                             "showTransferReason"  => "0"             );
     public $id;
     public $plentyId;
     public $name        = '';

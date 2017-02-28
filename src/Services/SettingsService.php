@@ -32,6 +32,15 @@ class SettingsService
         $this->db           = $db;
     }
 
+    /**
+     * Load a specific setting for system client by plentyId
+     *
+     * @param $plentyId
+     * @param string $name
+     *
+     * @return mixed|Settings
+     * @throws ValidationException
+     */
     public function loadSetting($plentyId, string $name)
     {
         if(empty($loadedSettings))
@@ -48,6 +57,9 @@ class SettingsService
     }
 
     /**
+     * Get client settings by specific plentyId, indicating the array conversion
+     *
+     * @param $plentyId
      * @param bool $convertToArray
      *
      * @return array|Settings[]
@@ -58,54 +70,82 @@ class SettingsService
         /** @var Settings $settings */
         $settings = $this->loadClientSettings($plentyId);
 
-        $outputArray = array();
-
-        $availableSettings = Settings::AVAILABLE_SETTINGS;
-
         if($convertToArray)
         {
+            $outputArray = array();
+
+            $availableSettings = Settings::AVAILABLE_SETTINGS;
+
             /** @var Settings $setting */
             foreach ($settings as $setting)
             {
 
-                if (in_array($setting->name, $availableSettings))
+                if (array_key_exists($setting->name, $availableSettings))
                 {
                     $outputArray[$setting->name] = $setting->value;
                 }
 
             }
-        }
-        $outputArray['plentyId'] = $plentyId;
 
-        return $outputArray;
+            $outputArray['plentyId'] = $plentyId;
+
+            $outputArray = $this->convertSettingsToCorrectFormat($outputArray,$availableSettings);
+
+            return $outputArray;
+
+        }
+
+        return $settings;
+
     }
 
-
+    /**
+     * Update Settings
+     *
+     * @param $data
+     *
+     * @return int
+     */
     public function saveSettings($data)
     {
-        $pid               = $data['plentyId'];
-        unset($data['plentyId']);
+        $pid = $data['plentyId'];
+        unset( $data['plentyId']);
 
-        /** @var Settings[] $settings */
-        $settings = $this->loadClientSettings($pid);
-
-        /** @var Settings $setting */
-        foreach($settings as $setting)
+        if(count($data) > 0 && !empty($pid))
         {
-            if(array_key_exists($setting->name, $data))
+            /** @var Settings[] $settings */
+            $settings = $this->loadClientSettings($pid);
+
+            /** @var Settings $setting */
+            foreach ($settings as $setting)
             {
+                if (array_key_exists($setting->name, $data))
+                {
+                    if (is_array($data[$setting->name]))
+                    {
+                        $data[$setting->name] = implode('-/', $data[$setting->name]);
+                    }
+                    $setting->value     = (string)$data[$setting->name];
+                    $setting->updatedAt = date('Y-m-d H:i:s');
 
-                $setting->value     = $data[$setting->name];
-                $setting->updatedAt = date('Y-m-d H:i:s');
+                    $this->db->save($setting);
 
-                $this->db->save($setting);
-
+                }
             }
+            return 1;
         }
 
-        return 1;
+        return 0;
     }
 
+    /**
+     * Load settings for specified system clients by plentyId
+     *
+     * @param $plentyId
+     *
+     * @return \PrePayment\Models\Settings[]
+     * @throws ValidationException
+     */
     private function loadClientSettings($plentyId)
     {
         /** @var Settings[] $clientSettings */
@@ -127,6 +167,9 @@ class SettingsService
         return $clientSettings;
     }
 
+    /**
+     * Creates new settings for clients which are not in the DB but available in the system
+     */
     private function updateClients()
     {
         $clients = $this->getClients();
@@ -145,25 +188,40 @@ class SettingsService
 
     }
 
+    /**
+     * Creates new settings by plentyId
+     *
+     * @param $plentyId
+     *
+     * @return array
+     */
     private function createSettingsForPlentyId($plentyId)
     {
         $generatedSettings    = array();
 
-        foreach( Settings::AVAILABLE_SETTINGS as $setting)
+        foreach( Settings::AVAILABLE_SETTINGS as $setting => $type)
         {
-            /** @var Settings $newSetting */
-            $newSetting = pluginApp(Settings::class);
-            $newSetting->plentyId = $plentyId;
-            $newSetting->name = $setting;
-            $newSetting->updatedAt = date('Y-m-d H:i:s');
+            if($setting != 'plentyId')
+            {
+                /** @var Settings $newSetting */
+                $newSetting            = pluginApp(Settings::class);
+                $newSetting->plentyId  = $plentyId;
+                $newSetting->name      = $setting;
+                $newSetting->value     = (string)Settings::SETTINGS_DEFAULT_VALUES[$setting];
+                $newSetting->updatedAt = date('Y-m-d H:i:s');
 
-            $generatedSettings[] = $this->db->save($newSetting);
+                $generatedSettings[] = $this->db->save($newSetting);
+            }
         }
 
         return $generatedSettings;
     }
 
-
+    /**
+     * Get available clients of the system
+     *
+     * @return array
+     */
     private function getClients()
     {
         /** @var WebstoreRepositoryContract $wsRepo */
@@ -182,6 +240,58 @@ class SettingsService
         }
 
         return $clients;
+    }
+
+    /**
+     * Convert settings of type string to the correct format defined in Settings.php
+     * NOTE: Array types only can be of 1 value type, e.g. float
+     *
+     * @param array $settings
+     * @param array $format
+     *
+     * @return array
+     */
+    private function convertSettingsToCorrectFormat(array $settings, array $format)
+    {
+        $convertedSettings = array();
+        foreach( $format as $setting => $type)
+        {
+            if(!is_array($type))
+            {
+                $convertedSettings[$setting] = $settings[$setting];
+                $this->setType($convertedSettings[$setting], $type);
+            }
+            else
+            {
+                if($settings[$setting] != "")
+                {
+                    $settingArray = explode('-/', $settings[$setting]);
+                    $arrayType    = array();
+                    for($x = 0; $x < count($settingArray); $x++){ $arrayType[] = $type[0]; }
+                    $convertedSettings[$setting] = $this->convertSettingsToCorrectFormat($settingArray, $arrayType);
+                }
+                else
+                {
+                    $convertedSettings[$setting] = array();
+                }
+            }
+
+        }
+
+        return $convertedSettings;
+    }
+
+    private function setType(&$value, $type)
+    {
+        switch($type)
+        {
+            case "boolean": return $value == 0 ? false : true;
+            case "bool":    return $value == 0 ? false : true;
+            case "integer": return number_format($value,0);
+            case "int":     return number_format($value,0);
+            case "float":   return number_format($value,4);
+            case "string":  return (string)$value;
+        }
     }
 
 }

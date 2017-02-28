@@ -15,8 +15,11 @@ use Plenty\Modules\System\Contracts\WebstoreRepositoryContract;
 use Plenty\Modules\System\Models\Webstore;
 use PrePayment\Models\Settings;
 
+
 class CreateSettings_1_0_0
 {
+
+    use \Plenty\Plugin\Log\Loggable;
 
     public function run(Migrate $migrate, DataBase $db)
     {
@@ -30,19 +33,23 @@ class CreateSettings_1_0_0
     private function setInitialSettings(DataBase $db)
     {
         $clients = $this->getClients();
-        $this->printArray($clients);
 
         foreach($clients as $plentyId)
         {
-            foreach (Settings::AVAILABLE_SETTINGS as $setting)
+            foreach (Settings::AVAILABLE_SETTINGS as $setting => $type)
             {
-                /** @var Settings $newSetting */
-                $newSetting            = pluginApp(Settings::class);
-                $newSetting->plentyId  = $plentyId;
-                $newSetting->name      = $setting;
-                $newSetting->updatedAt = date('Y-m-d H:i:s');
+                if($setting != 'plentyId')
+                {
 
-                $db->save($newSetting);
+                    /** @var Settings $newSetting */
+                    $newSetting            = pluginApp(Settings::class);
+                    $newSetting->plentyId  = $plentyId;
+                    $newSetting->name      = $setting;
+                    $newSetting->value     = (string)Settings::SETTINGS_DEFAULT_VALUES[$setting];
+                    $newSetting->updatedAt = date('Y-m-d H:i:s');
+
+                    $db->save($newSetting);
+                }
             }
         }
     }
@@ -65,40 +72,6 @@ class CreateSettings_1_0_0
         }
 
         return $clients;
-    }
-
-    /**
-     * @param array $propertyArray
-     * @param string $indent
-     */
-    private function printArray(array $propertyArray, $indent = '')
-    {
-        $bracketsIndent = $indent;
-        echo "\n" . $bracketsIndent . "{";
-        $indent = $indent . $this->getIndent();
-        foreach($propertyArray as $key => $value)
-        {
-            if(is_array($value))
-            {
-                echo "\n" . $indent . $key . ":";
-                $this->printArray($value, $indent);
-            }
-            else
-            {
-                echo "\n" . $indent . $key . ": " . $value;
-            }
-
-        }
-
-        echo "\n" . $bracketsIndent . "}\n";
-    }
-
-    /**
-     * @return string
-     */
-    private function getIndent()
-    {
-        return "    ";
     }
 
 }
