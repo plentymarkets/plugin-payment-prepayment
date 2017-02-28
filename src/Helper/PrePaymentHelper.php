@@ -48,4 +48,9 @@ class PrePaymentHelper
             return 'no_paymentmethod_found';
       }
 
+      public function getBankDetails()
+      {
+
+      }
+
 }

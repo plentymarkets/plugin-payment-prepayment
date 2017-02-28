@@ -6,8 +6,9 @@ use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Modules\Basket\Models\Basket;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Templates\Twig;
-use PrePayment\Helper\PrePaymentHelper;
 
+use PrePayment\Helper\PrePaymentHelper;
+use PrePayment\Services\SettingsService;
 /**
  * Class PrePaymentOrderConfirmationDataProvider
  * @package PrePayment\Providers
@@ -15,7 +16,7 @@ use PrePayment\Helper\PrePaymentHelper;
 class PrePaymentOrderConfirmationDataProvider
 {
     public function call(   Twig $twig,
-                            ConfigRepository $configRepository,
+                            SettingsService $settings,
                             BasketRepositoryContract $basketRepositoryContract,
                             PrePaymentHelper $prePaymentHelper,
                             $args)
@@ -27,12 +28,12 @@ class PrePaymentOrderConfirmationDataProvider
 
         if($basket->methodOfPaymentId == 0)
         {
-            if($configRepository->get('PrePayment.showBankData'))
+            if($settings->getSetting('showBankData'))
             {
                 $content .= $twig->render('PrePayment::BankDetails');
             }
 
-            if($configRepository->get('PrePayment.showBookingText'))
+            if($settings->getSetting('showTransferReason'))
             {
                 $content .=  $twig->render('PrePayment::TransferReason', array());
             }

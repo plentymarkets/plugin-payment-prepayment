@@ -22,6 +22,7 @@ use Plenty\Modules\Plugin\DataBase\Contracts\Model;
 class Settings extends Model
 {
     const AVAILABLE_SETTINGS = array(        "plentyId"            => "int"     ,
+                                             "lang"                => "string"  ,
                                              "name"                => "string"  ,
                                              "infoPageType"        => "int"     ,
                                              "infoPageIntern"      => "int"     ,
@@ -34,6 +35,7 @@ class Settings extends Model
                                              "showBankData"        => "bool"    ,
                                              "transferReasonText"  => "string"  ,
                                              "showTransferReason"  => "bool"    );
+
     const SETTINGS_DEFAULT_VALUES = array(   "name"                => "Vorkasse"         ,
                                              "infoPageType"        => "0"                ,
                                              "infoPageIntern"      => ""                 ,
@@ -46,8 +48,17 @@ class Settings extends Model
                                              "showBankData"        => "0"                ,
                                              "transferReasonText"  => "Verwendungszweck" ,
                                              "showTransferReason"  => "0"             );
+    const AVAILABLE_LANGUAGES = array( "de",
+                                       "en",
+                                       "fr",
+                                       "es" );
+
+    const DEFAULT_LANGUAGE = "de";
+
+
     public $id;
     public $plentyId;
+    public $lang        = '';
     public $name        = '';
     public $value       = '';
     public $updatedAt   = '';

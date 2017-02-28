@@ -14,6 +14,7 @@ use Plenty\Modules\System\Contracts\WebstoreRepositoryContract;
 
 use Plenty\Modules\System\Models\Webstore;
 use PrePayment\Models\Settings;
+use PrePayment\Services\SettingsService;
 
 
 class CreateSettings_1_0_0
@@ -21,57 +22,26 @@ class CreateSettings_1_0_0
 
     use \Plenty\Plugin\Log\Loggable;
 
-    public function run(Migrate $migrate, DataBase $db)
+    public function run(Migrate $migrate)
     {
         $migrate->createTable(Settings::class);
 
-
-
-        $this->setInitialSettings($db);
+        $this->setInitialSettings();
     }
 
-    private function setInitialSettings(DataBase $db)
+    private function setInitialSettings()
     {
-        $clients = $this->getClients();
+        /** @var SettingsService $service */
+        $service = pluginApp(SettingsService::class);
+        $clients = $service->getClients();
 
-        foreach($clients as $plentyId)
+        foreach(Settings::AVAILABLE_LANGUAGES as $lang)
         {
-            foreach (Settings::AVAILABLE_SETTINGS as $setting => $type)
+            foreach ($clients as $plentyId)
             {
-                if($setting != 'plentyId')
-                {
-
-                    /** @var Settings $newSetting */
-                    $newSetting            = pluginApp(Settings::class);
-                    $newSetting->plentyId  = $plentyId;
-                    $newSetting->name      = $setting;
-                    $newSetting->value     = (string)Settings::SETTINGS_DEFAULT_VALUES[$setting];
-                    $newSetting->updatedAt = date('Y-m-d H:i:s');
-
-                    $db->save($newSetting);
-                }
+                $service->createInitialSettingsForPlentyId($plentyId, $lang);
             }
         }
-    }
-
-    private function getClients()
-    {
-        /** @var WebstoreRepositoryContract $wsRepo */
-        $wsRepo = pluginApp(WebstoreRepositoryContract::class);
-
-        $clients    = array();
-
-        /** @var Webstore[] $result */
-        $result = $wsRepo->loadAll();
-
-        /** @var Webstore $record */
-        foreach($result as $record)
-        {
-
-            $clients[] = $record->storeIdentifier;
-        }
-
-        return $clients;
     }
 
 }

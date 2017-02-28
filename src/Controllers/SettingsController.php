@@ -16,9 +16,9 @@ use Plenty\Plugin\Http\Response;
 class SettingsController extends Controller
 {
 
-    public function loadSettings( $plentyId, Response $response, SettingsService $service)
+    public function loadSettings( $plentyId, $lang, Response $response, SettingsService $service)
     {
-        return $response->json($service->getSettingsForPlentyId($plentyId));
+        return $response->json($service->getSettingsForPlentyId($plentyId, $lang));
     }
 
     public function saveSettings(Request $request, Response $response, SettingsService $service)
