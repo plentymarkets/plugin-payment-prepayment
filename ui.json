@@ -1,0 +1,12 @@
+{
+  "defaultEntryPoint": "index.html",
+  "namespace": "PrePayment",
+  "menuEntries": [
+    {
+      "label": "Prepayment",
+      "menu": "order",
+      "urlKey": "prepayment",
+      "entryPoint": "index.html"
+    }
+  ]
+}
