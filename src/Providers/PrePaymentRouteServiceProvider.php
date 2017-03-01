@@ -20,14 +20,14 @@ class PrePaymentRouteServiceProvider extends RouteServiceProvider
      */
     public function map(Router $router , ApiRouter $apiRouter)
     {
-//        $apiRouter->version(['v1'], ['namespace' => 'PayPal\Controllers', 'middleware' => 'oauth'],
-//            function (ApiRouter $apiRouter)
-//            {
-//                $apiRouter->get('payment/prepayment/settings/{plentyId}', 'PrePayment\Controllers\SettingsController@loadSettings');
-//                $apiRouter->put('payment/prepayment/settings', 'PrePayment\Controllers\SettingsController@saveSettings');
-//            });
-        $router->get('payment/prepayment/settings/{plentyId}/{lang}',   'PrePayment\Controllers\SettingsController@loadSettings');
-        $router->put('payment/prepayment/settings',                     'PrePayment\Controllers\SettingsController@saveSettings');
+       $apiRouter->version(['v1'], ['middleware' => ['oauth']],
+            function ($routerApi)
+            {
+                $routerApi->get('payment/prepayment/settings/{plentyId}/{lang}', ['uses' => 'PrePayment\Controllers\SettingsController@loadSettings']);
+                $routerApi->put('payment/prepayment/settings', ['uses' => 'PrePayment\Controllers\SettingsController@saveSettings']);
+            });
+        // $router->get('payment/prepayment/settings/{plentyId}/{lang}',   'PrePayment\Controllers\SettingsController@loadSettings');
+        // $router->put('payment/prepayment/settings',                     'PrePayment\Controllers\SettingsController@saveSettings');
     }
 
 }
