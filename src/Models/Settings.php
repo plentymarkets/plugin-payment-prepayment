@@ -15,6 +15,7 @@ use Plenty\Modules\Plugin\DataBase\Contracts\Model;
  *
  * @property int $id
  * @property int $plentyId
+ * @property string $lang
  * @property string $name
  * @property string $value
  * @property string $updatedAt
