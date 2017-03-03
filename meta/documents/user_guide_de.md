@@ -114,4 +114,4 @@ Nachdem Sie die Einstellungen vorgenommen haben, verknüpfen Sie die Bankdaten m
 2. Wechseln Sie in das Tab **Content**. 
 3. Wählen Sie den Bereich **Prepayment bank details**.
 4. Aktivieren Sie den Container **Order confirmation: Additional payment information**.
-5. **Speichern** Sie die Einstellungen.<br />→ Das Logo der Zahlungsart wird auf der Startseite des Webshops angezeigt.
+5. **Speichern** Sie die Einstellungen.<br />→ Die Bankdaten werden auf der Bestellbestätigungsseite angezeigt.
