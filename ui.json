@@ -3,9 +3,9 @@
   "namespace": "PrePayment",
   "menuEntries": [
     {
-      "label": "Einstellungen",
-      "menu": "settings/orders/prepayment",
-      "urlKey": "settings",
+      "label": "Vorkasse",
+      "menu": "settings/orders",
+      "urlKey": "prepayment",
       "entryPoint": "index.html"
     }
   ]
