@@ -34,8 +34,8 @@ class Settings extends Model
                                              "feeDomestic"         => "float"   ,
                                              "feeForeign"          => "float"   ,
                                              "showBankData"        => "bool"    ,
-                                             "transferReasonText"  => "string"  ,
-                                             "showTransferReason"  => "bool"    );
+                                             "designatedUse"       => "string"  ,
+                                             "showDesignatedUse"   => "bool"    );
 
     const SETTINGS_DEFAULT_VALUES = array(   "name"                => "Vorkasse"         ,
                                              "infoPageType"        => "0"                ,
@@ -47,14 +47,17 @@ class Settings extends Model
                                              "feeDomestic"         => "0.00"             ,
                                              "feeForeign"          => "0.00"             ,
                                              "showBankData"        => "0"                ,
-                                             "transferReasonText"  => "Verwendungszweck" ,
-                                             "showTransferReason"  => "0"             );
+                                             "designatedUse"       => "Verwendungszweck" ,
+                                             "showDesignatedUse"   => "0"                );
+
     const AVAILABLE_LANGUAGES = array( "de",
                                        "en",
                                        "fr",
                                        "es" );
 
     const DEFAULT_LANGUAGE = "de";
+
+    const MODEL_NAMESPACE = 'PrePayment\Models\Settings';
 
 
     public $id;

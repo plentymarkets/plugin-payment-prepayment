@@ -9,6 +9,7 @@
 namespace PrePayment\Extensions;
 
 use Plenty\Plugin\Templates\Extensions\Twig_Extension;
+use PrePayment\Services\SessionStorageService;
 use PrePayment\Services\SettingsService;
 
 class PrePaymentTwigServiceProvider extends Twig_Extension
@@ -52,7 +53,8 @@ class PrePaymentTwigServiceProvider extends Twig_Extension
     {
         return [
             "prepayment" => [
-                "settings"          => pluginApp( SettingsService::class )
+                "settings"          => pluginApp( SettingsService::class ),
+                "sessionStorage"    => pluginApp( SessionStorageService::class)
             ]
         ];
     }

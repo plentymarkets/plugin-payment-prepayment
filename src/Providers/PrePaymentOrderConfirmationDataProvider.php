@@ -33,9 +33,9 @@ class PrePaymentOrderConfirmationDataProvider
                 $content .= $twig->render('PrePayment::BankDetails');
             }
 
-            if($settings->getSetting('showTransferReason'))
+            if($settings->getSetting('showDesignatedUse'))
             {
-                $content .=  $twig->render('PrePayment::TransferReason', array());
+                $content .=  $twig->render('PrePayment::DesignatedUse', array());
             }
         }
 
