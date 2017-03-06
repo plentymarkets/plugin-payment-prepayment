@@ -2,6 +2,7 @@
 
 namespace PrePayment\Methods;
 
+use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Plugin\ConfigRepository;
@@ -50,7 +51,19 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     */
     public function getName()
     {
-        $name = $this->settings->getSetting('name');
+        /** @var FrontendSessionStorageFactoryContract $session */
+        $session = pluginApp(FrontendSessionStorageFactoryContract::class);
+        $lang = $session->getLocaleSettings()->language;
+
+        if(!empty($lang))
+        {
+            $name = $this->settings->getSetting('name', $lang);
+        }
+        else
+        {
+            $name = $this->settings->getSetting('name');
+        }
+
 
         return $name;
     }
@@ -90,7 +103,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
               return $this->settings->getSetting('logoUrl');
         }
 
-        return '';
+        return 'layout/plugins/production/prepayment/images/icon.png';
     }
 
 

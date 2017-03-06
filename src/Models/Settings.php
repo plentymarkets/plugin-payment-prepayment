@@ -34,8 +34,8 @@ class Settings extends Model
                                              "feeDomestic"         => "float"   ,
                                              "feeForeign"          => "float"   ,
                                              "showBankData"        => "bool"    ,
-                                             "transferReasonText"  => "string"  ,
-                                             "showTransferReason"  => "bool"    );
+                                             "designatedUse"       => "string"  ,
+                                             "showDesignatedUse"   => "bool"    );
 
     const SETTINGS_DEFAULT_VALUES = array(   "name"                => "Vorkasse"         ,
                                              "infoPageType"        => "0"                ,
@@ -57,7 +57,7 @@ class Settings extends Model
 
     const DEFAULT_LANGUAGE = "de";
 
-    const MODEL_NAMESPACE = 'PayUponPickup\Models\Settings';
+    const MODEL_NAMESPACE = 'PrePayment\Models\Settings';
 
 
     public $id;
