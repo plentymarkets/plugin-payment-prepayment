@@ -8,6 +8,7 @@ use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Templates\Twig;
 
 use PrePayment\Helper\PrePaymentHelper;
+use PrePayment\Services\SessionStorageService;
 use PrePayment\Services\SettingsService;
 /**
  * Class PrePaymentOrderConfirmationDataProvider
@@ -19,6 +20,7 @@ class PrePaymentOrderConfirmationDataProvider
                             SettingsService $settings,
                             BasketRepositoryContract $basketRepositoryContract,
                             PrePaymentHelper $prePaymentHelper,
+                            SessionStorageService $service,
                             $args)
     {
         /** @var Basket $basket */
@@ -28,12 +30,13 @@ class PrePaymentOrderConfirmationDataProvider
 
         if($basket->methodOfPaymentId == 0)
         {
-            if($settings->getSetting('showBankData'))
+            $lang = $service->getLang();
+            if($settings->getSetting('showBankData', $lang))
             {
                 $content .= $twig->render('PrePayment::BankDetails');
             }
 
-            if($settings->getSetting('showDesignatedUse'))
+            if($settings->getSetting('showDesignatedUse', $lang))
             {
                 $content .=  $twig->render('PrePayment::DesignatedUse', array());
             }

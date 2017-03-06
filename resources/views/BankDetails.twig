@@ -1,5 +1,4 @@
 {% set bankAccount = config("plenty.system.bank") %}
-
 <hr>
 <div class="row">
     <strong class="col-xs-6 col-sm-5">{{ trans("PrePayment::PaymentMethod.bankDetails") }}</strong>
@@ -8,19 +7,19 @@
             <tbody>
                 <tr>
                     <td align="left">{{ trans("PrePayment::PaymentMethod.bankAccountOwner") }}</td>
-                    <td align="right">{{ bankAccount['accountOwner'] }}</td>
+                    <td align="right">{{ bankAccount["accountOwner"] }}</td>
                 </tr>
                 <tr>
                     <td align="left">{{ trans("PrePayment::PaymentMethod.bankName") }}</td>
-                    <td align="right">{{ bankAccount['name'] }}</td>
+                    <td align="right">{{ bankAccount["name"] }}</td>
                 </tr>
                 <tr>
                     <td align="left">{{ trans("PrePayment::PaymentMethod.bankIban") }}</td>
-                    <td align="right">{{ bankAccount['iban'] }}</td>
+                    <td align="right">{{ bankAccount["iban"] }}</td>
                 </tr>
                 <tr>
                     <td align="left">{{ trans("PrePayment::PaymentMethod.bankSwift") }}</td>
-                    <td align="right">{{ bankAccount['swift'] }}</td>
+                    <td align="right">{{ bankAccount["swift"] }}</td>
                 </tr>
             </tbody>
         </table>
