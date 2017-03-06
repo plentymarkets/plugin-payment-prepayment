@@ -3,8 +3,8 @@
   "namespace": "PrePayment",
   "menuEntries": [
     {
-      "label": "Prepayment",
-      "menu": "order",
+      "label": "Vorkasse",
+      "menu": "settings/orders",
       "urlKey": "prepayment",
       "entryPoint": "index.html"
     }

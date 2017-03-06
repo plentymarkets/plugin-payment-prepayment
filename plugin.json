@@ -26,8 +26,8 @@
         },
         {
             "key"           :"PrePayment\\Providers\\PrePaymentOrderConfirmationDataProvider",
-            "name"          :"Pre Payment Order Confirmation",
-            "description"   :"Test"
+            "name"          :"Prepayment bank details",
+            "description"   :"Display the bank details on the order confirmation page"
         }
     ],
     "dependencies"      : [],
