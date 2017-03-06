@@ -50,7 +50,7 @@ class SettingsService
 
         if(empty($loadedSettings))
         {
-            $this->loadedSettings = $this->convertSettingsToCorrectFormat( $this->getSettingsForPlentyId($plentyId, $lang), Settings::AVAILABLE_SETTINGS);
+            $this->loadedSettings = $this->getSettingsForPlentyId($plentyId, $lang);
         }
 
         if(array_key_exists($name, $this->loadedSettings))
@@ -159,7 +159,7 @@ class SettingsService
     private function loadClientSettings($plentyId, $lang)
     {
         /** @var Settings[] $clientSettings */
-        $clientSettings = $this->db->query('PrePayment\Models\Settings')
+        $clientSettings = $this->db->query(Settings::MODEL_NAMESPACE)
             ->where('plentyId', '=', $plentyId)
             ->where('lang',     '=', $lang)
             ->get();
@@ -167,7 +167,7 @@ class SettingsService
         if( !count($clientSettings) > 0)
         {
             $this->updateClients();
-            $clientSettings = $this->db->query('PrePayment\Models\Settings')
+            $clientSettings = $this->db->query(Settings::MODEL_NAMESPACE)
                 ->where('plentyId', '=', $plentyId)
                 ->where('lang',     '=', $lang)
                 ->get();
@@ -191,7 +191,7 @@ class SettingsService
         foreach($clients as $plentyId)
         {
             /** @var Settings[] $query */
-            $query = $this->db->query('PrePayment\Models\Settings')
+            $query = $this->db->query(Settings::MODEL_NAMESPACE)
                 ->where('plentyId', '=', $plentyId )->get();
 
             if( !count($query) > 0 || !$this->areAllLanguagesAvailable($query))
