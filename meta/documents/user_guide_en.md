@@ -14,7 +14,7 @@ In order to make this payment method available in your online store, you have to
 4. **Save** the settings.
 
 <table>
-<caption>Table 1: Carrying out settings for this payment method</caption>
+<caption>Table 1: Carrying out settings for the payment method</caption>
 	<thead>
 		<th>
 			Setting
@@ -29,7 +29,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Language</b>
 			</td>
 			<td>
-				Select a language. Other settings, such as name, info page, etc. will be saved depending on the selected language.
+				Select a language. Other settings, such as name, info page, etc., will be saved depending on the selected language.
 			</td>
 		</tr>
         <tr>
@@ -45,7 +45,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Info page</b>
 			</td>
 			<td>
-				Select a category page of the type <strong>content</strong> or enter the URL of a website to provide<strong><a href="https://www.plentymarkets.eu/handbuch/payment/bankdaten-verwalten/#2-2">information about the payment method</a></strong>.
+				Select a category page of the type <strong>content</strong> or enter the URL of a website to provide <strong><a href="https://www.plentymarkets.co.uk/manual/payment/managing-bank-details/#2-2">information about the payment method</a></strong>.
 			</td>
 		</tr>
 		<tr>
