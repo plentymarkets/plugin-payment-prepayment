@@ -2,9 +2,6 @@
 
 namespace PrePayment\Providers;
 
-use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
-use Plenty\Modules\Basket\Models\Basket;
-use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Templates\Twig;
 
 use PrePayment\Helper\PrePaymentHelper;
@@ -16,19 +13,14 @@ use PrePayment\Services\SettingsService;
  */
 class PrePaymentOrderConfirmationDataProvider
 {
-    public function call(   Twig $twig,
-                            SettingsService $settings,
-                            BasketRepositoryContract $basketRepositoryContract,
-                            PrePaymentHelper $prePaymentHelper,
-                            SessionStorageService $service,
-                            $args)
+    public function call(   Twig $twig, SettingsService $settings, PrePaymentHelper $prePaymentHelper,
+                            SessionStorageService $service, $args)
     {
-        /** @var Basket $basket */
-        $basket = $basketRepositoryContract->load();
+        $mop = $service->getOrderMopId();
 
         $content = '';
 
-        if($basket->methodOfPaymentId == 0)
+        if($mop == $prePaymentHelper->getPrePaymentMopId())
         {
             $lang = $service->getLang();
             if($settings->getSetting('showBankData', $lang))

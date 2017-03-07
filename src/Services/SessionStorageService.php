@@ -3,6 +3,7 @@
 namespace PrePayment\Services;
 
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
+use Plenty\Modules\Order\Models\Order;
 
 /**
  * Class SessionStorageService
@@ -43,6 +44,25 @@ class SessionStorageService
 	{
 		return $this->sessionStorage->getPlugin()->getValue($name);
 	}
+
+    /**
+     * Get Order Payment Method Id
+     *
+     * @return int
+     */
+	public function getOrderMopId()
+    {
+        /** @var array  $order*/
+        $order = $this->sessionStorage->getOrder()->toArray();
+        $mop = $order['methodOfPayment'];
+
+        if(!empty($mop))
+        {
+            return $mop;
+        }
+
+        return 0;
+    }
 
     /**
      * Get the language from session
