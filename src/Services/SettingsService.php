@@ -40,6 +40,7 @@ class SettingsService
      * Load a specific setting for system client by plentyId
      *
      * @param string $name
+     * @param string $lang
      *
      * @return mixed|Settings
      * @throws ValidationException
@@ -58,7 +59,7 @@ class SettingsService
             return $this->loadedSettings[$name];
         }
 
-        throw new ValidationException('No such setting found!');
+        throw new ValidationException('No such setting found: ' . $name);
     }
 
     /**
