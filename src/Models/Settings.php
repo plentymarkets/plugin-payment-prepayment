@@ -50,6 +50,12 @@ class Settings extends Model
                                              "designatedUse"       => "Verwendungszweck" ,
                                              "showDesignatedUse"   => "0"                );
 
+    const LANG_INDEPENDENT_SETTINGS = array(    "infoPageType"      ,
+                                                "shippingCountries" ,
+                                                "feeDomestic"       ,
+                                                "feeForeign"        ,
+                                                "showBankData"      );
+
     const AVAILABLE_LANGUAGES = array( "de",
                                        "en",
                                        "fr",
