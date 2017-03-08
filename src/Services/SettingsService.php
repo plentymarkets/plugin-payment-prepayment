@@ -189,7 +189,7 @@ class SettingsService
                 {
                     throw new ValidationException('No such default values for language: ' . $lang);
                 }
-                
+
                 $newSetting->updatedAt = date('Y-m-d H:i:s');
 
                 $generatedSettings[] = $this->db->save($newSetting);
@@ -280,7 +280,7 @@ class SettingsService
      */
     private function checkLanguage($lang)
     {
-        if(!array_key_exists($lang, Settings::AVAILABLE_LANGUAGES))
+        if(!in_array($lang, Settings::AVAILABLE_LANGUAGES))
         {
             $lang = Settings::DEFAULT_LANGUAGE;
         }
@@ -306,7 +306,7 @@ class SettingsService
         {
             $query->where('lang', '=', $lang);
         }
-        $query->orWhere('lang',     '=', '');
+        $query->orWhere('lang',   '=', '');
 
         /** @var Settings[] $clientSettings */
         $clientSettings = $query->get();

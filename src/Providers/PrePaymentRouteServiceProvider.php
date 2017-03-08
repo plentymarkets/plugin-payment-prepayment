@@ -24,8 +24,9 @@ class PrePaymentRouteServiceProvider extends RouteServiceProvider
             function ($routerApi)
             {
                 /** @var ApiRouter $routerApi*/
-                $routerApi->get('payment/prepayment/settings/{plentyId}/{lang}', ['uses' => 'PrePayment\Controllers\SettingsController@loadSettings']);
-                $routerApi->put('payment/prepayment/settings', ['uses' => 'PrePayment\Controllers\SettingsController@saveSettings']);
+//                $routerApi->get('payment/prepayment/setting/{plentyId}/{setting}/{lang}', ['uses' => 'PrePayment\Controllers\SettingsController@loadSetting']);
+                $routerApi->get('payment/prepayment/settings/{plentyId}/{lang}'         , ['uses' => 'PrePayment\Controllers\SettingsController@loadSettings']);
+                $routerApi->put('payment/prepayment/settings'                           , ['uses' => 'PrePayment\Controllers\SettingsController@saveSettings']);
             });
         // $router->get('payment/prepayment/settings/{plentyId}/{lang}',   'PrePayment\Controllers\SettingsController@loadSettings');
         // $router->put('payment/prepayment/settings',                     'PrePayment\Controllers\SettingsController@saveSettings');

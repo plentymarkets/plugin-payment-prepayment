@@ -54,7 +54,7 @@ class Settings extends Model
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "0"                ,
                                                              "logoUrl"             => ""                 ,
-                                                             "designatedUse"       => "Verwendungszweck" ,
+                                                             "designatedUse"       => "Designated use"   ,
                                                              "showDesignatedUse"   => "0"                ),
                                              "fr"  => array( "name"                => "Prépaiement"         ,
                                                              "infoPageIntern"      => ""                 ,
