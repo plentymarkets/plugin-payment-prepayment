@@ -1,0 +1,3 @@
+{% set lang  = prepayment.sessionStorage.getLang() %}
+{% set name  = prepayment.settings.getSetting('name', lang) %}
+<img src="{{ plugin_path("PrePayment") }}/images/icon.png" title="{{ name }}">

@@ -8,8 +8,6 @@
 
 namespace PrePayment\Services;
 
-use Hamcrest\Core\Set;
-use Illuminate\Database\Eloquent\Collection;
 use Plenty\Exceptions\ValidationException;
 use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
 use Plenty\Modules\Plugin\DataBase\Contracts\Query;
