@@ -113,8 +113,12 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         {
               return $this->settings->getSetting('logoUrl');
         }
+        elseif($this->settings->getSetting('logo') == 2)
+        {
+            return 'layout/plugins/production/prepayment/images/icon.png';
+        }
 
-        return 'layout/plugins/production/prepayment/images/icon.png';
+        return '';
     }
 
 
