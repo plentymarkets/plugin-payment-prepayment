@@ -40,20 +40,20 @@ In order to make this payment method available in your online store, you have to
 				The name of the payment method that will be displayed in the overview of payment methods in the checkout.
 			</td>
 		</tr>
-		<tr>
+		<!--tr>
 			<td>
-				<b>Info page</b>
+				<b>Infoseite</b>
 			</td>
 			<td>
-				Select a category page of the type <strong>content</strong> or enter the URL of a website to provide <strong><a href="https://www.plentymarkets.co.uk/manual/payment/managing-bank-details/#2-2">information about the payment method</a></strong>.
+				Als <a href="https://www.plentymarkets.eu/handbuch/payment/bankdaten-verwalten/#2-2"><strong>Information zur Zahlungsart</strong></a> eine Kategorieseite vom Typ <strong>Content</strong> anlegen oder die URL einer Webseite eingeben.
 			</td>
-		</tr>
+		</tr-->
 		<tr>
 			<td>
 				<b>Logo</b>
 			</td>
 			<td>
-			A HTTPS URL that leads to the logo. Valid file formats are .gif, .jpg or .png. The image may not exceed a maximum size of 190 pixels in width and 60 pixels in height.
+			Select either no logo, <strong>Default logo</strong> or <strong>Logo URL</strong>.<br /><strong>Default logo:</strong> Display the default logo of the payment method in the checkout.<br /><strong>Logo URL:</strong> Enter a HTTPS URL that leads to the logo. Valid file formats are .gif, .jpg or .png. The image may not exceed a maximum size of 190 pixels in width and 60 pixels in height.
 			</td>
 		</tr>
         <tr>
