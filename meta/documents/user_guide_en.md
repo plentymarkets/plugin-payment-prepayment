@@ -45,7 +45,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Info page</b>
 			</td>
 			<td>
-				Select a category page of the type <strong>content</strong> or enter the URL of a website to provide<strong><a href="https://www.plentymarkets.eu/handbuch/payment/bankdaten-verwalten/#2-2">information about the payment method</a></strong>.
+				Select a category page of the type <strong>content</strong> or enter the URL of a website to provide <strong><a href="https://www.plentymarkets.eu/handbuch/payment/bankdaten-verwalten/#2-2">information about the payment method</a></strong>.
 			</td>
 		</tr>
 		<tr>
