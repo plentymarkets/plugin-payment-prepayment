@@ -14,7 +14,7 @@ In order to make this payment method available in your online store, you have to
 4. **Save** the settings.
 
 <table>
-<caption>Table 1: Carrying out settings for this payment method</caption>
+<caption>Table 1: Carrying out settings for the payment method</caption>
 	<thead>
 		<th>
 			Setting
@@ -29,7 +29,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Language</b>
 			</td>
 			<td>
-				Select a language. Other settings, such as name, info page, etc. will be saved depending on the selected language.
+				Select a language. Other settings, such as name, info page, etc., will be saved depending on the selected language.
 			</td>
 		</tr>
         <tr>
@@ -45,7 +45,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Info page</b>
 			</td>
 			<td>
-				Select a category page of the type <strong>content</strong> or enter the URL of a website to provide <strong><a href="https://www.plentymarkets.eu/handbuch/payment/bankdaten-verwalten/#2-2">information about the payment method</a></strong>.
+				Select a category page of the type <strong>content</strong> or enter the URL of a website to provide <strong><a href="https://www.plentymarkets.co.uk/manual/payment/managing-bank-details/#2-2">information about the payment method</a></strong>.
 			</td>
 		</tr>
 		<tr>
@@ -78,6 +78,33 @@ Enter a flat rate. The value that is entered will be taken into consideration fo
 				This payment method is active only for the countries in this list.
 			</td>
 		</tr>
+        <tr>
+			<td colspan="2" class="th">Display data</td>  
+		</tr>
+		<tr>
+			<td>
+				<b>Designated use</b>
+			</td>  
+			<td>
+			Enter the designated use for this payment method.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Show designated use</b>
+			</td>  
+			<td>
+			Activate to display the designated use on the order confirmation page. This information must be linked with the respective <a href="#10."><strong>template container</strong></a>.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Show bank details</b>
+			</td>  
+			<td>
+			Activate to display the bank details on the order confirmation page. Go to <strong>Settings » Basic settings » Bank</strong> to save bank details.
+			</td>
+		</tr>
 	</tbody>
 </table>
 
@@ -93,7 +120,7 @@ The template plugin **Ceres** allows you to display the logo of your payment met
 4. Activate the container **Homepage: Payment method container**. 
 5. **Save** the settings.<br />→ The logo of the payment method will be displayed on the homepage of the online store.
 
-## Displaying the bank details on the order confirmation page
+## Displaying the bank details on the order confirmation page <a id="10." name="10."></a>
 
 Proceed as follows to display the bank details that are saved in the system as well as a designated use on the order confirmation page.
 
@@ -115,3 +142,7 @@ After these settings, link the bank details with a template container.
 3. Go to the **Prepayment bank details** area. 
 4. Activate the container **Order confirmation: Additional payment information**. 
 5. **Save** the settings.<br />→ The bank details will be displayed on the order confirmation page.
+
+## License
+
+This project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE. – find further information in the [LICENSE.md](https://github.com/plentymarkets/plugin-payment-prepayment/blob/master/LICENSE.md).
