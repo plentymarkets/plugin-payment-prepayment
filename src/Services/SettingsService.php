@@ -8,10 +8,9 @@
 
 namespace PrePayment\Services;
 
-use Hamcrest\Core\Set;
-use Illuminate\Database\Eloquent\Collection;
 use Plenty\Exceptions\ValidationException;
 use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
+use Plenty\Modules\Plugin\DataBase\Contracts\Query;
 use Plenty\Modules\System\Contracts\WebstoreRepositoryContract;
 use Plenty\Modules\System\Models\Webstore;
 use Plenty\Plugin\Application;
@@ -160,19 +159,79 @@ class SettingsService
      * @param $lang
      *
      * @return array
+     * @throws ValidationException
      */
     public function createInitialSettingsForPlentyId($plentyId, $lang)
     {
-        $generatedSettings    = array();
+        $generatedSettings    = $this->createLangIndependentInitialSettings($plentyId);
 
         foreach( Settings::AVAILABLE_SETTINGS as $setting => $type)
+        {
+            if($setting != 'plentyId' && $setting != 'lang' && !in_array($setting, Settings::LANG_INDEPENDENT_SETTINGS))
+            {
+                /** @var Settings $newSetting */
+                $newSetting            = pluginApp(Settings::class);
+                $newSetting->plentyId  = $plentyId;
+                $newSetting->lang      = $lang;
+                $newSetting->name      = $setting;
+
+                if(array_key_exists($lang, Settings::SETTINGS_DEFAULT_VALUES))
+                {
+                    $newSetting->value     = (string)Settings::SETTINGS_DEFAULT_VALUES[$lang][$setting];
+                }
+                elseif(array_key_exists(Settings::DEFAULT_LANGUAGE, Settings::SETTINGS_DEFAULT_VALUES))
+                {
+                    $newSetting->value     = (string)Settings::SETTINGS_DEFAULT_VALUES[Settings::DEFAULT_LANGUAGE][$setting];
+                }
+                else
+                {
+                    throw new ValidationException('No such default values for language: ' . $lang);
+                }
+
+                $newSetting->updatedAt = date('Y-m-d H:i:s');
+
+                $generatedSettings[] = $this->db->save($newSetting);
+            }
+        }
+
+        return $generatedSettings;
+    }
+
+    /**
+     * Create initial language independent settings
+     *
+     * @param $plentyId
+     *
+     * @return array
+     */
+    private function createLangIndependentInitialSettings($plentyId)
+    {
+        $generatedSettings = array();
+
+        /** @var Settings[] $storedSettings */
+        $storedSettings = $this->db->query(Settings::MODEL_NAMESPACE)->where('plentyId', '=', $plentyId)
+                                    ->where('lang', '=', '')->get();
+
+        $settingIds = array();
+        /** @var Settings $storedSetting */
+        foreach($storedSettings as $storedSetting)
+        {
+            $settingIds[$storedSetting->name] = $storedSetting->id;
+        }
+
+        foreach(Settings::LANG_INDEPENDENT_SETTINGS as $setting)
         {
             if($setting != 'plentyId' && $setting != 'lang')
             {
                 /** @var Settings $newSetting */
                 $newSetting            = pluginApp(Settings::class);
+                if(array_key_exists($setting, $settingIds) && !empty($settingIds[$setting]))
+                {
+                    $newSetting->id = $settingIds[$setting];
+                }
+
                 $newSetting->plentyId  = $plentyId;
-                $newSetting->lang      = in_array($setting, Settings::LANG_INDEPENDENT_SETTINGS) ? '' : $lang;
+                $newSetting->lang      = '';
                 $newSetting->name      = $setting;
                 $newSetting->value     = (string)Settings::SETTINGS_DEFAULT_VALUES[$setting];
                 $newSetting->updatedAt = date('Y-m-d H:i:s');
@@ -183,7 +242,6 @@ class SettingsService
 
         return $generatedSettings;
     }
-
 
     /**
      * Get available clients of the system
@@ -220,7 +278,7 @@ class SettingsService
      */
     private function checkLanguage($lang)
     {
-        if(!array_key_exists($lang, Settings::AVAILABLE_LANGUAGES))
+        if(!in_array($lang, Settings::AVAILABLE_LANGUAGES))
         {
             $lang = Settings::DEFAULT_LANGUAGE;
         }
@@ -233,26 +291,28 @@ class SettingsService
      * @param $plentyId
      * @param $lang
      *
-     * @return \PrePayment\Models\Settings[]
+     * @return Settings[]
      * @throws ValidationException
      */
     private function loadClientSettings($plentyId, $lang)
     {
+
+        /** @var Query $query */
+        $query = $this->db->query(Settings::MODEL_NAMESPACE);
+        $query->where('plentyId', '=', $plentyId);
+        if(!empty($lang))
+        {
+            $query->where('lang', '=', $lang);
+        }
+        $query->orWhere('lang',   '=', '');
+
         /** @var Settings[] $clientSettings */
-        $clientSettings = $this->db->query(Settings::MODEL_NAMESPACE)
-            ->where('plentyId', '=', $plentyId)
-            ->where('lang',     '=', $lang)
-            ->where('lang',     '=', '')
-            ->get();
+        $clientSettings = $query->get();
 
         if( !count($clientSettings) > 0)
         {
             $this->updateClients();
-            $clientSettings = $this->db->query(Settings::MODEL_NAMESPACE)
-                ->where('plentyId', '=', $plentyId)
-                ->where('lang',     '=', $lang)
-                ->where('lang',     '=', '')
-                ->get();
+            $clientSettings = $query->get();
         }
 
         if(!count($clientSettings) > 0)

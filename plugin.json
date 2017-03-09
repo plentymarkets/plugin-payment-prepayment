@@ -20,6 +20,11 @@
     "dataProviders"     :
     [
         {
+            "key"           :"PrePayment\\Providers\\Icon\\IconProvider",
+            "name"          :"Prepayment icon",
+            "description"   :"Display the icon for this payment method"
+        },
+        {
             "key"           :"PrePayment\\Providers\\PrePaymentOrderConfirmationDataProvider",
             "name"          :"Prepayment bank details",
             "description"   :"Display the bank details on the order confirmation page"

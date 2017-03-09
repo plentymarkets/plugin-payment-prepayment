@@ -2,10 +2,12 @@
 
 namespace PrePayment\Methods;
 
+use Plenty\Modules\Frontend\Contracts\Checkout;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Plugin\ConfigRepository;
+
 
 use PrePayment\Services\SettingsService;
 
@@ -22,16 +24,20 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     /** @var  SettingsService */
     private $settings;
 
+    /** @var  Checkout */
+    private $checkout;
+
     /**
     * PrePaymentPaymentMethod constructor.
     * @param BasketRepositoryContract   $basketRepo
     * @param SettingsService             $service
     */
     public function __construct(  BasketRepositoryContract    $basketRepo,
-                                  SettingsService             $service)
+                                  SettingsService             $service, Checkout $checkout)
     {
         $this->basketRepo     = $basketRepo;
         $this->settings       = $service;
+        $this->checkout       = $checkout;
     }
 
     /**
@@ -41,6 +47,11 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     */
     public function isActive()
     {
+        if(!in_array($this->checkout->getShippingCountryId(), $this->settings->getSetting('shippingCountries')))
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -102,8 +113,12 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         {
               return $this->settings->getSetting('logoUrl');
         }
+        elseif($this->settings->getSetting('logo') == 2)
+        {
+            return 'layout/plugins/production/prepayment/images/icon.png';
+        }
 
-        return 'layout/plugins/production/prepayment/images/icon.png';
+        return '';
     }
 
 
