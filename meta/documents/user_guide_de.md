@@ -78,6 +78,33 @@ Pauschalen Wert eingeben, der bei Aufträgen berücksichtigt wird, bei denen nic
 				Nur für die hier eingestellten Lieferländer ist diese Zahlungsart freigegeben.
 			</td>
 		</tr>
+        <tr>
+			<td colspan="2" class="th">Anzeigedaten</td>  
+		</tr>
+		<tr>
+			<td>
+				<b>Verwendungszweck</b>
+			</td>  
+			<td>
+			Verwendungszweck für den Kauf auf Rechnung eingeben.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Verwendungszweck anzeigen</b>
+			</td>  
+			<td>
+			Aktivieren, um den Verwendungszweck in der Bestellbestätigung anzuzeigen. Diese Informationen werden dem passenden <a href="#10."><strong>Template-Container</strong></a> verknüpft.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Bankdaten anzeigen</b>
+			</td>  
+			<td>
+			Aktivieren, um die Bankdaten in der Bestellbestätigung anzuzeigen. Bankdaten speichern Sie im Menü <strong>Einstellungen » Grundeinstellungen » Bank</strong>.
+			</td>
+		</tr>
 	</tbody>
 </table>
 
@@ -93,7 +120,7 @@ Das Template-Plugin **Ceres** bietet Ihnen auf der Startseite einen Template-Con
 4. Aktivieren Sie den Container **Homepage: Payment method container**.
 5. **Speichern** Sie die Einstellungen.<br />→ Das Logo der Zahlungsart wird auf der Startseite des Webshops angezeigt.
 
-## Bankdaten in der Bestellbestätigung anzeigen
+## Bankdaten in der Bestellbestätigung anzeigen <a id="10." name="10."></a>
 
 Gehen Sie wie im Folgenden beschrieben vor, um die im System hinterlegten Bankdaten und einen Verwendungszweck auf der Bestellbestätigungsseite anzuzeigen.
 
@@ -115,3 +142,7 @@ Nachdem Sie die Einstellungen vorgenommen haben, verknüpfen Sie die Bankdaten m
 3. Wählen Sie den Bereich **Prepayment bank details**.
 4. Aktivieren Sie den Container **Order confirmation: Additional payment information**.
 5. **Speichern** Sie die Einstellungen.<br />→ Die Bankdaten werden auf der Bestellbestätigungsseite angezeigt.
+
+## Lizenz
+ 
+Das gesamte Projekt unterliegt der GNU AFFERO GENERAL PUBLIC LICENSE – weitere Informationen finden Sie in der [LICENSE.md](https://github.com/plentymarkets/plugin-payment-prepayment/blob/master/LICENSE.md).
