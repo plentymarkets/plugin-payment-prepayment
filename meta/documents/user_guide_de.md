@@ -86,7 +86,7 @@ Pauschalen Wert eingeben, der bei Aufträgen berücksichtigt wird, bei denen nic
 				<b>Verwendungszweck</b>
 			</td>  
 			<td>
-			Verwendungszweck für den Kauf auf Rechnung eingeben.
+			Verwendungszweck für die Zahlungsart eingeben.
 			</td>
 		</tr>
 		<tr>
@@ -144,5 +144,5 @@ Nachdem Sie die Einstellungen vorgenommen haben, verknüpfen Sie die Bankdaten m
 5. **Speichern** Sie die Einstellungen.<br />→ Die Bankdaten werden auf der Bestellbestätigungsseite angezeigt.
 
 ## Lizenz
- 
+
 Das gesamte Projekt unterliegt der GNU AFFERO GENERAL PUBLIC LICENSE – weitere Informationen finden Sie in der [LICENSE.md](https://github.com/plentymarkets/plugin-payment-prepayment/blob/master/LICENSE.md).
