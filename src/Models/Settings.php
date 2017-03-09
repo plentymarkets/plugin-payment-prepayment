@@ -45,7 +45,7 @@ class Settings extends Model
                                              "de"  => array( "name"                => "Vorkasse"         ,
                                                              "infoPageIntern"      => ""                 ,
                                                              "infoPageExtern"      => ""                 ,
-                                                             "logo"                => "0"                ,
+                                                             "logo"                => "2"                ,
                                                              "logoUrl"             => ""                 ,
                                                              "designatedUse"       => "Verwendungszweck" ,
                                                              "showDesignatedUse"   => "0"                ),
