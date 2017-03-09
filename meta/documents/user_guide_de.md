@@ -53,7 +53,7 @@ Bevor die Zahlungsart in Ihrem Webshop verfügbar ist, müssen Sie Einstellungen
 				<b>Logo</b>
 			</td>
 			<td>
-			Kein Logo, <strong>Standard-Logo</strong> oder <strong>Logo-URL</strong> wählen.<br /><strong>Standard-Logo</strong>: Das Standard-Logo der Zahlungsart wird in der Kaufabwicklung angezeigt.<br /><strong>Logo-URL:</strong>: Eine https-URL, die zum Logo-Bild führt, angeben. Gültige Dateiformate sind .gif, .jpg oder .png. Die Maximalgröße beträgt 190 Pixel in der Breite und 60 Pixel in der Höhe.
+			Kein Logo, <strong>Standard-Logo</strong> oder <strong>Logo-URL</strong> wählen.<br /><strong>Standard-Logo:</strong> Das Standard-Logo der Zahlungsart wird in der Kaufabwicklung angezeigt.<br /><strong>Logo-URL:</strong> Eine https-URL, die zum Logo-Bild führt, angeben. Gültige Dateiformate sind .gif, .jpg oder .png. Die Maximalgröße beträgt 190 Pixel in der Breite und 60 Pixel in der Höhe.
 			</td>
 		</tr>
         <tr>
