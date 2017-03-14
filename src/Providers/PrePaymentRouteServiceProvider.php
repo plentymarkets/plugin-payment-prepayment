@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ckunze
- * Date: 23/2/17
- * Time: 15:48
- */
 
 namespace PrePayment\Providers;
 
@@ -14,7 +8,6 @@ use Plenty\Plugin\Routing\ApiRouter;
 
 class PrePaymentRouteServiceProvider extends RouteServiceProvider
 {
-
     /**
      * @param Router $router
      */

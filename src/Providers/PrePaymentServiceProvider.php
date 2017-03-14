@@ -16,13 +16,12 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
  */
 class PrePaymentServiceProvider extends ServiceProvider
 {
-
     /**
     * Register the route service provider
     */
     public function register()
     {
-      $this->getApplication()->register(PrePaymentRouteServiceProvider::class);
+        $this->getApplication()->register(PrePaymentRouteServiceProvider::class);
     }
 
     /**

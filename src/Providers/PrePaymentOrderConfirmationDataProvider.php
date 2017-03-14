@@ -13,8 +13,19 @@ use PrePayment\Services\SettingsService;
  */
 class PrePaymentOrderConfirmationDataProvider
 {
-    public function call(   Twig $twig, SettingsService $settings, PrePaymentHelper $prePaymentHelper,
-                            SessionStorageService $service, $args)
+    /**
+     * @param Twig $twig
+     * @param SettingsService $settings
+     * @param PrePaymentHelper $prePaymentHelper
+     * @param SessionStorageService $service
+     * @param array $args
+     * @return string
+     */
+    public function call(   Twig $twig,
+                            SettingsService $settings,
+                            PrePaymentHelper $prePaymentHelper,
+                            SessionStorageService $service,
+                            $args=[])
     {
         $mop = $service->getOrderMopId();
 

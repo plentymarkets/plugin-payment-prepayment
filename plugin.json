@@ -1,5 +1,5 @@
 {
-    "version"           : "1.0.0",
+    "version"           : "1.0.1",
     "name"              : "PrePayment",
     "license"           : "AGPL-3.0",
     "pluginIcon"        : "icon_plugin_xs.png",
@@ -32,7 +32,6 @@
     ],
     "dependencies"      : [],
     "runOnBuild"        : [
-        "PrePayment\\Migrations\\CreatePaymentMethod",
         "PrePayment\\Migrations\\CreateSettings_1_0_0"
     ]
 }

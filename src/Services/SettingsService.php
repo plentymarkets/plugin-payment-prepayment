@@ -17,10 +17,8 @@ use Plenty\Plugin\Application;
 
 use PrePayment\Models\Settings;
 
-
 class SettingsService
 {
-
     /** @var Application  */
     private $app;
 
@@ -30,6 +28,11 @@ class SettingsService
     /** @var  array */
     private $loadedSettings;
 
+    /**
+     * SettingsService constructor.
+     * @param Application $app
+     * @param DataBase $db
+     */
     public function __construct(Application $app, DataBase $db)
     {
         $this->app = $app;
@@ -73,7 +76,6 @@ class SettingsService
      */
     public function getSettingsForPlentyId($plentyId, $lang, bool $convertToArray = true)
     {
-
         $lang = $this->checkLanguage($lang);
 
         /** @var Settings $settings */
@@ -88,12 +90,10 @@ class SettingsService
             /** @var Settings $setting */
             foreach ($settings as $setting)
             {
-
                 if (array_key_exists($setting->name, $availableSettings))
                 {
                     $outputArray[$setting->name] = $setting->value;
                 }
-
             }
 
             $outputArray['plentyId']    = $settings[0]->plentyId;
@@ -102,11 +102,9 @@ class SettingsService
             $outputArray = $this->convertSettingsToCorrectFormat($outputArray,$availableSettings);
 
             return $outputArray;
-
         }
 
         return $settings;
-
     }
 
     /**
@@ -143,7 +141,6 @@ class SettingsService
                     $setting->updatedAt = date('Y-m-d H:i:s');
 
                     $this->db->save($setting);
-
                 }
             }
             return 1;
@@ -209,7 +206,8 @@ class SettingsService
         $generatedSettings = array();
 
         /** @var Settings[] $storedSettings */
-        $storedSettings = $this->db->query(Settings::MODEL_NAMESPACE)->where('plentyId', '=', $plentyId)
+        $storedSettings = $this->db->query(Settings::MODEL_NAMESPACE)
+                                    ->where('plentyId', '=', $plentyId)
                                     ->where('lang', '=', '')->get();
 
         $settingIds = array();
@@ -261,13 +259,11 @@ class SettingsService
         /** @var Webstore $record */
         foreach($result as $record)
         {
-
             $clients[] = $record->storeIdentifier;
         }
 
         return $clients;
     }
-
 
     /**
      * Checks if input language is valid language, instead return default language
@@ -296,7 +292,6 @@ class SettingsService
      */
     private function loadClientSettings($plentyId, $lang)
     {
-
         /** @var Query $query */
         $query = $this->db->query(Settings::MODEL_NAMESPACE);
         $query->where('plentyId', '=', $plentyId);
@@ -349,7 +344,6 @@ class SettingsService
                 }
             }
         }
-
     }
 
     /**
@@ -396,7 +390,6 @@ class SettingsService
         return $storedLanguages;
     }
 
-
     /**
      * Convert settings of type string to the correct format defined in Settings.php
      * NOTE: Array types only can be of 1 value type, e.g. float
@@ -438,7 +431,6 @@ class SettingsService
                     }
                 }
             }
-
         }
 
         return $convertedSettings;
@@ -464,5 +456,4 @@ class SettingsService
             case "string":  return (string)$value;
         }
     }
-
 }

@@ -6,9 +6,6 @@ use Plenty\Modules\Frontend\Contracts\Checkout;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
-use Plenty\Plugin\ConfigRepository;
-
-
 use PrePayment\Services\SettingsService;
 
 /**
@@ -17,7 +14,6 @@ use PrePayment\Services\SettingsService;
  */
 class PrePaymentPaymentMethod extends PaymentMethodService
 {
-
     /** @var BasketRepositoryContract */
     private $basketRepo;
 
@@ -30,10 +26,12 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     /**
     * PrePaymentPaymentMethod constructor.
     * @param BasketRepositoryContract   $basketRepo
-    * @param SettingsService             $service
+    * @param SettingsService            $service
+    * @param Checkout                   $checkout
     */
     public function __construct(  BasketRepositoryContract    $basketRepo,
-                                  SettingsService             $service, Checkout $checkout)
+                                  SettingsService             $service,
+                                  Checkout $checkout)
     {
         $this->basketRepo     = $basketRepo;
         $this->settings       = $service;
@@ -75,10 +73,8 @@ class PrePaymentPaymentMethod extends PaymentMethodService
             $name = $this->settings->getSetting('name');
         }
 
-
         return $name;
     }
-
 
     /**
     * Get Prepayment Fee
@@ -98,9 +94,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         {
               return $this->settings->getSetting('feeForeign');
         }
-
     }
-
 
     /**
     * Get Prepayment Icon
@@ -120,7 +114,6 @@ class PrePaymentPaymentMethod extends PaymentMethodService
 
         return '';
     }
-
 
     /**
     * Get PrepaymentDescription
@@ -144,6 +137,4 @@ class PrePaymentPaymentMethod extends PaymentMethodService
                     break;
         }
     }
-
-
 }
