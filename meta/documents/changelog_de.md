@@ -1,8 +1,18 @@
 # Release Notes für Vorkasse
 
+## 1.0.2 (2017-03-15)
+
+### Gefixt
+
+- Das CSS der Einstellungen im Backend wurde angepasst, so dass die Einstellungen nun über die ganze Seitenbreite angezeigt werden.
+
+### Bekannte Probleme
+
+- Die Einstellungen für **Aufpreise** haben derzeit noch keine Funktion bei der Preisberechnung in der Kaufabwicklung (Checkout)
+
 ## 1.0.1 (2017-03-14)
 
-### UPDATE
+### Geändert
 
 - Es wird die ID der Zahlungsart "Vorkasse" aus dem System verwendet.
 
@@ -13,6 +23,3 @@
 - Zahlungsart **Vorkasse** für plentymarkets Webshops
 - Anzeige von Verwendungszweck und Bankdaten auf der Bestellbestätigungsseite
 
-### Bekannte Probleme
-
-- Die Einstellungen für **Aufpreise** haben derzeit noch keine Funktion bei der Preisberechnung in der Kaufabwicklung (Checkout)
