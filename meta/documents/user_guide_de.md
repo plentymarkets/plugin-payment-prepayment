@@ -116,7 +116,7 @@ Das Template-Plugin **Ceres** bietet Ihnen auf der Startseite einen Template-Con
 
 1. Klicken Sie auf **Start&nbsp;» Plugins**.
 2. Wechseln Sie in das Tab **Content**. 
-3. Wählen Sie den Bereich **Prepayment icon**.
+3. Wählen Sie den Bereich **Cash in advance icon**.
 4. Aktivieren Sie den Container **Homepage: Payment method container**.
 5. **Speichern** Sie die Einstellungen.<br />→ Das Logo der Zahlungsart wird auf der Startseite des Webshops angezeigt.
 
@@ -139,7 +139,7 @@ Nachdem Sie die Einstellungen vorgenommen haben, verknüpfen Sie die Bankdaten m
 
 1. Klicken Sie auf **Start&nbsp;» Plugins**.
 2. Wechseln Sie in das Tab **Content**. 
-3. Wählen Sie den Bereich **Prepayment bank details**.
+3. Wählen Sie den Bereich **Cash in advance bank details**.
 4. Aktivieren Sie den Container **Order confirmation: Additional payment information**.
 5. **Speichern** Sie die Einstellungen.<br />→ Die Bankdaten werden auf der Bestellbestätigungsseite angezeigt.
 
