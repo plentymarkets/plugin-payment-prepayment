@@ -259,7 +259,8 @@ class SettingsService
         /** @var Webstore $record */
         foreach($result as $record)
         {
-            $clients[] = $record->storeIdentifier;
+            if($record->storeIdentifier > 0)
+                $clients[] = $record->storeIdentifier;
         }
 
         return $clients;
