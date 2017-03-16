@@ -32,7 +32,7 @@ class PrePaymentServiceProvider extends ServiceProvider
         $twig->addExtension(PrePaymentTwigServiceProvider::class);
 
         //Register the Pre Payment Plugin
-        $payContainer->register('plenty_prepayment::PREPAYMENT', PrePaymentPaymentMethod::class,
+        $payContainer->register('plenty::PREPAYMENT', PrePaymentPaymentMethod::class,
                                 [AfterBasketChanged::class, AfterBasketCreate::class]   );
     }
 }
