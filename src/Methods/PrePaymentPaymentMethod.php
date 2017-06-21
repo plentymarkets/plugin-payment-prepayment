@@ -143,7 +143,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
      *
      * @return bool
      */
-    public function switchTo()
+    public function isSwitchableTo()
     {
         return true;
     }
@@ -153,7 +153,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
      *
      * @return bool
      */
-    public function switchFrom()
+    public function isSwitchableFrom()
     {
         return true;
     }
