@@ -6,6 +6,7 @@ use Plenty\Modules\Frontend\Contracts\Checkout;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
+use Plenty\Plugin\Application;
 use PrePayment\Services\SettingsService;
 
 /**
@@ -109,7 +110,10 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         }
         elseif($this->settings->getSetting('logo') == 2)
         {
-            return 'layout/plugins/production/prepayment/images/icon.png';
+            $app = pluginApp(Application::class);
+                $icon = $app->getUrlPath('prepayment').'/images/icon.png';
+
+                return $icon;
         }
 
         return '';
