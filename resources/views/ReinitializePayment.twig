@@ -1,0 +1,19 @@
+<!-- PLUGIN BUTTON -->
+{% if services.template.isMyAccount() %}
+    {% set properties = order.order.properties %}
+
+    {% for property in properties %}
+        {% if property.typeId == 3 %}
+            {% set display = property.value == paymentMethodId ? "block" : "none" %}
+
+            <button id="reinitPrePayment-{{order.order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" :disabled="" style="display: {{ display }}; margin-top: 0.5rem">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                {% if installmentSelected == true %}
+                    Bankdetails ansehen
+                {% else %}
+                    Bankdetails ansehen
+                {% endif %}
+            </button>
+        {% endif %}
+    {% endfor %}
+{% endif %}

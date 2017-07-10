@@ -29,6 +29,16 @@
             "key"           :"PrePayment\\Providers\\PrePaymentOrderConfirmationDataProvider",
             "name"          :"Cash in advance bank details",
             "description"   :"Display the bank details on the order confirmation page"
+        },
+        {
+            "key"           :"PrePayment\\Providers\\ReinitializePayment\\PrePaymentReinitializePayment",
+            "name"          :"PrePayment Reinitialize Payment",
+            "description"   : "Display the PrePayment Installment Button after the Payment changed to PrePayment"
+        },
+        {
+            "key"           :"PrePayment\\Providers\\ReinitializePayment\\PrePaymentReinitializePaymentScript",
+            "name"          :"PrePayment Reinitialize Payment Script",
+            "description"   :"A Script for displaying the PrePayment Button after the Payment changed to PrePayment"
         }
     ],
     "dependencies"      : [],
