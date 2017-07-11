@@ -126,6 +126,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     */
     public function getDescription( )
     {
+	    return '#### Beschreibungstext für die Zahlungsart Vorkasse ####';
         switch($this->settings->getSetting('infoPageType'))
         {
               case 1:
