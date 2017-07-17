@@ -120,26 +120,42 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
+     * Get PrepaymentSourceUrl
+     *
+     * @return string
+     */
+    public function getSourceUrl()
+    {
+        /** @var FrontendSessionStorageFactoryContract $session */
+        $session = pluginApp(FrontendSessionStorageFactoryContract::class);
+        $lang = $session->getLocaleSettings()->language;
+
+        $infoPageType = $this->settings->getSetting('infoPageType');
+
+        switch ($infoPageType)
+        {
+            case 1:
+                // internal
+                return  $this->settings->getSetting('infoPageIntern', $lang);
+            case 2:
+                // external
+                return $this->settings->getSetting('infoPageExtern', $lang);
+            default:
+                return '';
+        }
+    }
+
+    /**
     * Get PrepaymentDescription
     *
     * @return string
     */
     public function getDescription( )
     {
-        switch($this->settings->getSetting('infoPageType'))
-        {
-              case 1:
-                    return $this->settings->getSetting('infoPageExtern');
-                    break;
-
-              case 2:
-                    return $this->settings->getSetting('infoPageIntern');
-                    break;
-
-              default:
-                    return '';
-                    break;
-        }
+        /** @var FrontendSessionStorageFactoryContract $session */
+        $session = pluginApp(FrontendSessionStorageFactoryContract::class);
+        $lang = $session->getLocaleSettings()->language;
+        return $this->settings->getSetting('description', $lang);
     }
     
     /**
