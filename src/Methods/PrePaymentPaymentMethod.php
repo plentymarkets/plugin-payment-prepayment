@@ -137,9 +137,14 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         {
             case 1:
                 // internal
-                /** @var CategoryRepositoryContract $categoryContract */
-                $categoryContract = pluginApp(CategoryRepositoryContract::class);
-                return $categoryContract->getUrl($this->settings->getSetting('infoPageIntern', $lang), $lang);
+                $categoryId = (int) $this->settings->getSetting('infoPageIntern', $lang);
+                if($categoryId  > 0)
+                {
+                    /** @var CategoryRepositoryContract $categoryContract */
+                    $categoryContract = pluginApp(CategoryRepositoryContract::class);
+                    return $categoryContract->getUrl($categoryId, $lang);
+                }
+                return '';
             case 2:
                 // external
                 return $this->settings->getSetting('infoPageExtern', $lang);
