@@ -2,6 +2,7 @@
 
 namespace PrePayment\Methods;
 
+use Plenty\Modules\Category\Contracts\CategoryRepositoryContract;
 use Plenty\Modules\Frontend\Contracts\Checkout;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
@@ -136,7 +137,9 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         {
             case 1:
                 // internal
-                return  $this->settings->getSetting('infoPageIntern', $lang);
+                /** @var CategoryRepositoryContract $categoryContract */
+                $categoryContract = pluginApp(CategoryRepositoryContract::class);
+                return $categoryContract->getUrl($this->settings->getSetting('infoPageIntern', $lang), $lang);
             case 2:
                 // external
                 return $this->settings->getSetting('infoPageExtern', $lang);
