@@ -143,6 +143,21 @@ After these settings, link the bank details with a template container.
 4. Activate the container **Order confirmation: Additional payment information**. 
 5. **Save** the settings.<br />→ The bank details will be displayed on the order confirmation page.
 
+## Reinitiating the payment
+
+You can offer your customers to reinitiate the payment. To do so, proceed as follows.
+
+##### Reinitiating the payment:
+
+1. Go to **Plugins » Content**.
+2. Go to **PrePayment Reinitialise Payment (PrePayment)**.
+3. In the correct template, place a check mark next to **My account: Additional payment information**.
+4. Go to **PrePayment Reinitialise Payment Script (PrePayment)**.
+5. In the correct template, place a check mark next to **Script loader: Register/load JS**.
+6. **Save** the settings.
+
+You can now reinitiate the payment in the order history in the **My Account** area. For Cash in advance, this means accessing once more the bank data saved in the backend.
+
 ## License
 
 This project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE. – find further information in the [LICENSE.md](https://github.com/plentymarkets/plugin-payment-prepayment/blob/master/LICENSE.md).

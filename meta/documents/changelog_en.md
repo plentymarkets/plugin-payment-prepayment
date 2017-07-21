@@ -19,7 +19,7 @@
 - A method was added to determine if a customer can switch from this payment method to another payment method.
 - A method was added to determine if a customer can switch to this payment method from another payment method.
 
-## 1.0.3 (2017-07-13)
+## 1.0.3 (2017-06-26)
 
 ### Fixed
 
