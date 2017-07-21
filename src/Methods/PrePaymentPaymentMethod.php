@@ -2,6 +2,7 @@
 
 namespace PrePayment\Methods;
 
+use Plenty\Modules\Category\Contracts\CategoryRepositoryContract;
 use Plenty\Modules\Frontend\Contracts\Checkout;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
@@ -84,6 +85,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     */
     public function getFee()
     {
+        return 0.00;
         $basket = $this->basketRepo->load();
 
         // Shipping Country ID with ID = 1 belongs to Germany
@@ -120,27 +122,49 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
+     * Get PrepaymentSourceUrl
+     *
+     * @return string
+     */
+    public function getSourceUrl()
+    {
+        /** @var FrontendSessionStorageFactoryContract $session */
+        $session = pluginApp(FrontendSessionStorageFactoryContract::class);
+        $lang = $session->getLocaleSettings()->language;
+
+        $infoPageType = $this->settings->getSetting('infoPageType');
+
+        switch ($infoPageType)
+        {
+            case 1:
+                // internal
+                $categoryId = (int) $this->settings->getSetting('infoPageIntern', $lang);
+                if($categoryId  > 0)
+                {
+                    /** @var CategoryRepositoryContract $categoryContract */
+                    $categoryContract = pluginApp(CategoryRepositoryContract::class);
+                    return $categoryContract->getUrl($categoryId, $lang);
+                }
+                return '';
+            case 2:
+                // external
+                return $this->settings->getSetting('infoPageExtern', $lang);
+            default:
+                return '';
+        }
+    }
+
+    /**
     * Get PrepaymentDescription
     *
     * @return string
     */
     public function getDescription( )
     {
-	    return '#### Beschreibungstext für die Zahlungsart Vorkasse ####';
-        switch($this->settings->getSetting('infoPageType'))
-        {
-              case 1:
-                    return $this->settings->getSetting('infoPageExtern');
-                    break;
-
-              case 2:
-                    return $this->settings->getSetting('infoPageIntern');
-                    break;
-
-              default:
-                    return '';
-                    break;
-        }
+        /** @var FrontendSessionStorageFactoryContract $session */
+        $session = pluginApp(FrontendSessionStorageFactoryContract::class);
+        $lang = $session->getLocaleSettings()->language;
+        return $this->settings->getSetting('description', $lang);
     }
     
     /**

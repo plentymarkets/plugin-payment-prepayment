@@ -31,13 +31,14 @@ class Settings extends Model
                                              "shippingCountries"   => ['int']   ,
                                              "logo"                => "int"     ,
                                              "logoUrl"             => "string"  ,
+                                             "description"         => "string"  ,
                                              "feeDomestic"         => "float"   ,
                                              "feeForeign"          => "float"   ,
                                              "showBankData"        => "bool"    ,
                                              "designatedUse"       => "string"  ,
                                              "showDesignatedUse"   => "bool"    );
 
-    const SETTINGS_DEFAULT_VALUES = array(   "infoPageType"        => "0"                ,
+    const SETTINGS_DEFAULT_VALUES = array(   "infoPageType"        => "2"                ,
                                              "shippingCountries"   => ""                 ,
                                              "feeDomestic"         => "0.00"             ,
                                              "feeForeign"          => "0.00"             ,
@@ -47,6 +48,7 @@ class Settings extends Model
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "2"                ,
                                                              "logoUrl"             => ""                 ,
+                                                             "description"         => ""                 ,
                                                              "designatedUse"       => "Verwendungszweck" ,
                                                              "showDesignatedUse"   => "0"                ),
                                              "en"  => array( "name"                => "Pay in advance"   ,
@@ -54,6 +56,7 @@ class Settings extends Model
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "0"                ,
                                                              "logoUrl"             => ""                 ,
+                                                             "description"         => ""                 ,
                                                              "designatedUse"       => "Designated use"   ,
                                                              "showDesignatedUse"   => "0"                ),
                                              "fr"  => array( "name"                => "Prépaiement"         ,
@@ -61,6 +64,7 @@ class Settings extends Model
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "0"                ,
                                                              "logoUrl"             => ""                 ,
+                                                             "description"         => ""                 ,
                                                              "designatedUse"       => "Concept" ,
                                                              "showDesignatedUse"   => "0"                ),
                                              "es"  => array( "name"                => "Pago por adelantado",
@@ -68,6 +72,7 @@ class Settings extends Model
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "0"                ,
                                                              "logoUrl"             => ""                 ,
+                                                             "description"         => ""                 ,
                                                              "designatedUse"       => "Concepto" ,
                                                              "showDesignatedUse"   => "0"                ) );
 
