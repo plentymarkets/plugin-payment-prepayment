@@ -22,9 +22,9 @@
 
     <button id="reinitPrePayment-{{order.order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" :disabled="" style="display: {{ display }}; margin-top: 0.5rem">
         {% if installmentSelected == true %}
-            Bankdetails ansehen
+            {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
         {% else %}
-            Bankdetails ansehen
+            {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
         {% endif %}
     </button>
 {% endif %}
