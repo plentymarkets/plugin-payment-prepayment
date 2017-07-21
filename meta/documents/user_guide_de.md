@@ -143,6 +143,21 @@ Nachdem Sie die Einstellungen vorgenommen haben, verknüpfen Sie die Bankdaten m
 4. Aktivieren Sie den Container **Order confirmation: Additional payment information**.
 5. **Speichern** Sie die Einstellungen.<br />→ Die Bankdaten werden auf der Bestellbestätigungsseite angezeigt.
 
+## Zahlungsart neu ausführen
+
+Sie können Kunden die Möglichkeit anbieten, diese Zahlungsart erneut auszuführen. Gehen Sie dazu wie im Folgenden beschrieben vor.
+
+##### Zahlungsart neu ausführen:
+
+1. Gehen Sie zu **Plugins » Content**.
+2. Gehen Sie zu **PrePayment Reinitialise Payment (PrePayment)**.
+3. Setzen Sie im entsprechenden Template einen Haken bei **My account: Additional payment information**.
+4. Gehen Sie zu **PrePayment Reinitialise Payment Script (PrePayment)**.
+5. Setzen Sie im entsprechenden Template einen Haken bei **Script loader: Register/load JS**.
+6. **Speichern** Sie die Einstellungen.
+
+Sie können nun die Zahlungsart in der Auftragshistorie im **Mein-Konto**-Bereich neu ausführen. Bei Vorkasse bedeutet dies ein erneutes Abrufen der im Backend hinterlegten Bankinformationen.
+
 ## Lizenz
 
 Das gesamte Projekt unterliegt der GNU AFFERO GENERAL PUBLIC LICENSE – weitere Informationen finden Sie in der [LICENSE.md](https://github.com/plentymarkets/plugin-payment-prepayment/blob/master/LICENSE.md).
