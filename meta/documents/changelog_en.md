@@ -1,11 +1,25 @@
 # Release Notes for Cash in advance
 
-## 1.0.3 (2017-07-13)
+## 1.0.5 (UNKNOWN)
+
+### Added
+
+- Settings for **Infoseite** were added.
+- Settings for **Description** were added.
+- The functionality **Reinitiate payment** was added.
+
+### Changed
+
+- Removed surcharges for the payment method.
+
+## 1.0.4 (2017-07-13)
 
 ### Added
 
 - A method was added to determine if a customer can switch from this payment method to another payment method.
 - A method was added to determine if a customer can switch to this payment method from another payment method.
+
+## 1.0.3 (2017-07-13)
 
 ### Fixed
 
