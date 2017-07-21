@@ -1,5 +1,5 @@
 {
-    "version"           : "1.0.4",
+    "version"           : "1.0.5",
     "name"              : "PrePayment",
     "marketplaceName" : {"de":"Vorkasse","en":"Cash in advance"},
     "license"           : "AGPL-3.0",
@@ -32,12 +32,12 @@
         },
         {
             "key"           :"PrePayment\\Providers\\ReinitializePayment\\PrePaymentReinitializePayment",
-            "name"          :"PrePayment Reinitialize Payment",
+            "name"          :"PrePayment Reinitialise Payment",
             "description"   : "Display the PrePayment Installment Button after the Payment changed to PrePayment"
         },
         {
             "key"           :"PrePayment\\Providers\\ReinitializePayment\\PrePaymentReinitializePaymentScript",
-            "name"          :"PrePayment Reinitialize Payment Script",
+            "name"          :"PrePayment Reinitialise Payment Script",
             "description"   :"A Script for displaying the PrePayment Button after the Payment changed to PrePayment"
         }
     ],
