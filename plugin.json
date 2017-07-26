@@ -33,6 +33,7 @@
     ],
     "dependencies"      : [],
     "runOnBuild"        : [
-        "PrePayment\\Migrations\\CreateSettings_1_0_0"
+        "PrePayment\\Migrations\\CreateSettings_1_0_0",
+        "PrePayment\\Migrations\\CreateSettings_1_1_0"
     ]
 }
