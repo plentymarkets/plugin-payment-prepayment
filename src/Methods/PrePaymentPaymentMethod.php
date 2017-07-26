@@ -132,7 +132,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         $session = pluginApp(FrontendSessionStorageFactoryContract::class);
         $lang = $session->getLocaleSettings()->language;
 
-        $infoPageType = $this->settings->getSetting('infoPageType');
+        $infoPageType = $this->settings->getSetting('infoPageType',$lang);
 
         switch ($infoPageType)
         {

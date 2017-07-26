@@ -38,12 +38,12 @@ class Settings extends Model
                                              "designatedUse"       => "string"  ,
                                              "showDesignatedUse"   => "bool"    );
 
-    const SETTINGS_DEFAULT_VALUES = array(   "infoPageType"        => "2"                ,
-                                             "shippingCountries"   => ""                 ,
+    const SETTINGS_DEFAULT_VALUES = array(   "shippingCountries"   => ""                 ,
                                              "feeDomestic"         => "0.00"             ,
                                              "feeForeign"          => "0.00"             ,
                                              "showBankData"        => "0"                ,
                                              "de"  => array( "name"                => "Vorkasse"         ,
+                                                             "infoPageType"        => "2"                ,
                                                              "infoPageIntern"      => ""                 ,
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "2"                ,
@@ -52,6 +52,7 @@ class Settings extends Model
                                                              "designatedUse"       => "Verwendungszweck" ,
                                                              "showDesignatedUse"   => "0"                ),
                                              "en"  => array( "name"                => "Pay in advance"   ,
+                                                             "infoPageType"        => "2"                ,
                                                              "infoPageIntern"      => ""                 ,
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "0"                ,
@@ -60,6 +61,7 @@ class Settings extends Model
                                                              "designatedUse"       => "Designated use"   ,
                                                              "showDesignatedUse"   => "0"                ),
                                              "fr"  => array( "name"                => "Prépaiement"         ,
+                                                             "infoPageType"        => "2"                ,
                                                              "infoPageIntern"      => ""                 ,
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "0"                ,
@@ -68,6 +70,7 @@ class Settings extends Model
                                                              "designatedUse"       => "Concept" ,
                                                              "showDesignatedUse"   => "0"                ),
                                              "es"  => array( "name"                => "Pago por adelantado",
+                                                             "infoPageType"        => "2"                ,
                                                              "infoPageIntern"      => ""                 ,
                                                              "infoPageExtern"      => ""                 ,
                                                              "logo"                => "0"                ,
@@ -76,8 +79,7 @@ class Settings extends Model
                                                              "designatedUse"       => "Concepto" ,
                                                              "showDesignatedUse"   => "0"                ) );
 
-    const LANG_INDEPENDENT_SETTINGS = array(    "infoPageType"      ,
-                                                "shippingCountries" ,
+    const LANG_INDEPENDENT_SETTINGS = array(    "shippingCountries" ,
                                                 "feeDomestic"       ,
                                                 "feeForeign"        ,
                                                 "showBankData"      );
