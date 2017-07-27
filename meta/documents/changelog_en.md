@@ -1,6 +1,6 @@
 # Release Notes for Cash in advance
 
-## 1.1 (UNKNOWN)
+## 1.1.0 (UNKNOWN)
 
 ### Added
 
