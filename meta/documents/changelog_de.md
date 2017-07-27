@@ -1,6 +1,6 @@
 # Release Notes für Vorkasse
 
-## 1.0.5 (UNKNOWN)
+## 1.1 (UNKNOWN)
 
 ### Hinzugefügt
 
