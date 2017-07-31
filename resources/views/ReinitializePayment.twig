@@ -21,10 +21,6 @@
     {% endif %}
 
     <button id="reinitPrePayment-{{order.order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" :disabled="" style="display: {{ display }}; margin-top: 0.5rem">
-        {% if installmentSelected == true %}
-            {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
-        {% else %}
-            {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
-        {% endif %}
+        {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
     </button>
 {% endif %}
