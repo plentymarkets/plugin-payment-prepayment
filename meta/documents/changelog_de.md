@@ -1,11 +1,25 @@
 # Release Notes für Vorkasse
 
-## 1.0.3 (2017-07-13)
+## 1.1.0 (UNKNOWN)
+
+### Hinzugefügt
+
+- Einstellungen für **Infoseite** wurden hinzugefügt.
+- Einstellungen für **Beschreibung** wurden hinzugefügt.
+- Die Funktionalität **Zahlungsart neu ausführen** wurde hinzugefügt.
+
+### Geändert
+
+- Aufpreise der Zahlungsart wurden entfernt.
+
+## 1.0.4 (2017-07-13)
 
 ### Hinzugefügt
 
 - Es wurde eine Methode hinzugefügt, um festzulegen, ob ein Kunde von dieser Zahlungsart auf eine andere wechseln kann.
 - Es wurde eine Methode hinzugefügt, um festzulegen, ob ein Kunde von einer anderen Zahlungsart auf diese wechseln kann.
+
+## 1.0.3 (2017-06-26)
 
 ### Gefixt
 

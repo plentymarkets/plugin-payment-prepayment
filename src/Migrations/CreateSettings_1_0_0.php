@@ -9,14 +9,10 @@
 namespace PrePayment\Migrations;
 
 use Plenty\Modules\Plugin\DataBase\Contracts\Migrate;
-use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
-use Plenty\Modules\System\Contracts\WebstoreRepositoryContract;
-
-use Plenty\Modules\System\Models\Webstore;
 use PrePayment\Models\Settings;
 use PrePayment\Services\SettingsService;
 
-
+/** This migration initializes all Settings in the Database */
 class CreateSettings_1_0_0
 {
 
@@ -24,9 +20,16 @@ class CreateSettings_1_0_0
 
     public function run(Migrate $migrate)
     {
-        $migrate->createTable(Settings::class);
+        try
+        {
+            $migrate->createTable(Settings::class);
+            $this->setInitialSettings();
+        }
+        catch(\Exception $e)
+        {
+            echo $e->getMessage();
+        }
 
-        $this->setInitialSettings();
     }
 
     private function setInitialSettings()
