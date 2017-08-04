@@ -2,7 +2,7 @@
 {% set paymentId = 0 %}
 {% set paidStatus = '' %}
 
-{% if services.template.isMyAccount() %}
+{% if services.template.isCurrentTemplate('tpl.my-account') or services.template.isCurrentTemplate('tpl.confirmation') %}
     {% set properties = order.order.properties %}
 
     {% for property in properties %}
@@ -23,4 +23,3 @@
     <button id="reinitPrePayment-{{order.order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" :disabled="" style="display: {{ display }}; margin-top: 0.5rem">
         {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
     </button>
-{% endif %}
