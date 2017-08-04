@@ -2,7 +2,7 @@
 {% set paymentId = 0 %}
 {% set paidStatus = '' %}
 
-
+{% if services.template.isCurrentTemplate('tpl.my-account') or services.template.isCurrentTemplate('tpl.confirmation') %}
     {% set properties = order.order.properties %}
 
     {% for property in properties %}
