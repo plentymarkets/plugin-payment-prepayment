@@ -37,11 +37,7 @@
         {% endif %}
     {% endfor %}
     {% if (paymentId == paymentMethodId) and (paidStatus != 'fullyPaid') %}
-        {% set display = "block" %}
-    {% else %}
-        {% set display = "none" %}
+        {% include "PrePayment::BankDetails" %}
     {% endif %}
-
-    {% include "PrePayment::BankDetails" %}
 
 {% endif %}
