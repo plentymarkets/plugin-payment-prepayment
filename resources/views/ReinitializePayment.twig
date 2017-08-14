@@ -3,7 +3,7 @@
 {% set paidStatus = '' %}
 
 {% if services.template.isCurrentTemplate('tpl.my-account') or services.template.isCurrentTemplate('tpl.confirmation') %}
-    {% set properties = order.properties %}
+    {% set properties = entry.order.properties %}
 
     {% for property in properties %}
         {% if property.typeId == 3 %}
