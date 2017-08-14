@@ -12,6 +12,6 @@ class PrePaymentReinitializePayment
 		/** @var PrePaymentHelper $paymentHelper */
 		$paymentHelper = pluginApp(PrePaymentHelper::class);
 		$paymentId = $paymentHelper->getPrePaymentMopId();
-		return $twig->render('PrePayment::ReinitializePayment', ["order" => $arg[0], "paymentMethodId" => $paymentId]);
+		return $twig->render('PrePayment::ReinitializePayment', ["entry" => $arg[0], "paymentMethodId" => $paymentId]);
 	}
 }
