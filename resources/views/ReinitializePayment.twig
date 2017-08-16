@@ -20,7 +20,7 @@
         {% set display = "none" %}
     {% endif %}
 
-    <button id="reinitPrePayment-{{order.order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" :disabled="" style="display: {{ display }}; margin-top: 0.5rem">
+    <button id="reinitPrePayment-{{order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" :disabled="" style="display: {{ display }}; margin-top: 0.5rem">
         {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
     </button>
 
@@ -37,7 +37,13 @@
         {% endif %}
     {% endfor %}
     {% if (paymentId == paymentMethodId) and (paidStatus != 'fullyPaid') %}
-        {% include "PrePayment::BankDetails" %}
+        {% set display = "block" %}
+    {% else %}
+        {% set display = "none" %}
     {% endif %}
+
+    <div id="reinitPrePayment-{{order.id}}" style="display: {{ display }}">
+    {% include "PrePayment::BankDetails" %}
+    </div>
 
 {% endif %}
