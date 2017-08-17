@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 1.2.0 (unknown)
+
+### Added
+
+- The bank details are shown in the checkout and on the order confirmation page.
+
 ## 1.1.0 (2017-07-31)
 
 ### Added
