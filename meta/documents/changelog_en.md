@@ -4,7 +4,7 @@
 
 ### Added
 
-- The bank details are shown in the checkout and on the order confirmation page.
+- The bank details are displayed in the checkout and on the order confirmation page.
 
 ## 1.1.0 (2017-07-31)
 
@@ -12,7 +12,7 @@
 
 - Settings for **Info page** were added.
 - Settings for **Description** were added.
-- The functionality **Reinitiate payment** was added.
+- The functionality **Reinitialise payment** was added.
 
 ### Changed
 
