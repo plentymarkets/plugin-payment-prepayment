@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 1.1.1 (UNKNOWN)
+
+### Gefixt
+
+- Anzeige von Bankdaten auf der Bestellbestätigungsseite.
+
 ## 1.1.0 (2017-07-31)
 
 ### Hinzugefügt

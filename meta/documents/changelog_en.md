@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 1.1.1 (UNKNOWN)
+
+### Fixed
+
+- Display of bank details on the order confirmation page.
+
 ## 1.1.0 (2017-07-31)
 
 ### Added
