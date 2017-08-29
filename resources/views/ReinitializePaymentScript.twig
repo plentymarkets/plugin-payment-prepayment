@@ -1,4 +1,3 @@
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 
     $(function () {
@@ -40,9 +39,9 @@
         for (let property in e.detail.newOrder.order.properties) {
             if (e.detail.newOrder.order.properties[property].typeId === 3) {
                 if (e.detail.newOrder.order.properties[property].value == {{ paymentMethodId }}) {
-                    document.getElementById("reinitPrePayment-" + e.detail.oldOrder.order.id).style.display = "block";
+                    document.getElementById("reinitPrePayment-" + e.detail.oldOrder.id).style.display = "block";
                 } else {
-                    document.getElementById("reinitPrePayment-" + e.detail.oldOrder.order.id).style.display = "none";
+                    document.getElementById("reinitPrePayment-" + e.detail.oldOrder.id).style.display = "none";
                 }
             }
         }
