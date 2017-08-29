@@ -40,35 +40,44 @@ In order to make this payment method available in your online store, you have to
 				The name of the payment method that will be displayed in the overview of payment methods in the checkout.
 			</td>
 		</tr>
-		<!--tr>
-			<td>
-				<b>Infoseite</b>
-			</td>
-			<td>
-				Als <a href="https://www.plentymarkets.eu/handbuch/payment/bankdaten-verwalten/#2-2"><strong>Information zur Zahlungsart</strong></a> eine Kategorieseite vom Typ <strong>Content</strong> anlegen oder die URL einer Webseite eingeben.
-			</td>
-		</tr-->
 		<tr>
 			<td>
-				<b>Logo</b>
+				<b>Info page</b>
 			</td>
 			<td>
-			Select either no logo, <strong>Default logo</strong> or <strong>Logo URL</strong>.<br /><strong>Default logo:</strong> Display the default logo of the payment method in the checkout.<br /><strong>Logo URL:</strong> Enter a HTTPS URL that leads to the logo. Valid file formats are .gif, .jpg or .png. The image may not exceed a maximum size of 190 pixels in width and 60 pixels in height.
+				Select a category page of the type <strong>content</strong> or an external website to provide <strong><a href="https://knowledge.plentymarkets.com/en/order-processing/payment/managing-bank-details#40">information about the payment method</a></strong>.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Info page internal/<br />Info page external</b>
+			</td>
+			<td>In the description of the payment method, a link to the <strong>details</strong> of the payment method is displayed.<br /><strong>Infopage (internal):</strong> By entering the category ID or using the selector, pick a category page of the type <strong>content</strong> to provide additional information on the payment method.<br /><strong>Info page (external):</strong> Enter the URL of an external information page. <strong><i>Important:</i></strong>Use either http:// or https://.<br />If no input is made, no link will be shown.
 			</td>
 		</tr>
         <tr>
 			<td>
-				<b>Surcharge (domestic)</b>
+				<b>Logo</b>
 			</td>
 			<td>
-Enter a flat rate. The value that is entered will be taken into consideration for those orders that correspond to the system country. Once the customer has selected the payment method, these costs will be added to the particular order in the order process. The amount will be added to the total in the order and will not be displayed individually.
+			Select if the <strong>Standard logo</strong> of the payment method provided by the plugin or an individual logo is displayed.
+			</td>
+		</tr>				
+		<tr>
+			<td>
+				<b>Logo-URL</b>
+			</td>
+			<td>
+			An https URL that leads to the logo. Valid file formats are .gif, .jpg or .png. The image may not exceed a maximum size of 190 pixels in width and 60 pixels in height.
+			</td>
 		</tr>
 		<tr>
 			<td>
-				<b>Surcharge (foreign countries)</b>
+				<b>Description</b>
 			</td>
 			<td>
-Enter a flat rate. The value that is entered will be taken into consideration for those orders that correspond to a foreign country. Once the customer has selected the payment method, these costs will be added to the particular order in the order process. The amount will be added to the total in the order and will not be displayed individually.
+				Enter a description for the payment method to inform the customer in the checkout. The text will be cut with an ellipsis after 150 characters.
+			</td>
 		</tr>
 		<tr>
 			<td>
@@ -141,20 +150,21 @@ After these settings, link the bank details with a template container.
 4. Activate the container **Order confirmation: Additional payment information**. 
 5. **Save** the settings.<br />→ The bank details will be displayed on the order confirmation page.
 
-## Reinitiating the payment
+## Reinitialising the payment
 
-You can offer your customers to reinitiate the payment. To do so, proceed as follows.
+You can offer your customers to reinitialise the payment. To do so, proceed as follows.
 
-##### Reinitiating the payment:
+##### Reinitialising the payment:
 
 1. Go to **Plugins » Content**.
 2. Go to **PrePayment Reinitialise Payment (PrePayment)**.
-3. In the correct template, place a check mark next to **My account: Additional payment information**.
+3. Activate the container **My account: Additional payment information**.<br />→ The customer can reinitialise the payment in the order history in the **My Account** area. 
+3. Activate the container **Order confirmation: Additional payment information**.<br />→ The customer can reinitialise the payment on the order confirmation page.
 4. Go to **PrePayment Reinitialise Payment Script (PrePayment)**.
-5. In the correct template, place a check mark next to **Script loader: Register/load JS**.
+5. Activate the container **Script loader: Register/load JS**.
 6. **Save** the settings.
 
-You can now reinitiate the payment in the order history in the **My Account** area. For Cash in advance, this means accessing once more the bank data saved in the backend.
+The customer can now reinitialise the payment either in the order history in the **My Account** area or on the order confirmation page. For Cash in advance, this means accessing once more the bank data saved in the backend.
 
 ## License
 
