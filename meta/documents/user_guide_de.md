@@ -159,7 +159,7 @@ Sie können Kunden die Möglichkeit anbieten, diese Zahlungsart erneut auszufüh
 3. Aktivieren Sie den Container **My account: Additional payment information**.<br />→ Der Kunde kann in der Auftragshistorie im **Mein-Konto**-Bereich die Zahlung neu ausführen.
 4. Aktivieren Sie den Container **Order confirmation: Additional payment information**.<br />→ Der Kunde kann auf der Bestellbestätigungsseite die Zahlung neu ausführen.
 2. Gehen Sie zu **PrePayment Reinitialise Payment Script (PrePayment)**.
-5. Aktivieren Sie den Container **Script loader: Register/load JS**.
+5. Aktivieren Sie den Container **Script loader: After scripts loaded**.
 7. **Speichern** Sie die Einstellungen.
 
 Der Kunde kann nun die Zahlungsart in der Auftragshistorie im **Mein-Konto**-Bereich bzw. auf der Bestellbestätigungsseite neu ausführen. Bei Vorkasse bedeutet dies die erneute Anzeige der im Backend hinterlegten Bankinformationen.

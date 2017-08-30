@@ -161,7 +161,7 @@ You can offer your customers to reinitialise the payment. To do so, proceed as f
 3. Activate the container **My account: Additional payment information**.<br />→ The customer can reinitialise the payment in the order history in the **My Account** area. 
 3. Activate the container **Order confirmation: Additional payment information**.<br />→ The customer can reinitialise the payment on the order confirmation page.
 4. Go to **PrePayment Reinitialise Payment Script (PrePayment)**.
-5. Activate the container **Script loader: Register/load JS**.
+5. Activate the container **Script loader: After scripts loaded**.
 6. **Save** the settings.
 
 The customer can now reinitialise the payment either in the order history in the **My Account** area or on the order confirmation page. For Cash in advance, this means accessing once more the bank data saved in the backend.
