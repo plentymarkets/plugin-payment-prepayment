@@ -1,10 +1,15 @@
 # Release Notes für Vorkasse
 
-## 1.1.1 (unknown)
+## 1.2.0 (unknown)
 
 ### Hinzugefügt
 
 - Die Bankdaten werden in der Kaufabwicklung und auf der Bestellbestätigungsseite direkt angezeigt.
+- Der Container **Script loader: After scripts loaded** wurde hinzugefügt.
+
+### TODO
+
+- Unter **PayPal Scripts** muss die Container-Verknüpfung von **Script loader: Register/load JS** auf **Script loader: After scripts loaded** geändert werden.
 
 ## 1.1.0 (2017-07-31)
 
