@@ -5,7 +5,6 @@
 ### Hinzugefügt
 
 - Die Bankdaten werden in der Kaufabwicklung und auf der Bestellbestätigungsseite direkt angezeigt.
-- Der Container **Script loader: After scripts loaded** wurde hinzugefügt.
 
 ### TODO
 

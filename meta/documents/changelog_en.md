@@ -5,11 +5,10 @@
 ### Added
 
 - The bank details are displayed in the checkout and on the order confirmation page.
-- The Container **Script loader: After scripts loaded** was added.
 
 ### TODO
 
-- Under **PayPal Scripts**, the link has to be changed from **Script loader: Register/load JS** to **Script loader: After scripts loaded**.
+- Under **PrePayment Scripts**, the link has to be changed from **Script loader: Register/load JS** to **Script loader: After scripts loaded**.
 
 ## 1.1.0 (2017-07-31)
 
