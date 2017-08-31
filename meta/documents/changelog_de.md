@@ -1,6 +1,6 @@
 # Release Notes für Vorkasse
 
-## 1.2.0 (unknown)
+## 1.2.0 (2017-08-31)
 
 ### Hinzugefügt
 
