@@ -4,7 +4,7 @@
 
 ### Hinzugefügt
 
-- Die OrderId kann direkt im Verwendungszweck angezeigt werden. Platzhalter **%s**
+- Die Auftrags-ID kann direkt im Verwendungszweck angezeigt werden. Dafür muss der Platzhalter **%s** im Textfeld der Plugin-Einstellungen eingegeben werden.
 
 ## 1.2.0 (2017-08-31)
 

@@ -95,7 +95,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Designated use</b>
 			</td>  
 			<td>
-			Enter the designated use for this payment method. Placeholder for OrderId: <b>%s</b>
+			Enter the designated use for this payment method. Use the placeholder <code>%s</code> to display the order ID.
 			</td>
 		</tr>
 		<tr>
