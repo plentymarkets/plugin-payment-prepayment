@@ -25,7 +25,7 @@ class PrePaymentOrderConfirmationDataProvider
                             SettingsService $settings,
                             PrePaymentHelper $prePaymentHelper,
                             SessionStorageService $service,
-                            $args=[])
+                            $arg)
     {
         $mop = $service->getOrderMopId();
 
@@ -41,7 +41,7 @@ class PrePaymentOrderConfirmationDataProvider
 
             if($settings->getSetting('showDesignatedUse', $lang))
             {
-                $content .=  $twig->render('PrePayment::DesignatedUse', array());
+                $content .=  $twig->render('PrePayment::DesignatedUse', ['order'=>$arg[0]]);
             }
         }
 

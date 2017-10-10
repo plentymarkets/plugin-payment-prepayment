@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 1.2.1 (2017-10-10)
+
+### Hinzugefügt
+
+- Die OrderId kann direkt im Verwendungszweck angezeigt werden. Platzhalter **%s**
+
 ## 1.2.0 (2017-08-31)
 
 ### Hinzugefügt
