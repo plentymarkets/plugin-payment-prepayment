@@ -93,7 +93,7 @@ Bevor die Zahlungsart in Ihrem Webshop verfügbar ist, müssen Sie Einstellungen
 				<b>Verwendungszweck</b>
 			</td>  
 			<td>
-			Verwendungszweck für die Zahlungsart eingeben.
+			Verwendungszweck für die Zahlungsart eingeben. Platzhalter für OrderId: <b>%s</b>
 			</td>
 		</tr>
 		<tr>

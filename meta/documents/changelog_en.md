@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 1.2.1 (2017-10-10)
+
+### Added
+
+- Use OrderId in the designated use. Placeholder **%s**
+
 ## 1.2.0 (2017-08-31)
 
 ### Added
