@@ -4,7 +4,7 @@
 
 ### Added
 
-- Use OrderId in the designated use. Placeholder **%s**
+- The order ID can now be displayed in the designated use. To do so, use the placeholder **%s** in the respective text area in the plugin settings.
 
 ## 1.2.0 (2017-08-31)
 
