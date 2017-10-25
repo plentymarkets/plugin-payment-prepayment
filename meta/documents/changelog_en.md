@@ -4,7 +4,7 @@
 
 ### Changed
 
-- The entry point in system tree 
+- The entry point in the system tree is now **System » Orders » Payment » PrePayment » Cash in advance**.
 
 ## 1.2.1 (2017-10-10)
 
