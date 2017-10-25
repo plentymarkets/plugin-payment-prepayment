@@ -4,7 +4,7 @@
   "menuEntries": [
     {
       "label": "Vorkasse",
-      "menu": "settings/orders",
+      "menu": "settings/orders/prepayment",
       "urlKey": "prepayment",
       "entryPoint": "index.html"
     }
