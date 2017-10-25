@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 1.2.2 (2017-10-25)
+
+### Geändert
+
+- Der Einhängepunkt im Systembaum ist nun System » Aufträge » Zahlung » PrePayment » Vorkasse.
+
 ## 1.2.1 (2017-10-10)
 
 ### Hinzugefügt

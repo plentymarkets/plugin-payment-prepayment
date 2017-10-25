@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 1.2.2 (2017-10-25)
+
+### Changed
+
+- The entry point in system tree 
+
 ## 1.2.1 (2017-10-10)
 
 ### Added
