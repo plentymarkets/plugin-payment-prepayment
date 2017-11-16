@@ -58,6 +58,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     /**
      * Get shown name
      *
+     * @param $lang
      * @return string
      */
     public function getName($lang = '')
@@ -71,14 +72,9 @@ class PrePaymentPaymentMethod extends PaymentMethodService
 
         if(!empty($lang))
         {
-            $name = $this->settings->getSetting('name', $lang);
+            return $this->settings->getSetting('name', $lang);
         }
-        else
-        {
-            $name = $this->settings->getSetting('name');
-        }
-
-        return $name;
+        return $this->settings->getSetting('name');
     }
 
     /**
