@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 1.2.3 (2017-11-17)
+
+### Fixed
+
+- The `$MethodOfPaymentName` variable will now be displayed in the respective language in email templates.
+
 ## 1.2.2 (2017-10-26)
 
 ### Changed
