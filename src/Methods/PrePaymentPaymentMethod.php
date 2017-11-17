@@ -61,20 +61,14 @@ class PrePaymentPaymentMethod extends PaymentMethodService
      * @param $lang
      * @return string
      */
-    public function getName($lang = '')
+    public function getName($lang = 'de')
     {
-        if($lang == '')
+        $name = $this->settings->getSetting('name', $lang);
+        if (!strlen($name) > 0)
         {
-            /** @var FrontendSessionStorageFactoryContract $session */
-            $session = pluginApp(FrontendSessionStorageFactoryContract::class);
-            $lang = $session->getLocaleSettings()->language;
+            return 'Vorkasse';
         }
-
-        if(!empty($lang))
-        {
-            return $this->settings->getSetting('name', $lang);
-        }
-        return $this->settings->getSetting('name');
+        return $name;
     }
 
     /**
