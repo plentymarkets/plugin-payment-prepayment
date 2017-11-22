@@ -8,7 +8,7 @@ Bevor die Zahlungsart in Ihrem Webshop verfügbar ist, müssen Sie Einstellungen
 
 ##### Zahlungsart einrichten:
 
-1. Öffnen Sie das Menü **Einstellungen&nbsp;» Aufträge&nbsp;» Zahlung » PrePayment » Vorkasse**.
+1. Öffnen Sie das Menü **System&nbsp;» Aufträge&nbsp;» Zahlung » PrePayment » Vorkasse**.
 2. Wählen Sie einen Mandanten.
 3. Nehmen Sie die Einstellungen vor. Beachten Sie dazu die Erläuterungen in Tabelle 1.
 4. **Speichern** Sie die Einstellungen.
@@ -109,7 +109,7 @@ Bevor die Zahlungsart in Ihrem Webshop verfügbar ist, müssen Sie Einstellungen
 				<b>Bankdaten anzeigen</b>
 			</td>  
 			<td>
-			Aktivieren, um die Bankdaten in der Bestellbestätigung anzuzeigen. Bankdaten speichern Sie im Menü <strong>Einstellungen » Grundeinstellungen » Bank</strong>.
+			Aktivieren, um die Bankdaten in der Bestellbestätigung anzuzeigen. Bankdaten speichern Sie im Menü <strong>System » Einstellungen » Bank</strong>.
 			</td>
 		</tr>
 	</tbody>
@@ -132,7 +132,7 @@ Gehen Sie wie im Folgenden beschrieben vor, um die im System hinterlegten Bankda
 
 ##### Bankdaten anzeigen:
 
-1. Öffnen Sie das Menü **Einstellungen&nbsp;» Aufträge&nbsp;» Zahlung » PrePayment » Vorkasse**.
+1. Öffnen Sie das Menü **System&nbsp;» Aufträge&nbsp;» Zahlung » PrePayment » Vorkasse**.
 2. Wählen Sie einen Mandanten.
 3. Geben Sie im Bereich **Anzeigedaten** einen **Verwendungszweck** ein.
 4. Aktivieren Sie die Option **Verwendungszweck anzeigen**.

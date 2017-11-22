@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 1.2.3 (2017-17-22)
+
+### Geändert
+
+- Update User guide
+
 ## 1.2.2 (2017-10-26)
 
 ### Geändert

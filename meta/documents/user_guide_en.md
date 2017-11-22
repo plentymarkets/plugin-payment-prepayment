@@ -8,7 +8,7 @@ In order to make this payment method available in your online store, you have to
 
 ##### Setting up a payment method:
 
-1. Go to **Settings&nbsp;» Orders&nbsp;» Payment » PrePayment » Cash in advance**. 
+1. Go to **System&nbsp;» Orders&nbsp;» Payment » PrePayment » Cash in advance**. 
 2. Select a Client (store). 
 3. Carry out the settings. Pay attention to the information given in table 1. 
 4. **Save** the settings.
@@ -111,7 +111,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Show bank details</b>
 			</td>  
 			<td>
-			Activate to display the bank details on the order confirmation page. Go to <strong>Settings » Basic settings » Bank</strong> to save bank details.
+			Activate to display the bank details on the order confirmation page. Go to <strong>System » Settings » Bank</strong> to save bank details.
 			</td>
 		</tr>
 	</tbody>
@@ -134,7 +134,7 @@ Proceed as follows to display the bank details that are saved in the system as w
 
 ##### Displaying bank details:
 
-1. Go to **Settings&nbsp;» Orders&nbsp;» Payment » PrePayment » Cash in advance**. 
+1. Go to **System&nbsp;» Orders&nbsp;» Payment » PrePayment » Cash in advance**. 
 2. Select a Client (store). 
 3. Enter the **Designated use** in the **Display data** area. 
 4. Activate the option **Show designated use**. 
