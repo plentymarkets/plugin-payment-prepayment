@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace PrePayment\Methods;
 
@@ -26,14 +26,14 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     private $checkout;
 
     /**
-    * PrePaymentPaymentMethod constructor.
-    * @param BasketRepositoryContract   $basketRepo
-    * @param SettingsService            $service
-    * @param Checkout                   $checkout
-    */
+     * PrePaymentPaymentMethod constructor.
+     * @param BasketRepositoryContract   $basketRepo
+     * @param SettingsService            $service
+     * @param Checkout                   $checkout
+     */
     public function __construct(  BasketRepositoryContract    $basketRepo,
-                                  SettingsService             $service,
-                                  Checkout $checkout)
+        SettingsService             $service,
+        Checkout $checkout)
     {
         $this->basketRepo     = $basketRepo;
         $this->settings       = $service;
@@ -41,10 +41,10 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
-    * Check whether Prepayment is active or not
-    *
-    * @return bool
-    */
+     * Check whether Prepayment is active or not
+     *
+     * @return bool
+     */
     public function isActive()
     {
         if(!in_array($this->checkout->getShippingCountryId(), $this->settings->getSetting('shippingCountries')))
@@ -56,33 +56,26 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
-    * Get shown name
-    *
-    * @return string
-    */
-    public function getName()
+     * Get shown name
+     *
+     * @param $lang
+     * @return string
+     */
+    public function getName($lang = 'de')
     {
-        /** @var FrontendSessionStorageFactoryContract $session */
-        $session = pluginApp(FrontendSessionStorageFactoryContract::class);
-        $lang = $session->getLocaleSettings()->language;
-
-        if(!empty($lang))
+        $name = $this->settings->getSetting('name', $lang);
+        if (!strlen($name) > 0)
         {
-            $name = $this->settings->getSetting('name', $lang);
+            return 'Vorkasse';
         }
-        else
-        {
-            $name = $this->settings->getSetting('name');
-        }
-
         return $name;
     }
 
     /**
-    * Get Prepayment Fee
-    *
-    * @return float
-    */
+     * Get Prepayment Fee
+     *
+     * @return float
+     */
     public function getFee()
     {
         return 0.00;
@@ -91,31 +84,31 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         // Shipping Country ID with ID = 1 belongs to Germany
         if($basket->shippingCountryId == 1)
         {
-              return $this->settings->getSetting('feeDomestic');
+            return $this->settings->getSetting('feeDomestic');
         }
         else
         {
-              return $this->settings->getSetting('feeForeign');
+            return $this->settings->getSetting('feeForeign');
         }
     }
 
     /**
-    * Get Prepayment Icon
-    *
-    * @return string
-    */
+     * Get Prepayment Icon
+     *
+     * @return string
+     */
     public function getIcon( )
     {
         if( $this->settings->getSetting('logo') == 1)
         {
-              return $this->settings->getSetting('logoUrl');
+            return $this->settings->getSetting('logoUrl');
         }
         elseif($this->settings->getSetting('logo') == 2)
         {
             $app = pluginApp(Application::class);
-                $icon = $app->getUrlPath('prepayment').'/images/icon.png';
+            $icon = $app->getUrlPath('prepayment').'/images/icon.png';
 
-                return $icon;
+            return $icon;
         }
 
         return '';
@@ -155,10 +148,10 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
-    * Get PrepaymentDescription
-    *
-    * @return string
-    */
+     * Get PrepaymentDescription
+     *
+     * @return string
+     */
     public function getDescription( )
     {
         /** @var FrontendSessionStorageFactoryContract $session */
@@ -166,7 +159,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         $lang = $session->getLocaleSettings()->language;
         return $this->settings->getSetting('description', $lang);
     }
-    
+
     /**
      * Check if it is allowed to switch to this payment method
      *
@@ -176,7 +169,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     {
         return true;
     }
-    
+
     /**
      * Check if it is allowed to switch from this payment method
      *

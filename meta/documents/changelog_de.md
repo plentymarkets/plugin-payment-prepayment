@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 1.2.4 (2017-11-23)
+
+### Gefixt
+
+- Die Variable `$MethodOfPaymentName` in E-Mail-Vorlagen wird nun sprachabhängig ausgegeben.
+
 ## 1.2.3 (2017-17-22)
 
 ### Geändert
