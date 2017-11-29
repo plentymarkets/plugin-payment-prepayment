@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 1.3.0 (2017-11-29)
+
+### Geändert
+
+- Ceres 2.0 compatible.
+
 ## 1.2.4 (2017-11-23)
 
 ### Fixed

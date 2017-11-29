@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 1.3.0 (2017-11-29)
+
+### Geändert
+
+- Kompabilität zu Ceres 2.0 hergestellt.
+
 ## 1.2.4 (2017-11-23)
 
 ### Gefixt

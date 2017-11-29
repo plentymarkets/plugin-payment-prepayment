@@ -1,33 +1,27 @@
 {% set bankAccount = config("system.bank") %}
 <hr>
-<div class="row">
+<div class="row" id="prePaymentBankDetails">
     <strong class="col-xs-6 col-sm-5">{{ trans("PrePayment::PaymentMethod.bankDetails") }}</strong>
     <span class="col-xs-6 col-sm-7">
-        <table border="0" cellpadding="0">
+        <table border="0" cellpadding="0" style="border: none !important">
             <tbody>
                 <tr>
-                    <td align="left">{{ trans("PrePayment::PaymentMethod.bankAccountOwner") }}</td>
-                    <td align="right">{{ bankAccount["accountOwner"] }}</td>
+                    <td style="border: none !important" align="left">{{ trans("PrePayment::PaymentMethod.bankAccountOwner") }}</td>
+                    <td style="border: none !important" align="right">{{ bankAccount["accountOwner"] }}</td>
                 </tr>
                 <tr>
-                    <td align="left">{{ trans("PrePayment::PaymentMethod.bankName") }}</td>
-                    <td align="right">{{ bankAccount["name"] }}</td>
+                    <td style="border: none !important" align="left">{{ trans("PrePayment::PaymentMethod.bankName") }}</td>
+                    <td style="border: none !important" align="right">{{ bankAccount["name"] }}</td>
                 </tr>
                 <tr>
-                    <td align="left">{{ trans("PrePayment::PaymentMethod.bankIban") }}</td>
-                    <td align="right">{{ bankAccount["iban"] }}</td>
+                    <td style="border: none !important" align="left">{{ trans("PrePayment::PaymentMethod.bankIban") }}</td>
+                    <td style="border: none !important" align="right">{{ bankAccount["iban"] }}</td>
                 </tr>
                 <tr>
-                    <td align="left">{{ trans("PrePayment::PaymentMethod.bankSwift") }}</td>
-                    <td align="right">{{ bankAccount["swift"] }}</td>
+                    <td style="border: none !important" align="left">{{ trans("PrePayment::PaymentMethod.bankSwift") }}</td>
+                    <td style="border: none !important" align="right">{{ bankAccount["swift"] }}</td>
                 </tr>
             </tbody>
         </table>
     </span>
 </div>
-
-<style>
-    table, td {
-        border:none!important;
-    }
-</style>
