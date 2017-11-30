@@ -19,7 +19,7 @@
 
 {% if services.template.isCurrentTemplate('tpl.my-account') %}
 
-    <button id="reinitPrePayment-{{order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" :disabled="" style="display: {{ display }}; margin-top: 0.5rem">
+    <button id="reinitPrePayment-{{order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" style="display: {{ display }}; margin-top: 0.5rem">
         {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
     </button>
 
