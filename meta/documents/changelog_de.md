@@ -4,7 +4,7 @@
 
 ### Geändert
 
-- Menüpfad geändert.
+- Neuer Menüpfad **System&nbsp;» Aufträge&nbsp;» Zahlung » Plugins » Vorkasse**.
 
 ## 1.3.0 (2017-11-29)
 

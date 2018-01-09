@@ -132,7 +132,7 @@ Gehen Sie wie im Folgenden beschrieben vor, um die im System hinterlegten Bankda
 
 ##### Bankdaten anzeigen:
 
-1. Öffnen Sie das Menü **System&nbsp;» Aufträge&nbsp;» Zahlung » PrePayment » Vorkasse**.
+1. Öffnen Sie das Menü **System&nbsp;» Aufträge&nbsp;» Zahlung » Plugins » Vorkasse**.
 2. Wählen Sie einen Mandanten.
 3. Geben Sie im Bereich **Anzeigedaten** einen **Verwendungszweck** ein.
 4. Aktivieren Sie die Option **Verwendungszweck anzeigen**.

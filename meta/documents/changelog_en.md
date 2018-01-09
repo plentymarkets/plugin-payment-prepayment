@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 1.3.1 (2018-01-09)
+
+### Changed
+
+- New menu path **System&nbsp;» Orders&nbsp;» Payment » Plugins » Cash in advance**.
+
 ## 1.3.0 (2017-11-29)
 
 ### Geändert
