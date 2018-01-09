@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 1.3.1 (2018-01-09)
+
+### Geändert
+
+- Menüpfad geändert.
+
 ## 1.3.0 (2017-11-29)
 
 ### Geändert
