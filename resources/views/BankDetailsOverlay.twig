@@ -4,7 +4,7 @@
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">x</span>
     </button>
-    <h4 class="modal-title">{{ trans("PrePayment::PaymentMethod.bankDetails") }}</h4>
+    <h4 class="modal-title">{{ trans("CashInAdvance::PaymentMethod.bankDetails") }}</h4>
 </div>
 
 <div class="modal-body form-horizontal">
@@ -13,19 +13,19 @@
             <table class="table table-striped table-hover table-sm" border="0" cellpadding="0">
                 <tbody>
                     <tr>
-                        <td align="left">{{ trans("PrePayment::PaymentMethod.bankAccountOwner") }}</td>
+                        <td align="left">{{ trans("CashInAdvance::PaymentMethod.bankAccountOwner") }}</td>
                         <td align="right">{{ bankAccount["accountOwner"] }}</td>
                     </tr>
                     <tr>
-                        <td align="left">{{ trans("PrePayment::PaymentMethod.bankName") }}</td>
+                        <td align="left">{{ trans("CashInAdvance::PaymentMethod.bankName") }}</td>
                         <td align="right">{{ bankAccount["name"] }}</td>
                     </tr>
                     <tr>
-                        <td align="left">{{ trans("PrePayment::PaymentMethod.bankIban") }}</td>
+                        <td align="left">{{ trans("CashInAdvance::PaymentMethod.bankIban") }}</td>
                         <td align="right">{{ bankAccount["iban"] }}</td>
                     </tr>
                     <tr>
-                        <td align="left">{{ trans("PrePayment::PaymentMethod.bankSwift") }}</td>
+                        <td align="left">{{ trans("CashInAdvance::PaymentMethod.bankSwift") }}</td>
                         <td align="right">{{ bankAccount["swift"] }}</td>
                     </tr>
                 </tbody>

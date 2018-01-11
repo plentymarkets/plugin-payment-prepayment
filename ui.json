@@ -1,11 +1,11 @@
 {
   "defaultEntryPoint": "index.html",
-  "namespace": "PrePayment",
+  "namespace": "CashInAdvance",
   "menuEntries": [
     {
       "label": "Vorkasse",
       "menu": "settings/orders/payment/Plugins",
-      "urlKey": "prepayment",
+      "urlKey": "cash-in-advance",
       "entryPoint": "index.html"
     }
   ]

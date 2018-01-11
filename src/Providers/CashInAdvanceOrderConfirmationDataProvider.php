@@ -1,29 +1,29 @@
 <?php
 
-namespace PrePayment\Providers;
+namespace CashInAdvance\Providers;
 
 use Plenty\Plugin\Templates\Twig;
 
-use PrePayment\Helper\PrePaymentHelper;
-use PrePayment\Services\SessionStorageService;
-use PrePayment\Services\SettingsService;
+use CashInAdvance\Helper\CashInAdvanceHelper;
+use CashInAdvance\Services\SessionStorageService;
+use CashInAdvance\Services\SettingsService;
 /**
- * Class PrePaymentOrderConfirmationDataProvider
- * @package PrePayment\Providers
+ * Class CashInAdvanceOrderConfirmationDataProvider
+ * @package CashInAdvance\Providers
  */
-class PrePaymentOrderConfirmationDataProvider
+class CashInAdvanceOrderConfirmationDataProvider
 {
     /**
      * @param Twig $twig
      * @param SettingsService $settings
-     * @param PrePaymentHelper $prePaymentHelper
+     * @param CashInAdvanceHelper $cashInAdvanceHelper
      * @param SessionStorageService $service
      * @param array $args
      * @return string
      */
     public function call(   Twig $twig,
                             SettingsService $settings,
-                            PrePaymentHelper $prePaymentHelper,
+                            CashInAdvanceHelper $cashInAdvanceHelper,
                             SessionStorageService $service,
                             $arg)
     {
@@ -31,17 +31,17 @@ class PrePaymentOrderConfirmationDataProvider
 
         $content = '';
 
-        if($mop == $prePaymentHelper->getPrePaymentMopId())
+        if($mop == $cashInAdvanceHelper->getCashInAdvanceMopId())
         {
             $lang = $service->getLang();
             if($settings->getSetting('showBankData', $lang))
             {
-                $content .= $twig->render('PrePayment::BankDetails');
+                $content .= $twig->render('CashInAdvance::BankDetails');
             }
 
             if($settings->getSetting('showDesignatedUse', $lang))
             {
-                $content .=  $twig->render('PrePayment::DesignatedUse', ['order'=>$arg[0]]);
+                $content .=  $twig->render('CashInAdvance::DesignatedUse', ['order'=>$arg[0]]);
             }
         }
 

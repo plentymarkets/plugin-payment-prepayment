@@ -6,11 +6,11 @@
  * Time: 15:54
  */
 
-namespace PrePayment\Migrations;
+namespace CashInAdvance\Migrations;
 
 use Plenty\Modules\Plugin\DataBase\Contracts\Migrate;
-use PrePayment\Models\Settings;
-use PrePayment\Services\SettingsService;
+use CashInAdvance\Models\Settings;
+use CashInAdvance\Services\SettingsService;
 
 /** This migration initializes all Settings in the Database */
 class CreateSettings_1_0_0

@@ -19,14 +19,14 @@
 
 {% if services.template.isCurrentTemplate('tpl.my-account') %}
 
-    <button id="reinitPrePayment-{{order.id}}" class="btn btn-primary btn-block" onClick="loadPrePaymentModal()" data-toggle="modal" data-target="#prePaymentModal" style="display: {{ display }}; margin-top: 0.5rem">
-        {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
+    <button id="reinitCashInAdvance-{{order.id}}" class="btn btn-primary btn-block" onClick="loadCashInAdvanceModal()" data-toggle="modal" data-target="#cashinadvanceModal" style="display: {{ display }}; margin-top: 0.5rem">
+        {{ trans("CashInAdvance::PaymentMethod.reinitPaymentButton") }}
     </button>
 
 {% elseif services.template.isCurrentTemplate('tpl.confirmation') %}
 
-    <div id="reinitPrePayment-{{order.id}}" style="display: {{ display }}">
-    {% include "PrePayment::BankDetails" %}
+    <div id="reinitCashInAdvance-{{order.id}}" style="display: {{ display }}">
+    {% include "CashInAdvance::BankDetails" %}
     </div>
 
 {% endif %}
