@@ -8,7 +8,7 @@ In order to make this payment method available in your online store, you have to
 
 ##### Setting up a payment method:
 
-1. Go to **System&nbsp;» Orders&nbsp;» Payment » PrePayment » Cash in advance**. 
+1. Go to **System&nbsp;» Orders&nbsp;» Payment » Plugins » Cash in advance**. 
 2. Select a Client (store). 
 3. Carry out the settings. Pay attention to the information given in table 1. 
 4. **Save** the settings.
@@ -134,7 +134,7 @@ Proceed as follows to display the bank details that are saved in the system as w
 
 ##### Displaying bank details:
 
-1. Go to **System&nbsp;» Orders&nbsp;» Payment » PrePayment » Cash in advance**. 
+1. Go to **System&nbsp;» Orders&nbsp;» Payment » Plugins » Cash in advance**. 
 2. Select a Client (store). 
 3. Enter the **Designated use** in the **Display data** area. 
 4. Activate the option **Show designated use**. 
@@ -157,10 +157,10 @@ You can offer your customers to reinitialise the payment. To do so, proceed as f
 ##### Reinitialising the payment:
 
 1. Go to **Plugins » Content**.
-2. Go to **PrePayment Reinitialise Payment (PrePayment)**.
+2. Go to **CashInAdvance Reinitialise Payment (CashInAdvance)**.
 3. Activate the container **My account: Additional payment information**.<br />→ The customer can reinitialise the payment in the order history in the **My Account** area. 
 3. Activate the container **Order confirmation: Additional payment information**.<br />→ The customer can reinitialise the payment on the order confirmation page.
-4. Go to **PrePayment Reinitialise Payment Script (PrePayment)**.
+4. Go to **CashInAdvance Reinitialise Payment Script (CashInAdvance)**.
 5. Activate the container **Script loader: After scripts loaded**.
 6. **Save** the settings.
 
@@ -168,4 +168,4 @@ The customer can now reinitialise the payment either in the order history in the
 
 ## License
 
-This project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE. – find further information in the [LICENSE.md](https://github.com/plentymarkets/plugin-payment-prepayment/blob/master/LICENSE.md).
+This project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE. – find further information in the [LICENSE.md](https://github.com/plentymarkets/plugin-payment-cashinadvance/blob/master/LICENSE.md).

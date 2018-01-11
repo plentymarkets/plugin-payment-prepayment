@@ -148,7 +148,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
     }
 
     /**
-     * Get PrepaymentDescription
+     * Get CashInAdvanceDescription
      *
      * @return string
      */
