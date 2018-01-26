@@ -1,5 +1,10 @@
 # Release Notes for Cash in advance
 
+## 1.3.2 (unknown)
+
+### Changed
+- Expanded user guide.
+
 ## 1.3.1 (2018-01-09)
 
 ### Changed

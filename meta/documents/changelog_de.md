@@ -1,5 +1,10 @@
 # Release Notes für Vorkasse
 
+## 1.3.2 (unknown)
+
+### Geändert
+- User guide erweitert.
+
 ## 1.3.1 (2018-01-09)
 
 ### Geändert
