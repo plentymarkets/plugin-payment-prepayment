@@ -2,6 +2,7 @@
 
 namespace CashInAdvance\Providers;
 
+use Plenty\Modules\Order\Models\Order;
 use Plenty\Plugin\Templates\Twig;
 
 use CashInAdvance\Helper\CashInAdvanceHelper;
@@ -30,6 +31,19 @@ class CashInAdvanceOrderConfirmationDataProvider
         $mop = $service->getOrderMopId();
 
         $content = '';
+
+        /*
+         * Load the method of payment id from the order
+         */
+        $order = $arg[0];
+        if($order instanceof Order) {
+            foreach ($order->properties as $property) {
+                if($property->typeId == 3) {
+                    $mop = $property->value;
+                    break;
+                }
+            }
+        }
 
         if($mop == $cashInAdvanceHelper->getCashInAdvanceMopId())
         {
