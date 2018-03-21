@@ -6,7 +6,7 @@
  * Time: 12:26
  */
 
-namespace PrePayment\Services;
+namespace CashInAdvance\Services;
 
 use Plenty\Exceptions\ValidationException;
 use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
@@ -15,7 +15,7 @@ use Plenty\Modules\System\Contracts\WebstoreRepositoryContract;
 use Plenty\Modules\System\Models\Webstore;
 use Plenty\Plugin\Application;
 
-use PrePayment\Models\Settings;
+use CashInAdvance\Models\Settings;
 
 class SettingsService
 {

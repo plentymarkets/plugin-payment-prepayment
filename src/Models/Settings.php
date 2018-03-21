@@ -6,7 +6,7 @@
  * Time: 12:10
  */
 
-namespace PrePayment\Models;
+namespace CashInAdvance\Models;
 
 use Plenty\Modules\Plugin\DataBase\Contracts\Model;
 
@@ -91,7 +91,7 @@ class Settings extends Model
 
     const DEFAULT_LANGUAGE = "de";
 
-    const MODEL_NAMESPACE = 'PrePayment\Models\Settings';
+    const MODEL_NAMESPACE = 'CashInAdvance\Models\Settings';
 
 
     public $id;
@@ -107,6 +107,6 @@ class Settings extends Model
      */
     public function getTableName():string
     {
-        return 'PrePayment::settings';
+        return 'CashInAdvance::settings';
     }
 }

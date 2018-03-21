@@ -1,27 +1,27 @@
 <?php
 
-namespace PrePayment\Providers;
+namespace CashInAdvance\Providers;
 
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 use Plenty\Plugin\Templates\Twig;
-use PrePayment\Extensions\PrePaymentTwigServiceProvider;
-use PrePayment\Methods\PrePaymentPaymentMethod;
+use CashInAdvance\Extensions\CashInAdvanceTwigServiceProvider;
+use CashInAdvance\Methods\CashInAdvancePaymentMethod;
 use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
 use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
 
 /**
- * Class PrePaymentServiceProvider
- * @package PrePayment\Providers
+ * Class CashInAdvanceServiceProvider
+ * @package CashInAdvance\Providers
  */
-class PrePaymentServiceProvider extends ServiceProvider
+class CashInAdvanceServiceProvider extends ServiceProvider
 {
     /**
     * Register the route service provider
     */
     public function register()
     {
-        $this->getApplication()->register(PrePaymentRouteServiceProvider::class);
+        $this->getApplication()->register(CashInAdvanceRouteServiceProvider::class);
     }
 
     /**
@@ -29,10 +29,10 @@ class PrePaymentServiceProvider extends ServiceProvider
     */
     public function boot(Twig $twig, PaymentMethodContainer $payContainer)
     {
-        $twig->addExtension(PrePaymentTwigServiceProvider::class);
+        $twig->addExtension(CashInAdvanceTwigServiceProvider::class);
 
         //Register the Pre Payment Plugin
-        $payContainer->register('plenty::PREPAYMENT', PrePaymentPaymentMethod::class,
+        $payContainer->register('plenty::PREPAYMENT', CashInAdvancePaymentMethod::class,
                                 [AfterBasketChanged::class, AfterBasketCreate::class]   );
     }
 }

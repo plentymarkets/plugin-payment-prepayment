@@ -6,13 +6,13 @@
  * Time: 13:48
  */
 
-namespace PrePayment\Extensions;
+namespace CashInAdvance\Extensions;
 
 use Plenty\Plugin\Templates\Extensions\Twig_Extension;
-use PrePayment\Services\SessionStorageService;
-use PrePayment\Services\SettingsService;
+use CashInAdvance\Services\SessionStorageService;
+use CashInAdvance\Services\SettingsService;
 
-class PrePaymentTwigServiceProvider extends Twig_Extension
+class CashInAdvanceTwigServiceProvider extends Twig_Extension
 {
     /**
      * Return the name of the extension. The name must be unique.
@@ -21,7 +21,7 @@ class PrePaymentTwigServiceProvider extends Twig_Extension
      */
     public function getName():string
     {
-        return "PrePayment_Extension_TwigServiceProvider";
+        return "CashInAdvance_Extension_TwigServiceProvider";
     }
 
     /**
@@ -52,7 +52,7 @@ class PrePaymentTwigServiceProvider extends Twig_Extension
     public function getGlobals():array
     {
         return [
-            "prepayment" => [
+            "cashinadvance" => [
                 "settings"          => pluginApp( SettingsService::class ),
                 "sessionStorage"    => pluginApp( SessionStorageService::class)
             ]

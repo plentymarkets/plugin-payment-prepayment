@@ -6,7 +6,7 @@
  * Time: 18:27
  */
 
-namespace PrePayment\Providers\Icon;
+namespace CashInAdvance\Providers\Icon;
 
 use Plenty\Plugin\Templates\Twig;
 
@@ -15,7 +15,7 @@ class IconProvider
 {
     public function call(Twig $twig):string
     {
-        return $twig->render('PrePayment::Icon');
+        return $twig->render('CashInAdvance::Icon');
     }
 
 }

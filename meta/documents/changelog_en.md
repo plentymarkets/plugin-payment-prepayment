@@ -1,6 +1,12 @@
 # Release Notes for Cash in advance
 
-## 1.3.2 (unknown)
+## 2.0.0 (2018-01-11)
+
+### Changed
+
+- Plugin name change from **PrePayment** to **CashInAdvance**. The functionality is not affected. The following changelog applies to this plugin as well.
+
+## 1.3.2 (2018-01-26)
 
 ### Changed
 - Expanded user guide.
@@ -13,7 +19,7 @@
 
 ## 1.3.0 (2017-11-29)
 
-### Geändert
+### Changed
 
 - Ceres 2.0 compatible.
 

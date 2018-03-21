@@ -1,6 +1,6 @@
 <?php
 
-namespace PrePayment\Methods;
+namespace CashInAdvance\Methods;
 
 use Plenty\Modules\Category\Contracts\CategoryRepositoryContract;
 use Plenty\Modules\Frontend\Contracts\Checkout;
@@ -8,13 +8,13 @@ use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFact
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Plugin\Application;
-use PrePayment\Services\SettingsService;
+use CashInAdvance\Services\SettingsService;
 
 /**
- * Class PrePaymentPaymentMethod
- * @package PrePayment\Methods
+ * Class CashInAdvancePaymentMethod
+ * @package CashInAdvance\Methods
  */
-class PrePaymentPaymentMethod extends PaymentMethodService
+class CashInAdvancePaymentMethod extends PaymentMethodService
 {
     /** @var BasketRepositoryContract */
     private $basketRepo;
@@ -26,7 +26,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     private $checkout;
 
     /**
-     * PrePaymentPaymentMethod constructor.
+     * CashInAdvancePaymentMethod constructor.
      * @param BasketRepositoryContract   $basketRepo
      * @param SettingsService            $service
      * @param Checkout                   $checkout
@@ -41,7 +41,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
-     * Check whether Prepayment is active or not
+     * Check whether CashInAdvance is active or not
      *
      * @return bool
      */
@@ -72,7 +72,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
-     * Get Prepayment Fee
+     * Get CashInAdvance Fee
      *
      * @return float
      */
@@ -93,7 +93,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
-     * Get Prepayment Icon
+     * Get CashInAdvance Icon
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
         elseif($this->settings->getSetting('logo') == 2)
         {
             $app = pluginApp(Application::class);
-            $icon = $app->getUrlPath('prepayment').'/images/icon.png';
+            $icon = $app->getUrlPath('cashinadvance').'/images/icon.png';
 
             return $icon;
         }
@@ -115,7 +115,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
-     * Get PrepaymentSourceUrl
+     * Get CashInAdvanceSourceUrl
      *
      * @return string
      */
@@ -148,7 +148,7 @@ class PrePaymentPaymentMethod extends PaymentMethodService
     }
 
     /**
-     * Get PrepaymentDescription
+     * Get CashInAdvanceDescription
      *
      * @return string
      */

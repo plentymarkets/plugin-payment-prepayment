@@ -132,7 +132,8 @@ Gehen Sie wie im Folgenden beschrieben vor, um die im System hinterlegten Bankda
 
 ##### Bankdaten anzeigen:
 
-1. Öffnen Sie das Menü **System&nbsp;» Aufträge&nbsp;» Zahlung » Plugins » Vorkasse**.
+
+1. Öffnen Sie das Menü **System&nbsp;» Aufträge&nbsp;» Zahlung » Plugins » Vorkasse**.
 2. Wählen Sie einen Mandanten.
 3. Geben Sie im Bereich **Anzeigedaten** einen **Verwendungszweck** ein.
 4. Aktivieren Sie die Option **Verwendungszweck anzeigen**.
@@ -155,10 +156,10 @@ Sie können Kunden die Möglichkeit anbieten, diese Zahlungsart erneut auszufüh
 ##### Zahlungsart neu ausführen:
 
 1. Gehen Sie zu **Plugins » Content**.
-2. Gehen Sie zu **PrePayment Reinitialise Payment (PrePayment)**.
+2. Gehen Sie zu **CashInAdvance Reinitialise Payment (CashInAdvance)**.
 3. Aktivieren Sie den Container **My account: Additional payment information**.<br />→ Der Kunde kann in der Auftragshistorie im **Mein-Konto**-Bereich die Zahlung neu ausführen.
 4. Aktivieren Sie den Container **Order confirmation: Additional payment information**.<br />→ Der Kunde kann auf der Bestellbestätigungsseite die Zahlung neu ausführen.
-2. Gehen Sie zu **PrePayment Reinitialise Payment Script (PrePayment)**.
+2. Gehen Sie zu **CashInAdvance Reinitialise Payment Script (CashInAdvance)**.
 5. Aktivieren Sie den Container **Script loader: After scripts loaded**.
 7. **Speichern** Sie die Einstellungen.
 
@@ -166,4 +167,4 @@ Der Kunde kann nun die Zahlungsart in der Auftragshistorie im **Mein-Konto**-Ber
 
 ## Lizenz
 
-Das gesamte Projekt unterliegt der GNU AFFERO GENERAL PUBLIC LICENSE – weitere Informationen finden Sie in der [LICENSE.md](https://github.com/plentymarkets/plugin-payment-prepayment/blob/master/LICENSE.md).
+Das gesamte Projekt unterliegt der GNU AFFERO GENERAL PUBLIC LICENSE – weitere Informationen finden Sie in der [LICENSE.md](https://github.com/plentymarkets/plugin-payment-cashinadvance/blob/master/LICENSE.md).

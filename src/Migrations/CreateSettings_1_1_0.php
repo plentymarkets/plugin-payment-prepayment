@@ -6,11 +6,11 @@
  * Time: 12:19
  */
 
-namespace PrePayment\Migrations;
+namespace CashInAdvance\Migrations;
 
 use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
-use PrePayment\Models\Settings;
-use PrePayment\Services\SettingsService;
+use CashInAdvance\Models\Settings;
+use CashInAdvance\Services\SettingsService;
 
 /** This migration adds "description" and "infoPageType" to the Settings */
 class CreateSettings_1_1_0

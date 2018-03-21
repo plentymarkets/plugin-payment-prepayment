@@ -1,6 +1,12 @@
 # Release Notes für Vorkasse
 
-## 1.3.2 (unknown)
+## 2.0.0 (2018-01-11)
+
+### Geändert
+
+- Der Plugin-Name wurde von **PrePayment** in **CashInAdvance** geändert. Die Funktionalität ist nicht betroffen. Der folgende Changelog gilt in gleichem Umfang für dieses Plugin.
+
+## 1.3.2 (2018-01-26)
 
 ### Geändert
 - User guide erweitert.

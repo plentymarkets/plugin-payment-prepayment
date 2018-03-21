@@ -6,9 +6,9 @@
  * Time: 12:22
  */
 
-namespace PrePayment\Controllers;
+namespace CashInAdvance\Controllers;
 
-use PrePayment\Services\SettingsService;
+use CashInAdvance\Services\SettingsService;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Http\Response;

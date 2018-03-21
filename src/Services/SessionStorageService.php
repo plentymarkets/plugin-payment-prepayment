@@ -1,6 +1,6 @@
 <?php //strict
 
-namespace PrePayment\Services;
+namespace CashInAdvance\Services;
 
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Order\Models\Order;

@@ -1,8 +1,8 @@
 <?php //strict
 
-namespace PrePayment\Helper;
+namespace CashInAdvance\Helper;
 
-class PrePaymentHelper
+class CashInAdvanceHelper
 {
     /**
      * Load the ID of the payment method
@@ -10,7 +10,7 @@ class PrePaymentHelper
      *
      * @return int
      */
-    public function getPrePaymentMopId()
+    public function getCashInAdvanceMopId()
     {
         /**
          * Use the payment method id from the system

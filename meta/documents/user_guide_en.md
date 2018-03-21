@@ -157,10 +157,10 @@ You can offer your customers to reinitialise the payment. To do so, proceed as f
 ##### Reinitialising the payment:
 
 1. Go to **Plugins » Content**.
-2. Go to **PrePayment Reinitialise Payment (PrePayment)**.
+2. Go to **CashInAdvance Reinitialise Payment (CashInAdvance)**.
 3. Activate the container **My account: Additional payment information**.<br />→ The customer can reinitialise the payment in the order history in the **My Account** area. 
 3. Activate the container **Order confirmation: Additional payment information**.<br />→ The customer can reinitialise the payment on the order confirmation page.
-4. Go to **PrePayment Reinitialise Payment Script (PrePayment)**.
+4. Go to **CashInAdvance Reinitialise Payment Script (CashInAdvance)**.
 5. Activate the container **Script loader: After scripts loaded**.
 6. **Save** the settings.
 
@@ -168,4 +168,4 @@ The customer can now reinitialise the payment either in the order history in the
 
 ## License
 
-This project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE. – find further information in the [LICENSE.md](https://github.com/plentymarkets/plugin-payment-prepayment/blob/master/LICENSE.md).
+This project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE. – find further information in the [LICENSE.md](https://github.com/plentymarkets/plugin-payment-cashinadvance/blob/master/LICENSE.md).

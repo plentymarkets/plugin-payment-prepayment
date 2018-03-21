@@ -1,6 +1,6 @@
 {
   "defaultEntryPoint": "index.html",
-  "namespace": "Cash in advance",
+  "namespace": "CashInAdvance",
   "menuEntries": [
     {
       "label": "Vorkasse",
