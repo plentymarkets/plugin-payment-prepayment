@@ -6,6 +6,17 @@
 
 - Plugin name change from **PrePayment** to **CashInAdvance**. The functionality is not affected. The following changelog applies to this plugin as well.
 
+## 1.3.2 (2018-01-26)
+
+### Changed
+- Expanded user guide.
+
+## 1.3.1 (2018-01-09)
+
+### Changed
+
+- New menu path **System&nbsp;» Orders&nbsp;» Payment » Plugins » Cash in advance**.
+
 ## 1.3.0 (2017-11-29)
 
 ### Changed

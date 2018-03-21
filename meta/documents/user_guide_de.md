@@ -4,7 +4,7 @@ Mit diesem Plugin binden Sie die Zahlungsart **Vorkasse** in Ihren Webshop ein.
 
 ## Zahlungsart einrichten
 
-Bevor die Zahlungsart in Ihrem Webshop verfügbar ist, müssen Sie Einstellungen in Ihrem plentymarkets Backend vornehmen.
+Bevor die Zahlungsart in Ihrem Webshop verfügbar ist, müssen Sie Einstellungen in Ihrem plentymarkets Backend vornehmen. Prüfen Sie zudem die Einstellungen für **Erlaubte Zahlungsarten** in den <strong><a href="https://knowledge.plentymarkets.com/auftragsabwicklung/payment/zahlungsarten-verwalten#30" target="_blank">Kundenklassen</a></strong> und für **Gesperrte Zahlungsarten** in den <strong><a href="https://knowledge.plentymarkets.com/auftragsabwicklung/fulfillment/versand-vorbereiten#1000" target="_blank">Versandprofilen</a></strong>.
 
 ##### Zahlungsart einrichten:
 
@@ -131,6 +131,7 @@ Das Template-Plugin **Ceres** bietet Ihnen auf der Startseite einen Template-Con
 Gehen Sie wie im Folgenden beschrieben vor, um die im System hinterlegten Bankdaten und einen Verwendungszweck auf der Bestellbestätigungsseite anzuzeigen.
 
 ##### Bankdaten anzeigen:
+
 
 1. Öffnen Sie das Menü **System&nbsp;» Aufträge&nbsp;» Zahlung » Plugins » Vorkasse**.
 2. Wählen Sie einen Mandanten.

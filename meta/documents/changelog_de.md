@@ -6,11 +6,16 @@
 
 - Der Plugin-Name wurde von **PrePayment** in **CashInAdvance** geändert. Die Funktionalität ist nicht betroffen. Der folgende Changelog gilt in gleichem Umfang für dieses Plugin.
 
+## 1.3.2 (2018-01-26)
+
+### Geändert
+- User guide erweitert.
+
 ## 1.3.1 (2018-01-09)
 
 ### Geändert
 
-- Menüpfad geändert.
+- Neuer Menüpfad **System&nbsp;» Aufträge&nbsp;» Zahlung » Plugins » Vorkasse**.
 
 ## 1.3.0 (2017-11-29)
 
