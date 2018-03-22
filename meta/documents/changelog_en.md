@@ -1,6 +1,6 @@
 # Release Notes for Cash in advance
 
-## 2.0.0 (2018-01-11)
+## 2.0.0 (2018-03-21)
 
 ### Changed
 
