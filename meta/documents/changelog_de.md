@@ -1,10 +1,11 @@
 # Release Notes für Vorkasse
 
-## 2.0.0 (2018-03-21)
+## 2.0.0 (2018-03-29)
 
 ### Geändert
 
-- Der Plugin-Name wurde von **PrePayment** in **CashInAdvance** geändert. Die Funktionalität ist nicht betroffen. Der folgende Changelog gilt in gleichem Umfang für dieses Plugin.
+- Der Plugin-Name wurde von **PrePayment** in **CashInAdvance** geändert. Die Funktionalität ist nicht betroffen.
+- Die Bankdaten werden in der Kaufabwicklung und auf der Bestellbestätigungsseite wieder korrekt angezeigt.
 
 ## 1.3.2 (2018-01-26)
 
@@ -55,7 +56,7 @@
 
 ### TODO
 
-- Unter **PayPal Scripts** muss die Container-Verknüpfung von **Script loader: Register/load JS** auf **Script loader: After scripts loaded** geändert werden.
+- Unter **PrePayment Scripts** muss die Container-Verknüpfung von **Script loader: Register/load JS** auf **Script loader: After scripts loaded** geändert werden.
 
 ## 1.1.0 (2017-07-31)
 

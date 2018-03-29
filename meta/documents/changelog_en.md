@@ -1,10 +1,11 @@
 # Release Notes for Cash in advance
 
-## 2.0.0 (2018-03-21)
+## 2.0.0 (2018-03-29)
 
 ### Changed
 
-- Plugin name change from **PrePayment** to **CashInAdvance**. The functionality is not affected. The following changelog applies to this plugin as well.
+- Plugin name change from **PrePayment** to **CashInAdvance**. The functionality is not affected.
+- The bank details are displayed in the checkout and on the order confirmation page correct again.
 
 ## 1.3.2 (2018-01-26)
 
