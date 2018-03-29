@@ -50,12 +50,12 @@ class CashInAdvanceOrderConfirmationDataProvider
             $lang = $service->getLang();
             if($settings->getSetting('showBankData', $lang))
             {
-                $content .= $twig->render('CashInAdvance::BankDetails');
+                $content .= $twig->render('PrePayment::BankDetails');
             }
 
             if($settings->getSetting('showDesignatedUse', $lang))
             {
-                $content .=  $twig->render('CashInAdvance::DesignatedUse', ['order'=>$arg[0]]);
+                $content .=  $twig->render('PrePayment::DesignatedUse', ['order'=>$arg[0]]);
             }
         }
 

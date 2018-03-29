@@ -1,7 +1,7 @@
 {
     "version"           : "2.0.0",
-    "name"              : "CashInAdvance",
-    "marketplaceName" : {"de":"Vorkasse","en":"Cash in advance"},
+    "name"              : "PrePayment",
+    "marketplaceName"   : {"de":"Vorkasse","en":"Cash in advance"},
     "license"           : "AGPL-3.0",
     "pluginIcon"        : "icon_plugin_xs.png",
     "price"             : 0.00,

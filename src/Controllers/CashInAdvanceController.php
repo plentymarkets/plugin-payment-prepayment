@@ -1,4 +1,5 @@
 <?php
+
 namespace CashInAdvance\Controllers;
 
 use Plenty\Plugin\Controller;
@@ -8,6 +9,6 @@ class CashInAdvanceController extends Controller
 {
 	public function getBankDetails(Twig $twig)
 	{
-		return $twig->render('CashInAdvance::BankDetailsOverlay');
+		return $twig->render('PrePayment::BankDetailsOverlay');
 	}
 }

@@ -2,7 +2,7 @@
 {% set designatedUse  = cashinadvance.settings.getSetting('designatedUse', lang) %}
 <hr>
 <div class="row">
-    <strong class="col-xs-6 col-sm-5">{{ trans("CashInAdvance::PaymentMethod.designatedUse") }}</strong>
-    <span class="col-xs-6 col-sm-7">{{ trans("CashInAdvance::PaymentMethod.designatedUseText") }}<br /> <b>{{ designatedUse | format(order.id) }}</b></span>
+    <strong class="col-xs-6 col-sm-5">{{ trans("PrePayment::PaymentMethod.designatedUse") }}</strong>
+    <span class="col-xs-6 col-sm-7">{{ trans("PrePayment::PaymentMethod.designatedUseText") }}<br /> <b>{{ designatedUse | format(order.id) }}</b></span>
 </div>
 

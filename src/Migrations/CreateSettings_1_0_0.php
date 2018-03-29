@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ckunze
- * Date: 23/2/17
- * Time: 15:54
- */
 
 namespace CashInAdvance\Migrations;
 

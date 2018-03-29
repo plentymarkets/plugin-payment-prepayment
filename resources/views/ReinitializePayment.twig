@@ -20,13 +20,13 @@
 {% if services.template.isCurrentTemplate('tpl.my-account') %}
 
     <button id="reinitCashInAdvance-{{order.id}}" class="btn btn-primary btn-block" onClick="loadCashInAdvanceModal()" data-toggle="modal" data-target="#cashinadvanceModal" style="display: {{ display }}; margin-top: 0.5rem">
-        {{ trans("CashInAdvance::PaymentMethod.reinitPaymentButton") }}
+        {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
     </button>
 
 {% elseif services.template.isCurrentTemplate('tpl.confirmation') %}
 
     <div id="reinitCashInAdvance-{{order.id}}" style="display: {{ display }}">
-    {% include "CashInAdvance::BankDetails" %}
+    {% include "PrePayment::BankDetails" %}
     </div>
 
 {% endif %}

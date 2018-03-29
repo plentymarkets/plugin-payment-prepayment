@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ckunze
- * Date: 8/3/17
- * Time: 18:27
- */
 
 namespace CashInAdvance\Providers\Icon;
 
@@ -15,7 +9,7 @@ class IconProvider
 {
     public function call(Twig $twig):string
     {
-        return $twig->render('CashInAdvance::Icon');
+        return $twig->render('PrePayment::Icon');
     }
 
 }

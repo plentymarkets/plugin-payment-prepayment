@@ -12,6 +12,6 @@ class CashInAdvanceReinitializePaymentScript
 		/** @var CashInAdvanceHelper $paymentHelper */
 		$paymentHelper = pluginApp(CashInAdvanceHelper::class);
 		$paymentId = $paymentHelper->getCashInAdvanceMopId();
-		return $twig->render('CashInAdvance::ReinitializePaymentScript', ['paymentMethodId' => $paymentId]);
+		return $twig->render('PrePayment::ReinitializePaymentScript', ['paymentMethodId' => $paymentId]);
 	}
 }

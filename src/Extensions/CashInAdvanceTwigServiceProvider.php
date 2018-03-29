@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ckunze
- * Date: 28/2/17
- * Time: 13:48
- */
 
 namespace CashInAdvance\Extensions;
 

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ckunze
- * Date: 23/2/17
- * Time: 12:10
- */
 
 namespace CashInAdvance\Models;
 
@@ -107,6 +101,6 @@ class Settings extends Model
      */
     public function getTableName():string
     {
-        return 'CashInAdvance::settings';
+        return 'PrePayment::settings';
     }
 }
