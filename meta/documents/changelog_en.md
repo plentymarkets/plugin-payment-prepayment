@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 2.0.1 (2018-04-05)
+
+### Fixed
+
+- The correct path for displaying the icon of the payment method is now used.
+
 ## 2.0.0 (2018-03-29)
 
 ### Changed

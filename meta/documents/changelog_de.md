@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.1 (2018-04-05)
+
+### Gefixt
+
+- Es wird nun der korrekte Pfad für die Anzeige des Logos der Zahlungsart verwendet.
+
 ## 2.0.0 (2018-03-29)
 
 ### Geändert
