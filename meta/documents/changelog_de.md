@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.3 (2018-06-06)
+
+### Gefixt
+
+- Die Anzeige der Bankdaten ist nun responsive.
+
 ## 2.0.2 (2018-06-06)
 
 ### Gefixt
