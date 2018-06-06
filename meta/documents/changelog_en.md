@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 2.0.2 (2018-06-06)
+
+### Fixed
+
+- Fixed a problem relating to the display of account data in My Account.
+
 ## 2.0.1 (2018-04-05)
 
 ### Fixed

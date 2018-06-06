@@ -43,6 +43,13 @@ class CashInAdvanceOrderConfirmationDataProvider
                     break;
                 }
             }
+        }elseif(is_array($order)) {
+            foreach ($order['properties'] as $property) {
+                if($property['typeId'] == 3) {
+                    $mop = $property['value'];
+                    break;
+                }
+            }
         }
 
         if($mop == $cashInAdvanceHelper->getCashInAdvanceMopId())

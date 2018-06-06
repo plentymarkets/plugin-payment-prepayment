@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.2 (2018-06-06)
+
+### Gefixt
+
+- Ein Problem mit der Anzeige der Bankdaten im Mein-Konto Bereich wurde behoben.
+
 ## 2.0.1 (2018-04-05)
 
 ### Gefixt
