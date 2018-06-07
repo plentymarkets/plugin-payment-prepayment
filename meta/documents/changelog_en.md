@@ -1,10 +1,10 @@
 # Release Notes for Cash in advance
 
-## 2.0.3 (2018-06-06)
+## 2.0.3 (2018-06-07)
 
 ### Fixed
 
-- The content of account data is responsive now.
+- The display of bank data is now responsive.
 
 ## 2.0.2 (2018-06-06)
 
