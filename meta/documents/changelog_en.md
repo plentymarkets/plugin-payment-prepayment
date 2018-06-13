@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 2.0.4 (2018-06-13)
+
+### Fixed
+
+- The bank data on the order confirmation page will now be displayed just once.
+
 ## 2.0.3 (2018-06-07)
 
 ### Fixed

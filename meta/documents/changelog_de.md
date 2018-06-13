@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.4 (2018-06-13)
+
+### Gefixt
+
+- Die Anzeige der Bankdaten auf der Bestellbestätigungsseite wird nicht mehr doppelt dargestellt.  
+
 ## 2.0.3 (2018-06-07)
 
 ### Gefixt
