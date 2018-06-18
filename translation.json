@@ -1,11 +1,6 @@
 {
   "sections":
-  [
-    {
-      "name": "MultilingualismConfig.address",
-      "prefix": "bank"
-    }
-  ],
+  [],
   "ignoredTranslationFiles":
   []
 }
