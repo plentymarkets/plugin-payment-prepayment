@@ -294,7 +294,7 @@ class SettingsService
         {
             $query->where('lang', '=', $lang);
         }
-        $query->orWhere('lang',   '=', '');
+        $query->orWhere('lang',   '=', '')->where('plentyId', '=', $plentyId);
 
         /** @var Settings[] $clientSettings */
         $clientSettings = $query->get();

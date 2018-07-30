@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 2.0.5 (2018-07-30)
+
+### Fixed
+
+- Problems with displaying and saving multi-client settings in the Plugin-UI have been fixed.
+
 ## 2.0.4 (2018-06-13)
 
 ### Fixed

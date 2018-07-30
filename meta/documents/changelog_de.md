@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.5 (2018-07-30)
+
+### Gefixt
+
+- Probleme bei der Anzeige und dem Speichern von Einstellungen der Multimandanten in der Plugin-UI wurden behoben.
+
 ## 2.0.4 (2018-06-13)
 
 ### Gefixt
