@@ -1,5 +1,5 @@
 {
-    "version"           : "2.0.5",
+    "version"           : "2.0.6",
     "name"              : "PrePayment",
     "marketplaceName"   : {"de":"Vorkasse","en":"Cash in advance"},
     "license"           : "AGPL-3.0",

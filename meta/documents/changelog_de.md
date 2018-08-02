@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.6 (2018-08-02)
+
+### Geändert
+
+- Sprachabhängige Texte können nun über das Mehrsprachigkeits-Interface angepasst werden.
+
 ## 2.0.5 (2018-07-30)
 
 ### Gefixt
