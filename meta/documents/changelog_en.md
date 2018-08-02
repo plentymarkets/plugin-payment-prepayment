@@ -1,10 +1,10 @@
 # Release Notes for Cash in advance
 
-## 2.0.6 (2018-08-02)
+## 2.0.7 (2018-08-02)
 
 ### Changed
 
-- Language-dependent texts can now be adapted via the multilingual interface.
+- Language-dependent texts can now be edited via the multilingualism interface.
 
 ## 2.0.5 (2018-07-30)
 

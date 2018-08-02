@@ -1,6 +1,6 @@
 # Release Notes für Vorkasse
 
-## 2.0.6 (2018-08-02)
+## 2.0.7 (2018-08-02)
 
 ### Geändert
 
