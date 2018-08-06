@@ -1,6 +1,10 @@
 # Release Notes for Cash in advance
 
-## 2.0.7 (2018-08-02)
+## 2.0.8 (2018-08-06)
+
+### Hinzugefügt
+
+- More languages for the plugin UI have been added.
 
 ### Changed
 

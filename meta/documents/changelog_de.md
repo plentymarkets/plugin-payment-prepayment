@@ -1,6 +1,10 @@
 # Release Notes für Vorkasse
 
-## 2.0.7 (2018-08-02)
+## 2.0.8 (2018-08-06)
+
+### Hinzugefügt
+
+- Weitere Sprachen für die Plugin-UI wurden hinzugefügt.
 
 ### Geändert
 

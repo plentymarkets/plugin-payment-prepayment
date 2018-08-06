@@ -66,11 +66,6 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
         $name = $this->settings->getSetting('name', $lang);
         if (!strlen($name) > 0)
         {
-            $trans = pluginApp(\Plenty\Plugin\Translation\Translator::class);
-            $paymentMethodName = $trans->trans('PrePayment::PaymentMethod.paymentMethodName');
-            if(strlen($paymentMethodName)){
-                return $paymentMethodName;
-            }
             return 'Vorkasse';
         }
         return $name;

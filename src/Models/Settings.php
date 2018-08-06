@@ -80,8 +80,23 @@ class Settings extends Model
 
     const AVAILABLE_LANGUAGES = array( "de",
                                        "en",
+                                       "bg",
                                        "fr",
-                                       "es" );
+                                       "it",
+                                       "es",
+                                       "tr",
+                                       "nl",
+                                       "pl",
+                                       "pt",
+                                       "nn",
+                                       "da",
+                                       "se",
+                                       "cz",
+                                       "ro",
+                                       "ru",
+                                       "sk",
+                                       "cn",
+                                       "vn");
 
     const DEFAULT_LANGUAGE = "de";
 
