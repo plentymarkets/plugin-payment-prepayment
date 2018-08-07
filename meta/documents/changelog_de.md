@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.9 (2018-08-07)
+
+### Geändert
+
+- Der Plugin User Guide wurde überarbeitet.
+
 ## 2.0.8 (2018-08-06)
 
 ### Hinzugefügt
@@ -145,4 +151,3 @@
 
 - Zahlungsart **Vorkasse** für plentymarkets Webshops
 - Anzeige von Verwendungszweck und Bankdaten auf der Bestellbestätigungsseite
-

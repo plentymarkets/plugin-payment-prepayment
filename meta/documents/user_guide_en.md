@@ -8,9 +8,9 @@ In order to make this payment method available in your online store, you have to
 
 ##### Setting up a payment method:
 
-1. Go to **System&nbsp;» Orders&nbsp;» Payment » Plugins » Cash in advance**. 
-2. Select a Client (store). 
-3. Carry out the settings. Pay attention to the information given in table 1. 
+1. Go to **System&nbsp;» Orders&nbsp;» Payment » Plugins » Cash in advance**.
+2. Select a Client (store).
+3. Carry out the settings. Pay attention to the information given in table 1.
 4. **Save** the settings.
 
 <table>
@@ -37,7 +37,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Name</b>
 			</td>
 			<td>
-				The name of the payment method that will be displayed in the overview of payment methods in the checkout.
+				Enter the name of the payment method that will be displayed in the overview of payment methods in the checkout.
 			</td>
 		</tr>
 		<tr>
@@ -84,7 +84,7 @@ In order to make this payment method available in your online store, you have to
 				<b>Countries of delivery</b>
 			</td>
 			<td>
-				This payment method is active only for the countries in this list.
+				Activat the countries of delivery, for which this payment method is active.
 			</td>
 		</tr>
         <tr>
@@ -123,9 +123,9 @@ The template plugin **Ceres** allows you to display the logo of your payment met
 
 ##### Linking the logo with a template container:
 
-1. Go to **Plugins » Content**.
-3. Go to the **Cash in advance icon** area. 
-4. Activate the container **Homepage: Payment method container**. 
+1. Go to **CMS » Container links**.
+3. Go to the **Cash in advance icon (PrePayment)** area.
+4. Activate the container **Homepage: Payment method container**.
 5. **Save** the settings.<br />→ The logo of the payment method will be displayed on the homepage of the online store.
 
 ## Displaying the bank details on the order confirmation page <a id="10." name="10."></a>
@@ -134,20 +134,20 @@ Proceed as follows to display the bank details that are saved in the system as w
 
 ##### Displaying bank details:
 
-1. Go to **System&nbsp;» Orders&nbsp;» Payment » Plugins » Cash in advance**. 
-2. Select a Client (store). 
-3. Enter the **Designated use** in the **Display data** area. 
-4. Activate the option **Show designated use**. 
-5. Activate the option **Show bank details**. 
+1. Go to **System&nbsp;» Orders&nbsp;» Payment » Plugins » Cash in advance**.
+2. Select a Client (store).
+3. Enter the **Designated use** in the **Display data** area.
+4. Activate the option **Show designated use**.
+5. Activate the option **Show bank details**.
 6. **Save** the settings.
 
 After these settings, link the bank details with a template container.
 
 ##### Linking the bank details with a template container:
 
-1. Go to **Plugins » Content**.
-3. Go to the **Cash in advance bank details** area. 
-4. Activate the container **Order confirmation: Additional payment information**. 
+1. Go to **CMS » Container links**.
+3. Go to the **Cash in advance bank details (PrePayment)** area.
+4. Activate the container **Order confirmation: Additional payment information**.
 5. **Save** the settings.<br />→ The bank details will be displayed on the order confirmation page.
 
 ## Reinitialising the payment
@@ -156,15 +156,30 @@ You can offer your customers to reinitialise the payment. To do so, proceed as f
 
 ##### Reinitialising the payment:
 
-1. Go to **Plugins » Content**.
-2. Go to **CashInAdvance Reinitialise Payment (CashInAdvance)**.
-3. Activate the container **My account: Additional payment information**.<br />→ The customer can reinitialise the payment in the order history in the **My Account** area. 
+1. Go to **CMS » Container links**.
+2. Go to **Cash in advance Reinitialise Payment (PrePayment)**.
+3. Activate the container **My account: Additional payment information**.<br />→ The customer can reinitialise the payment in the order history in the **My Account** area.
 3. Activate the container **Order confirmation: Additional payment information**.<br />→ The customer can reinitialise the payment on the order confirmation page.
-4. Go to **CashInAdvance Reinitialise Payment Script (CashInAdvance)**.
+4. Go to **Cash in advance Reinitialise Payment Script (PrePayment)**.
 5. Activate the container **Script loader: After scripts loaded**.
 6. **Save** the settings.
 
 The customer can now reinitialise the payment either in the order history in the **My Account** area or on the order confirmation page. For Cash in advance, this means accessing once more the bank data saved in the backend.
+
+## Editing texts
+
+You can adjust all of the text elements provided by the PrePayment plugin in the **CMS » Multilingualism** menu. You can store translations for all plentymarkets system languages. To do so, proceed as follows.
+
+##### Editing individual text elements
+
+1. Go to **CMS » Multilingualism**.
+2. Select the Source language from the drop-down list on the left side.
+3. Select the Target language from the drop-down list on the right side.
+4. Expand the sections **bank data**, **designated use** and **reinitilization** in the **PrePayment** area.
+5. Enter the desired text for the individual text elements in the area of the target language.
+6. **Save** the settings.
+
+You can find further information about editing texts of your online store in the <a href="https://knowledge.plentymarkets.com/en/omni-channel/online-store/setting-up-ceres#231" target="_blank"> Setting up Ceres manual page</a>.
 
 ## License
 

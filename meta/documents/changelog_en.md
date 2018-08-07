@@ -1,8 +1,14 @@
 # Release Notes for Cash in advance
 
+## 2.0.9 (2018-08-07)
+
+### Changed
+
+- The plugin user guide has been updated.
+
 ## 2.0.8 (2018-08-06)
 
-### Hinzugefügt
+### Added
 
 - More languages for the plugin UI have been added.
 
@@ -145,4 +151,3 @@
 
 - Payment method **Cash in advance** for plentymarkets online stores
 - Display of designated use and bank details on the order confirmation page
-

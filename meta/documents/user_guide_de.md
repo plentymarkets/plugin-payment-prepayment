@@ -37,7 +37,7 @@ Bevor die Zahlungsart in Ihrem Webshop verfügbar ist, müssen Sie Einstellungen
 				<b>Name</b>
 			</td>
 			<td>
-				Die Bezeichnung, die in der Übersicht der Zahlungsarten in der Kaufabwicklung für diese Zahlungsart angezeigt wird.
+				Bezeichnung eingeben, die in der Übersicht der Zahlungsarten in der Kaufabwicklung für diese Zahlungsart angezeigt wird.
 			</td>
 		</tr>
 		<tr>
@@ -82,7 +82,7 @@ Bevor die Zahlungsart in Ihrem Webshop verfügbar ist, müssen Sie Einstellungen
 				<b>Lieferländer</b>
 			</td>
 			<td>
-				Nur für die hier eingestellten Lieferländer ist diese Zahlungsart freigegeben.
+				Lieferländer aktivieren, für die diese Zahlungsart freigegeben ist.
 			</td>
 		</tr>
         <tr>
@@ -121,8 +121,8 @@ Das Template-Plugin **Ceres** bietet Ihnen auf der Startseite einen Template-Con
 
 ##### Logo mit Template-Container verknüpfen:
 
-1. Gehen Sie zu **Plugins » Content**. 
-3. Wählen Sie den Bereich **Cash in advance icon**.
+1. Gehen Sie zu **CMS » Container-Verknüpfungen**.
+3. Wählen Sie den Bereich **Cash in advance icon (PrePayment)**.
 4. Aktivieren Sie den Container **Homepage: Payment method container**.
 5. **Speichern** Sie die Einstellungen.<br />→ Das Logo der Zahlungsart wird auf der Startseite des Webshops angezeigt.
 
@@ -144,8 +144,8 @@ Nachdem Sie die Einstellungen vorgenommen haben, verknüpfen Sie die Bankdaten m
 
 ##### Bankdaten mit Template-Container verknüpfen:
 
-1. Gehen Sie zu **Plugins » Content**. 
-3. Wählen Sie den Bereich **Cash in advance bank details**.
+1. Öffnen Sie das Menü **CMS » Container-Verknüpfungen**.
+3. Wählen Sie den Bereich **Cash in advance bank details (PrePayment)**.
 4. Aktivieren Sie den Container **Order confirmation: Additional payment information**.
 5. **Speichern** Sie die Einstellungen.<br />→ Die Bankdaten werden auf der Bestellbestätigungsseite angezeigt.
 
@@ -155,15 +155,30 @@ Sie können Kunden die Möglichkeit anbieten, diese Zahlungsart erneut auszufüh
 
 ##### Zahlungsart neu ausführen:
 
-1. Gehen Sie zu **Plugins » Content**.
-2. Gehen Sie zu **CashInAdvance Reinitialise Payment (CashInAdvance)**.
+1. Öffnen Sie das Menü **CMS » Container-Verknüpfungen**.
+2. Gehen Sie zum Bereich **Cash in advance Reinitialise Payment (PrePayment)**.
 3. Aktivieren Sie den Container **My account: Additional payment information**.<br />→ Der Kunde kann in der Auftragshistorie im **Mein-Konto**-Bereich die Zahlung neu ausführen.
 4. Aktivieren Sie den Container **Order confirmation: Additional payment information**.<br />→ Der Kunde kann auf der Bestellbestätigungsseite die Zahlung neu ausführen.
-2. Gehen Sie zu **CashInAdvance Reinitialise Payment Script (CashInAdvance)**.
+2. Gehen Sie zu **Cash in advance Reinitialise Payment Script (PrePayment)**.
 5. Aktivieren Sie den Container **Script loader: After scripts loaded**.
 7. **Speichern** Sie die Einstellungen.
 
-Der Kunde kann nun die Zahlungsart in der Auftragshistorie im **Mein-Konto**-Bereich bzw. auf der Bestellbestätigungsseite neu ausführen. Bei Vorkasse bedeutet dies die erneute Anzeige der im Backend hinterlegten Bankinformationen.
+Der Kunde kann nun die Zahlungsart in der Auftragshistorie im **Mein-Konto**-Bereich bzw. auf der Bestellbestätigungsseite neu ausführen. Bei Vorkasse bedeutet dies, dass die im Backend hinterlegten Bankinformationen erneut angezeigt werden.
+
+## Sprachelemente anpassen
+
+Sie können alle Benennungen, die das Vorkasse-Plugin mitbringt im Menü **CMS » Mehrsprachigkeit** nach Ihren Bedürfnissen in allen verfügbaren Systemsprachen anpassen. Gehen Sie dazu wie im Folgenden beschrieben vor.
+
+##### Sprachdateien anpassen
+
+1. Öffnen Sie das Menü **CMS » Mehrsprachigkeit**.
+2. Wählen Sie auf der linken Seite die **Ausgangssprache** aus der Dropdown-Liste.
+3. Wählen Sie auf der rechten Seite die **Zielsprache** aus der Dropdown-Liste.
+4. Klappen Sie im Bereich **PrePayment** die Sektionen **bank data**, **designated use** und **reinitilization** aus.
+5. Geben Sie im Bereich der Zielsprache die gewünschten Texte für die einzelnen Sprachelemente ein.
+6. Speichern Sie die Einstellungen.
+
+ Weitere Informationen zum Bearbeiten von im Webshop angezeigten Texten finden Sie auf der <a href="https://knowledge.plentymarkets.com/omni-channel/online-shop/ceres-einrichten#231" target="_blank"> Ceres einrichten Handbuchseite</a>.
 
 ## Lizenz
 
