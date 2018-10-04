@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.10 (2018-10-04)
+
+### Geändert
+
+- Support Informationen ergänzt
+
 ## 2.0.9 (2018-08-07)
 
 ### Geändert
