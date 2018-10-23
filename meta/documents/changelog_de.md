@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.11 (2018-10-23)
+
+### Gefixt
+
+- Ein eventuell auftretendes Problem beim Bereitstellen des Plugins wurde behoben.
+
 ## 2.0.10 (2018-10-04)
 
 ### Geändert
@@ -32,7 +38,7 @@
 
 ### Gefixt
 
-- Die Anzeige der Bankdaten auf der Bestellbestätigungsseite wird nicht mehr doppelt dargestellt.  
+- Die Anzeige der Bankdaten auf der Bestellbestätigungsseite wird nicht mehr doppelt dargestellt.
 
 ## 2.0.3 (2018-06-07)
 

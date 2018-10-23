@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 2.0.11 (2018-10-23)
+
+### Fixed
+
+- A possible problem with deploying the plugin has been fixed.
+
 ## 2.0.10 (2018-10-04)
 
 ### Changed
