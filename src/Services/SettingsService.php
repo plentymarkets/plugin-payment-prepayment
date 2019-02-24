@@ -515,7 +515,7 @@ class SettingsService
 
         $shippingCountriesArray = [];
         foreach($shippingCountrySettings as $shippingSetting){
-            $shippingCountriesArray[] = $shippingSetting->shippingCountryId;
+            $shippingCountriesArray[] = (int)$shippingSetting->shippingCountryId;
         }
 
         return $shippingCountriesArray;
