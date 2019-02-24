@@ -10,6 +10,7 @@ use Plenty\Modules\System\Models\Webstore;
 use Plenty\Plugin\Application;
 
 use CashInAdvance\Models\Settings;
+use CashInAdvance\Models\ShippingCountrySettings;
 
 class SettingsService
 {
@@ -75,7 +76,9 @@ class SettingsService
         /** @var Settings $settings */
         $settings = $this->loadClientSettings($plentyId, $lang);
 
-        if($convertToArray && count($settings) > 0)
+        $shippingSettings = $this->getShippingCountriesByPlentyId($plentyId);
+
+        if($convertToArray && (count($settings) || count($shippingSettings)))
         {
             $outputArray = array();
 
@@ -94,6 +97,8 @@ class SettingsService
             $outputArray['lang']        = $settings[count($settings) - 1]->lang;
 
             $outputArray = $this->convertSettingsToCorrectFormat($outputArray,$availableSettings);
+
+            $outputArray['shippingCountries'] = $shippingSettings;
 
             return $outputArray;
         }
@@ -129,10 +134,6 @@ class SettingsService
             {
                 if (array_key_exists($setting->name, $settingsToSave))
                 {
-                    if (is_array($settingsToSave[$setting->name]))
-                    {
-                        $settingsToSave[$setting->name] = implode('-/-', $settingsToSave[$setting->name]);
-                    }
                     $setting->value     = (string)$settingsToSave[$setting->name];
                     $setting->updatedAt = date('Y-m-d H:i:s');
 
@@ -145,7 +146,7 @@ class SettingsService
             }
             if($newLang){
                 foreach ($settingsToSave as $name => $value) {
-                    if(!in_array($name,['shippingCountries','feeDomestic','feeForeign','showBankData','plentyId','lang'])){
+                    if(!in_array($name,['feeDomestic','feeForeign','showBankData','plentyId','lang'])){
                         $newSetting = pluginApp(Settings::class);
                         $newSetting->plentyId = $pid;
                         $newSetting->lang = $lang;
@@ -153,6 +154,20 @@ class SettingsService
                         $newSetting->value = $value;
                         $newSetting->updatedAt = date('Y-m-d H:i:s');
                         $this->db->save($newSetting);
+                    }
+                }
+            }
+
+            if(isset($data['shippingCountries']) && count($data['shippingCountries'])) {
+                /** @var ShippingCountrySettings[] $currentShippingCountriesArray */
+                $currentShippingCountriesArray = $this->getShippingCountriesByPlentyId($pid);
+                foreach($data['shippingCountries'] as $index => $countryId) {
+                    if(!in_array($countryId, $currentShippingCountriesArray)){
+                        /** @var ShippingCountrySettings $shippingCountrySettings */
+                        $shippingCountrySettings = pluginApp(ShippingCountrySettings::class);
+                        $shippingCountrySettings->plentyId = $pid;
+                        $shippingCountrySettings->shippingCountryId = $countryId;
+                        $this->db->save($shippingCountrySettings);
                     }
                 }
             }
@@ -422,7 +437,7 @@ class SettingsService
             {
                 $convertedSettings[$setting] = $this->setType($settings[$setting], $type);
             }
-            else
+            /*else
             {
                 if( is_string($settings[$setting]) && $settings[$setting] != "") //Check if the field is a string to convert it to array.
                 {
@@ -444,7 +459,7 @@ class SettingsService
                         $convertedSettings[$setting] = array();
                     }
                 }
-            }
+            }*/
         }
 
         return $convertedSettings;
@@ -469,5 +484,40 @@ class SettingsService
             case "float":   return (float)$value;
             case "string":  return (string)$value;
         }
+    }
+
+    /**
+     * Load the current activated shipping countries
+     *
+     * @return mixed|Settings
+     * @throws ValidationException
+     */
+    public function getShippingCountries()
+    {
+        $plentyId = $this->app->getPlentyId();
+
+        return $this->getShippingCountriesByPlentyId($plentyId);
+    }
+
+    /**
+     * Load the activated shipping countries for plentyId
+     *
+     * @return mixed
+     */
+    public function getShippingCountriesByPlentyId($plentyId)
+    {
+        /** @var Query $query */
+        $query = $this->db->query(ShippingCountrySettings::MODEL_NAMESPACE);
+        $query->where('plentyId', '=', $plentyId);
+
+        /** @var ShippingCountrySettings[] $shippingCountrySettings */
+        $shippingCountrySettings = $query->get();
+
+        $shippingCountriesArray = [];
+        foreach($shippingCountrySettings as $shippingSetting){
+            $shippingCountriesArray[] = $shippingSetting->shippingCountryId;
+        }
+
+        return $shippingCountriesArray;
     }
 }

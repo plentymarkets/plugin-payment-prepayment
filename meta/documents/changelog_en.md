@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 2.0.12 (2018-02-24)
+
+### Changed
+
+- The shipping countries settings have been moved.
+
 ## 2.0.11 (2018-10-23)
 
 ### Fixed

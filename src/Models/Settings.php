@@ -22,7 +22,6 @@ class Settings extends Model
                                              "infoPageType"        => "int"     ,
                                              "infoPageIntern"      => "int"     ,
                                              "infoPageExtern"      => "string"  ,
-                                             "shippingCountries"   => ['int']   ,
                                              "logo"                => "int"     ,
                                              "logoUrl"             => "string"  ,
                                              "description"         => "string"  ,
@@ -32,8 +31,7 @@ class Settings extends Model
                                              "designatedUse"       => "string"  ,
                                              "showDesignatedUse"   => "bool"    );
 
-    const SETTINGS_DEFAULT_VALUES = array(   "shippingCountries"   => ""                 ,
-                                             "feeDomestic"         => "0.00"             ,
+    const SETTINGS_DEFAULT_VALUES = array(   "feeDomestic"         => "0.00"             ,
                                              "feeForeign"          => "0.00"             ,
                                              "showBankData"        => "0"                ,
                                              "de"  => array( "name"                => "Vorkasse"         ,
@@ -73,8 +71,7 @@ class Settings extends Model
                                                              "designatedUse"       => "Concepto" ,
                                                              "showDesignatedUse"   => "0"                ) );
 
-    const LANG_INDEPENDENT_SETTINGS = array(    "shippingCountries" ,
-                                                "feeDomestic"       ,
+    const LANG_INDEPENDENT_SETTINGS = array(    "feeDomestic"       ,
                                                 "feeForeign"        ,
                                                 "showBankData"      );
 

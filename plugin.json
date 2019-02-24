@@ -1,5 +1,5 @@
 {
-    "version"           : "2.0.11",
+    "version"           : "2.0.12",
     "name"              : "PrePayment",
     "marketplaceName"   : {"de":"Vorkasse","en":"Cash in advance"},
     "license"           : "AGPL-3.0",
@@ -44,6 +44,7 @@
     "dependencies"      : [],
     "runOnBuild"        : [
         "CashInAdvance\\Migrations\\CreateSettings_1_0_0",
-        "CashInAdvance\\Migrations\\CreateSettings_1_1_0"
+        "CashInAdvance\\Migrations\\CreateSettings_1_1_0",
+        "CashInAdvance\\Migrations\\CreateShippingCountrySettings_1_0"
     ]
 }
