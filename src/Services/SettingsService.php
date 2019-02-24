@@ -158,16 +158,27 @@ class SettingsService
                 }
             }
 
-            if(isset($data['shippingCountries']) && count($data['shippingCountries'])) {
+            if(isset($data['shippingCountries'])) {
                 /** @var ShippingCountrySettings[] $currentShippingCountriesArray */
                 $currentShippingCountriesArray = $this->getShippingCountriesByPlentyId($pid);
+                if(!count($data['shippingCountries']) && count($currentShippingCountriesArray)) {
+                    $this->db->query(ShippingCountrySettings::MODEL_NAMESPACE)
+                        ->where('plentyId', '=', $pid)->delete();
+                }
                 foreach($data['shippingCountries'] as $index => $countryId) {
-                    if(!in_array($countryId, $currentShippingCountriesArray)){
+                    if(!in_array($countryId, $currentShippingCountriesArray)) {
                         /** @var ShippingCountrySettings $shippingCountrySettings */
                         $shippingCountrySettings = pluginApp(ShippingCountrySettings::class);
                         $shippingCountrySettings->plentyId = $pid;
                         $shippingCountrySettings->shippingCountryId = $countryId;
                         $this->db->save($shippingCountrySettings);
+                    }
+                }
+                foreach($currentShippingCountriesArray as $index => $countryId) {
+                    if(!in_array($countryId, $data['shippingCountries'])) {
+                        $this->db->query(ShippingCountrySettings::MODEL_NAMESPACE)
+                            ->where('plentyId', '=', $pid)
+                            ->where('shippingCountryId', '=', $countryId)->delete();
                     }
                 }
             }
