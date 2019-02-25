@@ -50,11 +50,13 @@ class CreateShippingCountrySettings_1_0
                 }
                 $shippingCountriesArray = explode('-/-', $shippingCountriesString);
                 foreach ($shippingCountriesArray as $shippingCountry) {
-                    /** @var ShippingCountrySettings $shippingCountrySettings */
-                    $shippingCountrySettings = pluginApp(ShippingCountrySettings::class);
-                    $shippingCountrySettings->plentyId = $plentyId;
-                    $shippingCountrySettings->shippingCountryId = $shippingCountry;
-                    $this->db->save($shippingCountrySettings);
+                    if(strlen($shippingCountry) && $shippingCountry>0) {
+                        /** @var ShippingCountrySettings $shippingCountrySettings */
+                        $shippingCountrySettings = pluginApp(ShippingCountrySettings::class);
+                        $shippingCountrySettings->plentyId = $plentyId;
+                        $shippingCountrySettings->shippingCountryId = $shippingCountry;
+                        $this->db->save($shippingCountrySettings);
+                    }
                 }
             }
         } catch(\Exception $ex) {
