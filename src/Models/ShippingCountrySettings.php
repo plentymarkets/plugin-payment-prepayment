@@ -5,7 +5,7 @@ namespace CashInAdvance\Models;
 use Plenty\Modules\Plugin\DataBase\Contracts\Model;
 
 /**
- * Class Settings
+ * Class ShippingCountrySettings
  *
  * @property int $id
  * @property int $plentyId
