@@ -28,7 +28,6 @@ class MigrateShippingCountries_1_0
             $this->getLogger(__CLASS__.'::'.__FUNCTION__)->debug('CashInAdvance::PaymentMethod.paymentMethodName', $ex->getMessage().' - '.$ex->getTraceAsString());
             $this->getLogger(__CLASS__.'::'.__FUNCTION__)->error('CashInAdvance::PaymentMethod.paymentMethodName', $ex->getMessage().' - '.$ex->getTraceAsString());
         }
-
     }
 
     private function migrateShippingCountries() {
@@ -58,5 +57,4 @@ class MigrateShippingCountries_1_0
             }
         }
     }
-
 }
