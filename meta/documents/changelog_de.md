@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.12 (2019-02-24)
+
+### Geändert
+
+- Die Einstellungen für Lieferländer wurden optimiert.
+
 ## 2.0.11 (2018-10-23)
 
 ### Gefixt

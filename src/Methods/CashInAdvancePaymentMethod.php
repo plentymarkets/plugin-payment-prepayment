@@ -47,7 +47,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      */
     public function isActive()
     {
-        if(!in_array($this->checkout->getShippingCountryId(), $this->settings->getSetting('shippingCountries')))
+        if(!in_array($this->checkout->getShippingCountryId(), $this->settings->getShippingCountries()))
         {
             return false;
         }
