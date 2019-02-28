@@ -45,6 +45,7 @@
     "runOnBuild"        : [
         "CashInAdvance\\Migrations\\CreateSettings_1_0_0",
         "CashInAdvance\\Migrations\\CreateSettings_1_1_0",
-        "CashInAdvance\\Migrations\\CreateShippingCountrySettings_1_0"
+        "CashInAdvance\\Migrations\\CreateShippingCountrySettings_1_0",
+        "CashInAdvance\\Migrations\\MigrateShippingCountries_1_0"
     ]
 }
