@@ -1,5 +1,6 @@
 <!-- PLUGIN BUTTON -->
 {% set paymentId = 0 %}
+{% set pluginPaymentId = 6000 %}
 {% set paidStatus = '' %}
 
 {% set properties = order.properties %}
@@ -11,15 +12,15 @@
         {% set paidStatus = property.value %}
     {% endif %}
 {% endfor %}
-{% if (paymentId == paymentMethodId) and (paidStatus != 'fullyPaid') %}
+{% if ((paymentId == paymentMethodId) or (pluginPaymentId == paymentMethodId)) and (paidStatus != 'fullyPaid') %}
     {% set display = "block" %}
 {% else %}
     {% set display = "none" %}
 {% endif %}
 
-{% if services.template.isCurrentTemplate('tpl.my-account') %}
+{% if (services.template.isCurrentTemplate('tpl.my-account')) or (services.template.isCurrentTemplate('tpl.confirmation')) %}
 
-    <button id="reinitCashInAdvance-{{order.id}}" class="btn btn-primary btn-block" onClick="loadCashInAdvanceModal()" data-toggle="modal" data-target="#cashinadvanceModal" style="display: {{ display }}; margin-top: 0.5rem">
+    <button id="reinitCashInAdvance-{{order.id}}" class="btn btn-primary btn-block" onClick="loadCashInAdvanceModal()" data-toggle="modal" data-target="#cashinadvanceModal" style="display: {{ display }}; margin-top: 0.5rem;">
         {{ trans("PrePayment::PaymentMethod.reinitPaymentButton") }}
     </button>
 
