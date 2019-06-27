@@ -1,6 +1,12 @@
 # Release Notes for Cash in advance
 
-## 2.0.12 (2018-02-24)
+## 2.0.13 (2019-06-27)
+
+### Fixed
+
+- A Javascript error that could occur on the order confirmation page has been fixed.
+
+## 2.0.12 (2019-02-24)
 
 ### Changed
 

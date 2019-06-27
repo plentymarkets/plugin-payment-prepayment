@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 2.0.13 (2019-06-27)
+
+### Gefixt
+
+- Ein Javascript Fehler der auf der Bestellbestätigungsseite auftreten kann wurde behoben.
+
 ## 2.0.12 (2019-02-24)
 
 ### Geändert
