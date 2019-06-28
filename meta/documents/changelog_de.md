@@ -4,7 +4,7 @@
 
 ### Gefixt
 
-- Ein Javascript Fehler der auf der Bestellbestätigungsseite auftreten kann wurde behoben.
+- Ein Javascript-Fehler, der auf der Bestellbestätigungsseite auftreten konnte, wurde behoben.
 
 ## 2.0.12 (2019-02-24)
 
