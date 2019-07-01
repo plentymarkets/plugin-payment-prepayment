@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 2.0.14 (2019-07-01)
+
+### Gefixt
+
+- The button for "Bank details" is not displayed for other payment types.
+
 ## 2.0.13 (2019-06-27)
 
 ### Fixed

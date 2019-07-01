@@ -1,6 +1,6 @@
 <!-- PLUGIN BUTTON -->
-{% set paymentId = 0 %}
-{% set pluginPaymentId = 6000 %}
+{% set paymentId = -1 %}
+{% set oldPaymentId = 0 %}
 {% set paidStatus = '' %}
 
 {% set properties = order.properties %}
@@ -12,7 +12,7 @@
         {% set paidStatus = property.value %}
     {% endif %}
 {% endfor %}
-{% if ((paymentId == paymentMethodId) or (pluginPaymentId == paymentMethodId)) and (paidStatus != 'fullyPaid') %}
+{% if ( paymentId in [paymentMethodId,oldPaymentId] ) and (paidStatus != 'fullyPaid') %}
     {% set display = "block" %}
 {% else %}
     {% set display = "none" %}
