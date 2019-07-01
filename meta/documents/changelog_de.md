@@ -1,10 +1,10 @@
 # Release Notes für Vorkasse
 
-## 2.0.14 (2019-07-01)
+## 2.1.0 (2019-07-01)
 
 ### Gefixt
 
-- Button für "Bankdetails" wird nicht bei anderen Zahlungenarten eingeblendet. 
+- Der Button für "Bankdetails anzeigen" wird nun korrekt für die Vorkasse-Zahlungsarten angezeigt.
 
 ## 2.0.13 (2019-06-27)
 
