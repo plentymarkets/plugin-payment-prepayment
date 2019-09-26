@@ -2,7 +2,7 @@
 namespace CashInAdvance\Assistants;
 
 use CashInAdvance\Assistants\DataSources\AssistantDataSource;
-use CashInAdvance\Assistants\SettingsHandlers\InvoiceAssistantSettingsHandler;
+use CashInAdvance\Assistants\SettingsHandlers\CashInAdvanceSettingsHandler;
 use CashInAdvance\Services\SettingsService;
 use Plenty\Modules\Order\Shipping\Countries\Contracts\CountryRepositoryContract;
 use Plenty\Modules\System\Contracts\WebstoreRepositoryContract;
@@ -49,12 +49,12 @@ class CashInAdvanceAssistant extends WizardProvider
     protected function structure()
     {
         return [
-            "title" => 'assistant.assistantTitle',
-            "shortDescription" => 'assistant.assistantShortDescription',
+            "title" => 'PrePaymentAssistant.assistantTitle',
+            "shortDescription" => 'PrePaymentAssistant.assistantShortDescription',
             "iconPath" => $this->getIcon(),
             "settingsHandlerClass" => CashInAdvanceSettingsHandler::class,
             'dataSource' => AssistantDataSource::class,
-            "translationNamespace" => "CashInAdvance",
+            "translationNamespace" => "PrePayment",
             "key" => "payment-cash-in-advance-assistant",
             "topics" => ["payment"],
             "priority" => 990,
@@ -63,7 +63,7 @@ class CashInAdvanceAssistant extends WizardProvider
                     "type" => 'select',
                     'defaultValue' => $this->getMainWebstore(),
                     "options" => [
-                        "name" => 'assistant.storeName',
+                        "name" => 'PrePaymentAssistant.storeName',
                         'required' => true,
                         'listBoxValues' => $this->getWebstoreListForm(),
                     ],
@@ -71,80 +71,55 @@ class CashInAdvanceAssistant extends WizardProvider
             ],
             "steps" => [
                 "stepOne" => [
-                    "title" => "assistant.stepOneTitle",
+                    "title" => "PrePaymentAssistant.stepOneTitle",
                     "sections" => [
                         [
-                            "title" => 'assistant.shippingCountriesTitle',
-                            "description" => 'assistant.shippingCountriesDescription',
+                            "title" => 'PrePaymentAssistant.shippingCountriesTitle',
+                            "description" => 'PrePaymentAssistant.shippingCountriesDescription',
                             "form" => [
                                 "shippingCountries" => [
                                     'type' => 'checkboxGroup',
                                     'defaultValue' => [],
                                     'options' => [
-                                        'name' => 'assistant.shippingCountries',
+                                        'name' => 'PrePaymentAssistant.shippingCountries',
                                         'checkboxValues' => $this->getCountriesListForm(),
                                     ],
-                                ],
-                            ],
-                        ],
-                        [
-                            "title" => 'assistant.allowInvoiceForGuestTitle',
-                            "form" => [
-                                "allowInvoiceForGuest" => [
-                                    'type' => 'checkbox',
-                                    'defaultValue' => false,
-                                    'options' => [
-                                        'name' => 'assistant.assistantInvoiceForGuestCheckbox'
-                                    ]
-                                ],
-                            ],
-                        ],
-                        [
-                            "title" => 'assistant.invoiceAddressEqualShippingAddressTitle',
-                            "description" => 'assistant.invoiceEqualsShippingAddressDescription',
-                            "form" => [
-                                "invoiceEqualsShippingAddress" => [
-                                    'type' => 'checkbox',
-                                    'defaultValue' => false,
-                                    'options' => [
-                                        'name' => 'assistant.invoiceAddressEqualShippingAddress'
-                                    ]
                                 ],
                             ],
                         ],
                     ],
                 ],
                 "stepTwo" => [
-                    "title" => "assistant.stepTwoTitle",
+                    "title" => "PrePaymentAssistant.stepTwoTitle",
                     "sections" => [
                         [
-                            "title" => 'assistant.infoPageTitle',
+                            "title" => 'PrePaymentAssistant.infoPageTitle',
                             "form" => [
                                 "info_page_toggle" => [
                                     'type' => 'toggle',
                                     'options' => [
-                                        'name' => 'assistant.infoPageToggle',
+                                        'name' => 'PrePaymentAssistant.infoPageToggle',
                                     ]
                                 ],
                             ],
                         ],
                         [
-                            "title" => 'assistant.infoPageTypeTitle',
-                            "description" => 'assistant.infoPageTypeDescription',
+                            "title" => 'PrePaymentAssistant.infoPageTypeTitle',
+                            "description" => 'PrePaymentAssistant.infoPageTypeDescription',
                             "condition" => 'info_page_toggle',
                             "form" => [
                                 "info_page_type" => [
                                     'type' => 'select',
                                     'defaultValue' => 1,
                                     'options' => [
-                                        'name' => 'assistant.infoPageTypeName',
+                                        'name' => 'PrePaymentAssistant.infoPageTypeName',
                                         'listBoxValues' => [
                                             [
-                                                "caption" => 'assistant.infoPageInternal',
+                                                "caption" => 'PrePaymentAssistant.infoPageInternal',
                                                 "value" => 1,
                                             ],
                                             [
-                                                "caption" => 'assistant.infoPageExternal',
+                                                "caption" => 'PrePaymentAssistant.infoPageExternal',
                                                 "value" => 2,
                                             ],
                                         ],
@@ -154,7 +129,7 @@ class CashInAdvanceAssistant extends WizardProvider
                         ],
                         [
                             "title" => '',
-                            "description" => 'assistant.infoPageNameInternal',
+                            "description" => 'PrePaymentAssistant.infoPageNameInternal',
                             "condition" => 'info_page_toggle && info_page_type == 1',
                             "form" => [
                                 "internal_info_page" => [
@@ -163,7 +138,7 @@ class CashInAdvanceAssistant extends WizardProvider
                                     'isVisible' => "info_page_toggle && info_page_type == 1",
                                     "displaySearch" => true,
                                     "options" => [
-                                        "name" => "assistant.infoPageNameInternal"
+                                        "name" => "PrePaymentAssistant.infoPageNameInternal"
                                     ]
                                 ],
                             ],
@@ -178,7 +153,7 @@ class CashInAdvanceAssistant extends WizardProvider
                                     'defaultValue' => '',
                                     'options' => [
                                         'pattern'=> "(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})",
-                                        'name' => 'assistant.infoPageNameExternal',
+                                        'name' => 'PrePaymentAssistant.infoPageNameExternal',
                                     ],
                                 ],
                             ],
@@ -186,24 +161,24 @@ class CashInAdvanceAssistant extends WizardProvider
                     ],
                 ],
                 "stepThree" => [
-                    "title" => 'assistant.stepThreeTitle',
+                    "title" => 'PrePaymentAssistant.stepThreeTitle',
                     "sections" => [
                         [
-                            "title" => 'assistant.sectionLogoTitle',
-                            "description" => 'assistant.sectionLogoDescription',
+                            "title" => 'PrePaymentAssistant.sectionLogoTitle',
+                            "description" => 'PrePaymentAssistant.sectionLogoDescription',
                             "form" => [
                                 "logo_type_external" => [
                                     'type' => 'toggle',
                                     'defaultValue' => false,
                                     'options' => [
-                                        'name' => 'assistant.logoTypeToggle',
+                                        'name' => 'PrePaymentAssistant.logoTypeToggle',
                                     ],
                                 ],
                             ],
                         ],
                         [
                             "title" => '',
-                            "description" => 'assistant.logoURLDescription',
+                            "description" => 'PrePaymentAssistant.logoURLDescription',
                             "condition" => 'logo_type_external',
                             "form" => [
                                 "logo_url" => [
@@ -211,20 +186,20 @@ class CashInAdvanceAssistant extends WizardProvider
                                     'defaultValue' => '',
                                     'showPreview' => true,
                                     'options' => [
-                                        'name' => 'assistant.logoURLTypeName'
+                                        'name' => 'PrePaymentAssistant.logoURLTypeName'
                                     ]
                                 ],
                             ],
                         ],
                         [
-                            "title" => 'assistant.sectionPaymentMethodIconTitle',
-                            "description" => 'assistant.sectionPaymentMethodIconDescription',
+                            "title" => 'PrePaymentAssistant.sectionPaymentMethodIconTitle',
+                            "description" => 'PrePaymentAssistant.sectionPaymentMethodIconDescription',
                             "form" => [
-                                "invoicePaymentMethodIcon" => [
+                                "PaymentMethodIcon" => [
                                     'type' => 'checkbox',
                                     'defaultValue' => 'false',
                                     'options' => [
-                                        'name' => 'assistant.assistantPaymentMethodIconCheckbox'
+                                        'name' => 'PrePaymentAssistant.assistantPaymentMethodIconCheckbox'
                                     ]
                                 ],
                             ],
@@ -232,101 +207,44 @@ class CashInAdvanceAssistant extends WizardProvider
                     ]
                 ],
                 "stepFour" => [
-                    "title" => 'assistant.interface',
+                    "title" => 'PrePaymentAssistant.interface',
                     "sections" => [
                         [
-                            "title" => 'assistant.showBankDataTitle',
-                            "description" => 'assistant.showBankDataDescription',
+                            "title" => 'PrePaymentAssistant.showBankDataTitle',
+                            "description" => 'PrePaymentAssistant.showBankDataDescription',
                             "showFullDescription" => true,
                             "form" => [
                                 "showBankData" => [
                                     'type' => 'checkbox',
                                     'defaultValue' => false,
                                     'options' => [
-                                        'name' => 'assistant.showBankData'
+                                        'name' => 'PrePaymentAssistant.showBankData'
                                     ]
                                 ],
                             ],
                         ],
                         [
-                            "title" => "assistant.infoPageLimitInputTitle",
-                            "form" => [
-                                "limit_toggle" => [
-                                    'type' => 'toggle',
-                                    'defaultValue' => false,
-                                    'options' => [
-                                        'name' => 'assistant.infoPageLimitInput',
-                                    ]
-                                ],
-                            ],
-                        ],
-                        [
-                            "title" => 'assistant.quorumOrders',
-                            "description" => 'assistant.quorumOrdersDescription',
-                            "condition" => "limit_toggle",
-                            "form" => [
-                                "quorumOrders" => [
-                                    'type' => 'number',
-                                    'defaultValue' => 0,
-                                    'options' => [
-                                        'name' => 'assistant.quorumOrders',
-                                    ],
-                                ],
-                            ],
-                        ],
-                        [
-                            "title" => 'assistant.minimumAmount',
-                            "description" => 'assistant.minimumAmountDescription',
-                            "condition" => "limit_toggle",
-                            "form" => [
-                                "minimumAmount" => [
-                                    'type' => 'double',
-                                    'isPriceInput' => true,
-                                    'defaultValue' => 0,
-                                    'options' => [
-                                        'name' => 'assistant.minimumAmount',
-                                    ],
-                                ],
-                            ],
-                        ],
-                        [
-                            "title" => 'assistant.maximumAmount',
-                            "condition" => "limit_toggle",
-                            "description" => 'assistant.maximumAmountDescription',
-                            "form" => [
-                                "maximumAmount" => [
-                                    'type' => 'double',
-                                    'isPriceInput' => true,
-                                    'defaultValue' => 0,
-                                    'options' => [
-                                        'name' => 'assistant.maximumAmount',
-                                    ],
-                                ],
-                            ],
-                        ],
-
-                        [
-                            "title" => 'assistant.showDesignatedUseTitle',
+                            "title" => 'PrePaymentAssistant.showDesignatedUseTitle',
                             "form" => [
                                 "showDesignatedUse" => [
                                     'type' => 'toggle',
                                     'defaultValue' => true,
                                     'options' => [
-                                        'name' => 'assistant.showDesignatedUse'
+                                        'name' => 'PrePaymentAssistant.showDesignatedUse'
                                     ]
                                 ],
                             ],
                         ],
                         [
-                            "title" => 'assistant.designatedUseTitle',
+                            "title" => 'PrePaymentAssistant.designatedUseTitle',
                             "condition" => 'showDesignatedUse',
-                            "description" => 'assistant.designatedUseDescription',
+                            "description" => 'PrePaymentAssistant.designatedUseDescription',
                             "form" => [
                                 "designatedUse" => [
                                     'type' => 'text',
                                     'defaultValue' => "%s",
                                     'options' => [
-                                        'name' => 'assistant.designatedUse',
+                                        'name' => 'PrePaymentAssistant.designatedUse',
                                     ],
                                 ],
                             ],
@@ -355,7 +273,7 @@ class CashInAdvanceAssistant extends WizardProvider
     private function getIcon()
     {
         $app = pluginApp(Application::class);
-        $icon = $app->getUrlPath('invoice').'/images/icon.png';
+        $icon = $app->getUrlPath('prepayment').'/images/icon.png';
 
         return $icon;
     }
