@@ -2,6 +2,8 @@
 
 namespace CashInAdvance\Providers;
 
+use CashInAdvance\Assistants\CashInAdvanceAssistant;
+use Plenty\Modules\Wizard\Contracts\WizardContainerContract;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 use Plenty\Plugin\Templates\Twig;
@@ -30,6 +32,7 @@ class CashInAdvanceServiceProvider extends ServiceProvider
     public function boot(Twig $twig, PaymentMethodContainer $payContainer)
     {
         $twig->addExtension(CashInAdvanceTwigServiceProvider::class);
+        pluginApp(WizardContainerContract::class)->register('payment-cash-in-advance-assistant', CashInAdvanceAssistant::class);
 
         //Register the Pre Payment Plugin
         $payContainer->register('plenty::PREPAYMENT', CashInAdvancePaymentMethod::class,
