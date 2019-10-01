@@ -189,18 +189,6 @@ class SettingsService
     }
 
     /**
-     * Delete settings for one client
-     *
-     * @param integer $plentyId
-     */
-    public function deleteSettings($plentyId) {
-        $this->db->query(Settings::MODEL_NAMESPACE)
-            ->where("plentyId",'=',$plentyId)->delete();
-        $this->db->query(ShippingCountrySettings::MODEL_NAMESPACE)
-            ->where('plentyId', '=', $plentyId)->delete();
-    }
-
-    /**
      * Creates initial settings by plentyId and language
      *
      * @param $plentyId
@@ -318,34 +306,6 @@ class SettingsService
     }
 
     /**
-     * Get available clients of the system
-     *
-     * @return array
-     */
-    public function getCashInAdvanceClients()
-    {
-        /** @var WebstoreRepositoryContract $wsRepo */
-        $wsRepo = pluginApp(WebstoreRepositoryContract::class);
-
-        $clients    = array();
-
-        /** @var Webstore[] $result */
-        $result = $wsRepo->loadAll();
-
-        /** @var Webstore $record */
-        foreach ($result as $record) {
-            if ($record->storeIdentifier > 0) {
-                $settings = $this->clientSettingsExist($record->storeIdentifier, null);
-                if ($settings) {
-                    $clients[] = $record->storeIdentifier;
-                }
-            }
-        }
-
-        return $clients;
-    }
-
-    /**
      * Checks if input language is valid language, instead return default language
      *
      * @param $lang
@@ -396,30 +356,6 @@ class SettingsService
         }
 
         return $clientSettings;
-    }
-
-    /**
-     * Check if settings exist for plentyId and language
-     *
-     * @param $plentyId
-     * @param $lang
-     *
-     * @return boolean
-     */
-    public function clientSettingsExist($plentyId, $lang)
-    {
-        /** @var Query $query */
-        $query = $this->db->query(Settings::MODEL_NAMESPACE);
-        $query->where('plentyId', '=', $plentyId);
-        if(!empty($lang))
-        {
-            $query->where('lang', '=', $lang);
-        }
-        $query->orWhere('lang',   '=', '')->where('plentyId', '=', $plentyId);
-
-        /** @var Settings[] $clientSettings */
-        $clientSettings = $query->get();
-        return count($clientSettings) > 0;
     }
 
     /**

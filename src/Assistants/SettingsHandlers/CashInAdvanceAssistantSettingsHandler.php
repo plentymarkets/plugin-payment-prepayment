@@ -14,7 +14,7 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
     /**
      * @var Plugin
      */
-    private $prePaymentPlugin;
+    private $invoicePlugin;
     /**
      * @var Plugin
      */
@@ -37,7 +37,7 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
             $webstoreId = $this->getWebstore($parameter['optionId'])->storeIdentifier;
         }
 
-        $this->savePrePaymentSettings($webstoreId, $data);
+        $this->saveInvoiceSettings($webstoreId, $data);
         $this->createContainer($webstoreId, $data);
         return true;
     }
@@ -46,23 +46,28 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
      * @param int $webstoreId
      * @param array $data
      */
-    private function savePrePaymentSettings($webstoreId, $data)
+    private function saveInvoiceSettings($webstoreId, $data)
     {
         $settings = [
-            'name' => '',
-            'feeDomestic' => 0.00,
-            'feeForeign' => 0.00,
-            'showBankData' => $data['showBankData'] ?? '',
+            'name' => $data['name'] ?? '',
             'infoPageType' => $data['info_page_toggle'] ? ($data['info_page_type'] ?? 0) : 0,
             'infoPageIntern' => $data['info_page_toggle'] ? ($data['internal_info_page'] ?? '') : '',
             'infoPageExtern' => $data['info_page_toggle'] ? ($data['external_info_page'] ?? '') : '',
             'logo' => $data['logo_type_external'] ?? 0,
             'logoUrl' => $data['logo_url'] ?? '',
-            'description' => '',
+            'description' => $data['description'] ?? '',
             'designatedUse' => $data['designatedUse'] ?? '',
             'showDesignatedUse' => $data['showDesignatedUse'] ?? 0,
             'plentyId' => $webstoreId,
+            'showBankData' => $data['showBankData'] ?? '',
+            'invoiceEqualsShippingAddress' => $data['invoiceEqualsShippingAddress'] ?? '',
+            'disallowInvoiceForGuest' => isset($data['allowInvoiceForGuest']) ? (int) !$data['allowInvoiceForGuest'] : 0,
+            'quorumOrders' => isset($data['limit_toggle']) && $data['limit_toggle'] && isset($data['quorumOrders']) ? $data['quorumOrders'] : 0,
+            'minimumAmount' => isset($data['limit_toggle']) && $data['limit_toggle'] && isset($data['minimumAmount']) ? $data['minimumAmount'] : 0,
+            'maximumAmount' => isset($data['limit_toggle']) && $data['limit_toggle'] && isset($data['maximumAmount']) ? $data['maximumAmount'] : 0,
             'shippingCountries' => $data['shippingCountries'] ?? [],
+            'feeDomestic' => 0.00,
+            'feeForeign' => 0.00
         ];
         /** @var SettingsService $settingsService */
         $settingsService = pluginApp(SettingsService::class);
@@ -128,16 +133,16 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
      * @param int $webstoreId
      * @return Plugin
      */
-    private function getPrePaymentPlugin($webstoreId)
+    private function getInvoicePlugin($webstoreId)
     {
-        if ($this->prePaymentPlugin === null) {
+        if ($this->invoicePlugin === null) {
             $webstore = $this->getWebstore($webstoreId);
             $pluginSet = $webstore->pluginSet;
             $plugins = $pluginSet->plugins();
-            $this->prePaymentPlugin = $plugins->where('name', 'PrePayment')->first();
+            $this->invoicePlugin = $plugins->where('name', 'Invoice')->first();
         }
 
-        return $this->prePaymentPlugin;
+        return $this->invoicePlugin;
     }
 
     /**
@@ -147,10 +152,10 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
     private function createContainer($webstoreId, $data)
     {
         $webstore = $this->getWebstore($webstoreId);
-        $prePaymentPlugin = $this->getPrePaymentPlugin($webstoreId);
+        $invoicePlugin = $this->getInvoicePlugin($webstoreId);
         $ceresPlugin = $this->getCeresPlugin($webstoreId);
 
-        if( ($webstore && $webstore->pluginSetId) &&  $prePaymentPlugin !== null && $ceresPlugin !== null) {
+        if( ($webstore && $webstore->pluginSetId) &&  $invoicePlugin !== null && $ceresPlugin !== null) {
             /** @var PluginLayoutContainerRepositoryContract $pluginLayoutContainerRepo */
             $pluginLayoutContainerRepo = pluginApp(PluginLayoutContainerRepositoryContract::class);
 
@@ -160,28 +165,28 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
             $containerListEntries[] = $this->createContainerDataListEntry(
                 $webstoreId,
                 'Ceres::MyAccount.OrderHistoryPaymentInformation',
-                'CashInAdvance\Providers\CashInAdvanceOrderConfirmationDataProvider'
+                'Invoice\Providers\InvoiceOrderConfirmationDataProvider'
             );
 
             $containerListEntries[] = $this->createContainerDataListEntry(
                 $webstoreId,
                 'Ceres::OrderConfirmation.AdditionalPaymentInformation',
-                'CashInAdvance\Providers\CashInAdvanceOrderConfirmationDataProvider'
+                'Invoice\Providers\InvoiceOrderConfirmationDataProvider'
             );
 
-            if (isset($data['PaymentMethodIcon']) && $data['PaymentMethodIcon']) {
+            if (isset($data['invoicePaymentMethodIcon']) && $data['invoicePaymentMethodIcon']) {
                 $containerListEntries[] = $this->createContainerDataListEntry(
                     $webstoreId,
                     'Ceres::Homepage.PaymentMethods',
-                    'CashInAdvance\Providers\Icon\IconProvider'
+                    'Invoice\Providers\Icon\IconProvider'
                 );
             } else {
                 $pluginLayoutContainerRepo->removeOne(
                     $webstore->pluginSetId,
                     'Ceres::Homepage.PaymentMethods',
-                    'CashInAdvance\Providers\Icon\IconProvider',
+                    'Invoice\Providers\Icon\IconProvider',
                     $ceresPlugin->id,
-                    $prePaymentPlugin->id
+                    $invoicePlugin->id
                 );
             }
 
@@ -198,17 +203,17 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
     private function createContainerDataListEntry($webstoreId, $containerKey, $dataProviderKey)
     {
         $webstore = $this->getWebstore($webstoreId);
-        $prePaymentPlugin = $this->getPrePaymentPlugin($webstoreId);
+        $invoicePlugin = $this->getInvoicePlugin($webstoreId);
         $ceresPlugin = $this->getCeresPlugin($webstoreId);
 
         $dataListEntry = [];
 
         $dataListEntry['containerKey'] = $containerKey;
         $dataListEntry['dataProviderKey'] = $dataProviderKey;
-        $dataListEntry['dataProviderPluginId'] = $prePaymentPlugin->id;
+        $dataListEntry['dataProviderPluginId'] = $invoicePlugin->id;
         $dataListEntry['containerPluginId'] = $ceresPlugin->id;
         $dataListEntry['pluginSetId'] = $webstore->pluginSetId;
-        $dataListEntry['dataProviderPluginSetEntryId'] = $prePaymentPlugin->pluginSetEntries[0]->id;
+        $dataListEntry['dataProviderPluginSetEntryId'] = $invoicePlugin->pluginSetEntries[0]->id;
         $dataListEntry['containerPluginSetEntryId'] = $ceresPlugin->pluginSetEntries[0]->id;
 
         return $dataListEntry;

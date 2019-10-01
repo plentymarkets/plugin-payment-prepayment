@@ -1,8 +1,8 @@
 <?php
 
-namespace CashInAdvance\Assistants\DataSources;
+namespace Invoice\Assistants\DataSources;
 
-use CashInAdvance\Services\SettingsService;
+use Invoice\Services\SettingsService;
 use Plenty\Modules\Plugin\Contracts\PluginLayoutContainerRepositoryContract;
 use Plenty\Modules\System\Contracts\WebstoreRepositoryContract;
 use Plenty\Modules\Wizard\Models\WizardData;
@@ -40,7 +40,7 @@ class AssistantDataSource extends BaseWizardDataSource
     private function getEntities()
     {
         $data = [];
-        $pids = $this->settingsService->getCashInAdvanceClients();
+        $pids = $this->settingsService->getInvoiceClients();
         foreach ($pids as $pid) {
             $settingsExist = $this->settingsService->clientSettingsExist($pid, null);
             if ($settingsExist) {
@@ -48,9 +48,17 @@ class AssistantDataSource extends BaseWizardDataSource
                 $data[$pid] = [];
                 $data[$pid] = $settings;
                 $data[$pid]['config_name'] = $pid;
+                if ($data[$pid]['quorumOrders'] > 0 || $data[$pid]['minimumAmount'] > 0 || $data[$pid]['maximumAmount'] > 0) {
+                    $data[$pid]['limit_toggle'] = true;
+                }
+                if ($data[$pid]['disallowInvoiceForGuest'] == 1) {
+                    $data[$pid]['allowInvoiceForGuest'] = 0;
+                } elseif (empty($data[$pid]['allowInvoiceForGuest']) || $data[$pid]['allowInvoiceForGuest'] == 0) {
+                    $data[$pid]['allowInvoiceForGuest'] = 1;
+                }
                 $data[$pid]['logo_url'] = $data[$pid]['logoUrl'];
                 $data[$pid]['logo_type_external'] = $data[$pid]['logo'] > 0;
-                $data[$pid]['PaymentMethodIcon'] = $this->logoInFooter($pid);
+                $data[$pid]['invoicePaymentMethodIcon'] = $this->logoInFooter($pid);
                 $data[$pid]['info_page_toggle'] = $data[$pid]['infoPageType'] > 0;
                 $data[$pid]['info_page_type'] = $data[$pid]['infoPageType'] == 2 ? 2 : 1;
                 $data[$pid]['external_info_page'] = $data[$pid]['infoPageExtern'];
@@ -75,7 +83,7 @@ class AssistantDataSource extends BaseWizardDataSource
             /** @var PluginLayoutContainerRepositoryContract $pluginLayoutContainerRepo */
             $pluginLayoutContainerRepo = pluginApp(PluginLayoutContainerRepositoryContract::class);
             $containers = $pluginLayoutContainerRepo->all($webstore->pluginSetId);
-            return $containers->pluck('dataProviderKey')->contains('CashInAdvance\Providers\Icon\IconProvider');
+            return $containers->pluck('dataProviderKey')->contains('Invoice\Providers\Icon\IconProvider');
         }
         return false;
     }
@@ -98,7 +106,7 @@ class AssistantDataSource extends BaseWizardDataSource
         //Must be passed otherwise the tiles have no data.
         $tileConfig = [];
 
-        $pids = $this->settingsService->getCashInAdvanceClients();
+        $pids = $this->settingsService->getInvoiceClients();
         foreach ($pids as $pid) {
             $tileConfig[$pid] =
                 [

@@ -31,8 +31,8 @@ class CashInAdvanceServiceProvider extends ServiceProvider
     */
     public function boot(Twig $twig, PaymentMethodContainer $payContainer)
     {
-        pluginApp(WizardContainerContract::class)->register('payment-cash-in-advance-assistant', CashInAdvanceAssistant::class);
         $twig->addExtension(CashInAdvanceTwigServiceProvider::class);
+        pluginApp(WizardContainerContract::class)->register('payment-cash-in-advance-assistant', CashInAdvanceAssistant::class);
 
         //Register the Pre Payment Plugin
         $payContainer->register('plenty::PREPAYMENT', CashInAdvancePaymentMethod::class,
