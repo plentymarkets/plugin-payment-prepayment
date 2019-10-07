@@ -63,6 +63,7 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
             'showDesignatedUse' => $data['showDesignatedUse'] ?? 0,
             'plentyId' => $webstoreId,
             'shippingCountries' => $data['shippingCountries'] ?? [],
+            'lang' => $this->getLanguage()
         ];
         /** @var SettingsService $settingsService */
         $settingsService = pluginApp(SettingsService::class);
