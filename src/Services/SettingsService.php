@@ -335,7 +335,7 @@ class SettingsService
         /** @var Webstore $record */
         foreach ($result as $record) {
             if ($record->storeIdentifier > 0) {
-                $settings = $this->clientSettingsExist($record->storeIdentifier, null);
+                $settings = $this->clientSettingsExist($record->storeIdentifier);
                 if ($settings) {
                     $clients[] = $record->storeIdentifier;
                 }
@@ -374,23 +374,19 @@ class SettingsService
     {
         /** @var Query $query */
         $query = $this->db->query(Settings::MODEL_NAMESPACE);
-        $query->where('plentyId', '=', $plentyId);
-        if(!empty($lang))
-        {
-            $query->where('lang', '=', $lang);
-        }
+        $query->where('plentyId', '=', $plentyId)->where('lang', '=', $lang);
         $query->orWhere('lang',   '=', '')->where('plentyId', '=', $plentyId);
 
         /** @var Settings[] $clientSettings */
         $clientSettings = $query->get();
 
-        if( !count($clientSettings) > 0)
+        if(!count($clientSettings))
         {
             $this->updateClients();
             $clientSettings = $query->get();
         }
 
-        if(!count($clientSettings) > 0)
+        if(!count($clientSettings))
         {
             throw new ValidationException('Error loading Settings');
         }
@@ -402,24 +398,15 @@ class SettingsService
      * Check if settings exist for plentyId and language
      *
      * @param $plentyId
-     * @param $lang
      *
      * @return boolean
      */
-    public function clientSettingsExist($plentyId, $lang)
+    public function clientSettingsExist($plentyId)
     {
         /** @var Query $query */
         $query = $this->db->query(Settings::MODEL_NAMESPACE);
         $query->where('plentyId', '=', $plentyId);
-        if(!empty($lang))
-        {
-            $query->where('lang', '=', $lang);
-        }
-        $query->orWhere('lang',   '=', '')->where('plentyId', '=', $plentyId);
-
-        /** @var Settings[] $clientSettings */
-        $clientSettings = $query->get();
-        return count($clientSettings) > 0;
+        return $query->count();
     }
 
     /**

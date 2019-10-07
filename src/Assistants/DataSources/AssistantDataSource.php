@@ -45,7 +45,6 @@ class AssistantDataSource extends BaseWizardDataSource
             $settingsExist = $this->settingsService->clientSettingsExist($pid, null);
             if ($settingsExist) {
                 $settings = $this->settingsService->getSettingsForPlentyId($pid, null);
-                $data[$pid] = [];
                 $data[$pid] = $settings;
                 $data[$pid]['config_name'] = $pid;
                 $data[$pid]['logo_url'] = $data[$pid]['logoUrl'];
