@@ -12,10 +12,15 @@
     {
       "name": "MultilingualismConfig.reinit",
       "prefix": "reinit"
+    },
+    {
+      "name": "MultilingualismConfig.paymentMethod",
+      "prefix": "paymentMethod"
     }
   ],
   "ignoredTranslationFiles":
   [
-    "MultilingualismConfig.properties"
+    "MultilingualismConfig.properties",
+    "PrePaymentAssistant.properties"
   ]
 }
