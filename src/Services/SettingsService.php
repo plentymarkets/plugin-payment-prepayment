@@ -125,7 +125,7 @@ class SettingsService
             $settingsToSave = $this->convertSettingsToCorrectFormat($data, Settings::AVAILABLE_SETTINGS);
 
             /** @var Settings[] $settings */
-            $settings = $this->loadClientSettings($pid, $lang);
+            $settings = $this->loadAllClientSettings($pid);
 
             $newLang = true;
 
@@ -376,6 +376,37 @@ class SettingsService
         $query = $this->db->query(Settings::MODEL_NAMESPACE);
         $query->where('plentyId', '=', $plentyId)->where('lang', '=', $lang);
         $query->orWhere('lang',   '=', '')->where('plentyId', '=', $plentyId);
+
+        /** @var Settings[] $clientSettings */
+        $clientSettings = $query->get();
+
+        if(!count($clientSettings))
+        {
+            $this->updateClients();
+            $clientSettings = $query->get();
+        }
+
+        if(!count($clientSettings))
+        {
+            throw new ValidationException('Error loading Settings');
+        }
+
+        return $clientSettings;
+    }
+
+    /**
+     * Load settings for specified system clients by plentyId
+     *
+     * @param $plentyId
+     *
+     * @return Settings[]
+     * @throws ValidationException
+     */
+    private function loadAllClientSettings($plentyId)
+    {
+        /** @var Query $query */
+        $query = $this->db->query(Settings::MODEL_NAMESPACE);
+        $query->where('plentyId', '=', $plentyId);
 
         /** @var Settings[] $clientSettings */
         $clientSettings = $query->get();
