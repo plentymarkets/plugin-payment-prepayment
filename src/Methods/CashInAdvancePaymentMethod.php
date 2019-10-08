@@ -160,7 +160,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
         $lang = $session->getLocaleSettings()->language;
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
-        return $translator->trans('Invoice::PaymentMethod.paymentMethodDescription',[],$lang);
+        return $translator->trans('PrePayment::PaymentMethod.paymentMethodDescription',[],$lang);
     }
 
     /**

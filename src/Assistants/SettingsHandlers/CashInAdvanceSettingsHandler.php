@@ -170,6 +170,25 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
                 'CashInAdvance\Providers\CashInAdvanceOrderConfirmationDataProvider'
             );
 
+            $containerListEntries[] = $this->createContainerDataListEntry(
+                $webstoreId,
+                'Ceres::OrderConfirmation.AdditionalPaymentInformation',
+                'CashInAdvance\Providers\ReinitializePayment\CashInAdvanceReinitializePayment'
+            );
+
+            $containerListEntries[] = $this->createContainerDataListEntry(
+                $webstoreId,
+                'Ceres::MyAccount.OrderHistoryPaymentInformation',
+                'CashInAdvance\Providers\ReinitializePayment\CashInAdvanceReinitializePayment'
+            );
+
+            $containerListEntries[] = $this->createContainerDataListEntry(
+                $webstoreId,
+                'Ceres::Script.AfterScriptsLoaded',
+                'CashInAdvance\Providers\ReinitializePayment\CashInAdvanceReinitializePaymentScript'
+            );
+
+
             if (isset($data['PaymentMethodIcon']) && $data['PaymentMethodIcon']) {
                 $containerListEntries[] = $this->createContainerDataListEntry(
                     $webstoreId,
