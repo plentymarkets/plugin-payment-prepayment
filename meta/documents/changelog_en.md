@@ -1,6 +1,6 @@
 # Release Notes for Cash in advance
 
-## 3.0.0 (2019-10-08)
+## 3.0.0 (2019-10-14)
  
 ### Note 
 - The settings for the Cash in advance plugin have been transferred to an assistant in the **Setup » Assistants » Payment** menu.
