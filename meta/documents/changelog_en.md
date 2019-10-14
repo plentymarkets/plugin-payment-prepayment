@@ -6,7 +6,7 @@
 - The settings for the Cash in advance plugin have been transferred to an assistant in the **Setup » Assistants » Payment** menu.
 
 ### Changed
-- The description of the payment method is now also maintained via **CMS » Multilingualism**.
+- The description and name of the payment method is now also maintained via **CMS » Multilingualism**.
 
 
 ## 2.1.0 (2019-07-01)

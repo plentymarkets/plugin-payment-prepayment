@@ -64,12 +64,9 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      */
     public function getName($lang = 'de')
     {
-        $name = $this->settings->getSetting('name', $lang);
-        if (!strlen($name) > 0)
-        {
-            return 'Vorkasse';
-        }
-        return $name;
+        /** @var Translator $translator */
+        $translator = pluginApp(Translator::class);
+        return $translator->trans('PrePayment::PaymentMethod.paymentMethodName',[],$lang);
     }
 
     /**
