@@ -197,7 +197,7 @@ class CashInAdvanceAssistant extends WizardProvider
                             "form" => [
                                 "PaymentMethodIcon" => [
                                     'type' => 'checkbox',
-                                    'defaultValue' => 'false',
+                                    'defaultValue' => false,
                                     'options' => [
                                         'name' => 'PrePaymentAssistant.assistantPaymentMethodIconCheckbox'
                                     ]
