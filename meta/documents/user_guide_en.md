@@ -8,7 +8,7 @@ In order to make this payment method available in your online store, you have to
 
 ##### Setting up a payment method:
 
-1. Go to **Setup&nbsp;» Assistants**.
+1. Go to **Setup&nbsp;» Payment&nbsp;» Assistants**.
 2. Select the assistant **Cash in advance**.
 3. Complete the setup assistant completely.
 → The payment method **Cash in advance** is available in your online store.

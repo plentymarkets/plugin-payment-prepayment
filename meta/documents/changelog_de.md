@@ -1,6 +1,6 @@
 # Release Notes für Vorkasse
 
-## 3.0.0 (2019-10-14)
+## 3.0.0 (2019-11-18)
 
 ### Hinweis 
 - Die Einstellungen für das Vorkasse-Plugin wurden in einen Assistenten überführt und sind nun unter **Einrichtung » Assistenten » Payment** zu finden.

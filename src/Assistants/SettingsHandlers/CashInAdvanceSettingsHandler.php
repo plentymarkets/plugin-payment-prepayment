@@ -189,7 +189,7 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
             );
 
 
-            if (isset($data['PaymentMethodIcon']) && $data['PaymentMethodIcon']) {
+            if (isset($data['payment_method_icon']) && $data['payment_method_icon']) {
                 $containerListEntries[] = $this->createContainerDataListEntry(
                     $webstoreId,
                     'Ceres::Homepage.PaymentMethods',

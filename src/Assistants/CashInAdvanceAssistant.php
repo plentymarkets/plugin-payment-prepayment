@@ -195,7 +195,7 @@ class CashInAdvanceAssistant extends WizardProvider
                             "title" => 'PrePaymentAssistant.sectionPaymentMethodIconTitle',
                             "description" => 'PrePaymentAssistant.sectionPaymentMethodIconDescription',
                             "form" => [
-                                "PaymentMethodIcon" => [
+                                "payment_method_icon" => [
                                     'type' => 'checkbox',
                                     'defaultValue' => false,
                                     'options' => [
@@ -304,10 +304,6 @@ class CashInAdvanceAssistant extends WizardProvider
                     "value" => $webstore->storeIdentifier,
                 ];
             }
-
-            usort($this->webstoreValues, function ($a, $b) {
-                return ($a['value'] <=> $b['value']);
-            });
         }
 
         return $this->webstoreValues;
@@ -331,10 +327,6 @@ class CashInAdvanceAssistant extends WizardProvider
                     'value' => $country->id
                 ];
             }
-            // Sort values alphabetically
-            usort($this->deliveryCountries, function($a, $b) {
-                return ($a['caption'] <=> $b['caption']);
-            });
         }
         return $this->deliveryCountries;
     }
