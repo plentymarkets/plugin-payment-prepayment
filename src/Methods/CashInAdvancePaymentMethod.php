@@ -9,6 +9,7 @@ use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Plugin\Application;
 use CashInAdvance\Services\SettingsService;
+use Plenty\Plugin\Translation\Translator;
 
 /**
  * Class CashInAdvancePaymentMethod
@@ -63,12 +64,9 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      */
     public function getName($lang = 'de')
     {
-        $name = $this->settings->getSetting('name', $lang);
-        if (!strlen($name) > 0)
-        {
-            return 'Vorkasse';
-        }
-        return $name;
+        /** @var Translator $translator */
+        $translator = pluginApp(Translator::class);
+        return $translator->trans('PrePayment::PaymentMethod.paymentMethodName',[],$lang);
     }
 
     /**
@@ -157,7 +155,9 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
         /** @var FrontendSessionStorageFactoryContract $session */
         $session = pluginApp(FrontendSessionStorageFactoryContract::class);
         $lang = $session->getLocaleSettings()->language;
-        return $this->settings->getSetting('description', $lang);
+        /** @var Translator $translator */
+        $translator = pluginApp(Translator::class);
+        return $translator->trans('PrePayment::PaymentMethod.paymentMethodDescription',[],$lang);
     }
 
     /**
