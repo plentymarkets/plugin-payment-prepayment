@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 3.0.1 (2019-12-05)
+
+### Gefixt
+- Einige Texte wurden angepasst
+
+
 ## 3.0.0 (2019-11-18)
 
 ### Hinweis 
