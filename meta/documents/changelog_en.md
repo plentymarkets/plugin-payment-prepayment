@@ -1,8 +1,8 @@
 # Release Notes for Cash in advance
 
-## X.X.X (2019-12-12)
+## X.X.X (2019-12-17)
 ### Changed
-- Added methods for the backend visibility
+- Added methods for the backend visibility and backend name
 
 ## 3.0.0 (2019-11-18)
  
