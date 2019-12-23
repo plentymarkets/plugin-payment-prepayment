@@ -1,10 +1,13 @@
 # Release Notes für Vorkasse
 
+## X.X.X (2019-12-17)
+### Geändert
+- Funktionalitäten hinzugefügt für Backend-Sichtbarkeiten und Backend-Name
+
 ## 3.0.1 (2019-12-05)
 
 ### Gefixt
 - Einige Texte wurden angepasst
-
 
 ## 3.0.0 (2019-11-18)
 
