@@ -203,10 +203,10 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
     /**
      * Get the name for the backend
      *
-     * @param $lang
+     * @param string $lang
      * @return string
      */
-    public function getBackendName($lang):string
+    public function getBackendName(string $lang):string
     {
         return $this->getName($lang);
     }
