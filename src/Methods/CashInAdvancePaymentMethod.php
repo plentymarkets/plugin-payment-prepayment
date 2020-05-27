@@ -220,4 +220,16 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
     {
         return true;
     }
+
+    /**
+     * Get the url for the backend icon
+     *
+     * @return string
+     */
+    public function getBackendIcon(): string
+    {
+        $app = pluginApp(Application::class);
+        $icon = $app->getUrlPath('prepayment').'/images/logos/prepayment_plus_backend_icon.svg';
+        return $icon;
+    }
 }
