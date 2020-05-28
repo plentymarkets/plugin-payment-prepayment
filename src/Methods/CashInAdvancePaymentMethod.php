@@ -5,8 +5,8 @@ namespace CashInAdvance\Methods;
 use Plenty\Modules\Category\Contracts\CategoryRepositoryContract;
 use Plenty\Modules\Frontend\Contracts\Checkout;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
-use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
+use Plenty\Modules\Payment\Method\Services\PaymentMethodBaseService;
 use Plenty\Plugin\Application;
 use CashInAdvance\Services\SettingsService;
 use Plenty\Plugin\Translation\Translator;
@@ -15,7 +15,7 @@ use Plenty\Plugin\Translation\Translator;
  * Class CashInAdvancePaymentMethod
  * @package CashInAdvance\Methods
  */
-class CashInAdvancePaymentMethod extends PaymentMethodService
+class CashInAdvancePaymentMethod extends PaymentMethodBaseService
 {
     /** @var BasketRepositoryContract */
     private $basketRepo;
@@ -46,7 +46,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      *
      * @return bool
      */
-    public function isActive()
+    public function isActive(): bool
     {
         if(!in_array($this->checkout->getShippingCountryId(), $this->settings->getShippingCountries()))
         {
@@ -62,7 +62,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      * @param $lang
      * @return string
      */
-    public function getName($lang = 'de')
+    public function getName(string $lang): string
     {
         /** @var Translator $translator */
         $translator = pluginApp(Translator::class);
@@ -74,7 +74,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      *
      * @return float
      */
-    public function getFee()
+    public function getFee(): float
     {
         return 0.00;
         $basket = $this->basketRepo->load();
@@ -95,7 +95,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      *
      * @return string
      */
-    public function getIcon( )
+    public function getIcon(string $lang): string
     {
         if( $this->settings->getSetting('logo') == 1)
         {
@@ -115,9 +115,10 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
     /**
      * Get CashInAdvanceSourceUrl
      *
+     * @param string $lang
      * @return string
      */
-    public function getSourceUrl()
+    public function getSourceUrl(string $lang): string
     {
         /** @var FrontendSessionStorageFactoryContract $session */
         $session = pluginApp(FrontendSessionStorageFactoryContract::class);
@@ -148,9 +149,10 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
     /**
      * Get CashInAdvanceDescription
      *
+     * @param string $lang
      * @return string
      */
-    public function getDescription( )
+    public function getDescription(string $lang): string
     {
         /** @var FrontendSessionStorageFactoryContract $session */
         $session = pluginApp(FrontendSessionStorageFactoryContract::class);
@@ -165,7 +167,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      *
      * @return bool
      */
-    public function isSwitchableTo()
+    public function isSwitchableTo(): bool
     {
         return true;
     }
@@ -175,7 +177,7 @@ class CashInAdvancePaymentMethod extends PaymentMethodService
      *
      * @return bool
      */
-    public function isSwitchableFrom()
+    public function isSwitchableFrom(): bool
     {
         return true;
     }
