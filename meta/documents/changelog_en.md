@@ -1,5 +1,10 @@
 # Release Notes for Cash in advance
 
+## 3.0.2 (2020-05-27)
+
+### Changed
+- Added Icon for the backend
+
 ## 3.0.1 (2020-03-24)
 
 ### Changed
