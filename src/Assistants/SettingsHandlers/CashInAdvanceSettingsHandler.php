@@ -228,8 +228,6 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
         $dataListEntry['dataProviderPluginId'] = $prePaymentPlugin->id;
         $dataListEntry['containerPluginId'] = $ceresPlugin->id;
         $dataListEntry['pluginSetId'] = $webstore->pluginSetId;
-//        $dataListEntry['dataProviderPluginSetEntryId'] = $prePaymentPlugin->pluginSetEntries[0]->id;
-//        $dataListEntry['containerPluginSetEntryId'] = $ceresPlugin->pluginSetEntries[0]->id;
         $dataListEntry['dataProviderPluginSetEntryId'] = $prePaymentPlugin->pluginSetEntries->firstWhere('pluginSetId', $webstore->pluginSetId)->id;
         $dataListEntry['containerPluginSetEntryId'] = $ceresPlugin->pluginSetEntries->firstWhere('pluginSetId', $webstore->pluginSetId)->id;
 
