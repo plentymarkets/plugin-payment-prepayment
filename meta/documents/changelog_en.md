@@ -1,5 +1,10 @@
 # Release Notes for Cash in advance
 
+## 3.0.3 (2020-07-15)
+
+### Fixed
+- Assistant can be completed again
+
 ## 3.0.2 (2020-05-27)
 
 ### Changed

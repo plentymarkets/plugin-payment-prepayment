@@ -1,5 +1,9 @@
 # Release Notes für Vorkasse
 
+## 3.0.3 (2020-07-15)
+### Gefixt
+- Assistenten kann wieder abgeschlossen werden
+
 ## 3.0.2 (2020-05-27)
 ### Geändert
 - Icon für das Backend hinzugefügt
