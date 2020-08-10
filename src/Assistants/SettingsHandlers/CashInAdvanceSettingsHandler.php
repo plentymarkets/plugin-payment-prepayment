@@ -184,7 +184,7 @@ class CashInAdvanceSettingsHandler implements WizardSettingsHandler
 
             $containerListEntries[] = $this->createContainerDataListEntry(
                 $webstoreId,
-                'Ceres::Script.AfterScriptsLoaded',
+                'Ceres::Checkout.AfterScriptsLoaded',
                 'CashInAdvance\Providers\ReinitializePayment\CashInAdvanceReinitializePaymentScript'
             );
 
