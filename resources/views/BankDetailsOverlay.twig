@@ -4,7 +4,7 @@
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">x</span>
     </button>
-    <h4 class="modal-title">{{ trans("PrePayment::PaymentMethod.bankDetails") }}</h4>
+    <h4 class="modal-title">{{ trans("PrePayment::PaymentMethod.bankDetails", [], lang) }}</h4>
 </div>
 
 <div class="modal-body form-horizontal">
@@ -13,19 +13,19 @@
             <table class="table table-striped table-hover table-sm" border="0" cellpadding="0">
                 <tbody>
                     <tr>
-                        <td>{{ trans("PrePayment::PaymentMethod.bankAccountOwner") }}</td>
+                        <td>{{ trans("PrePayment::PaymentMethod.bankAccountOwner", [], lang) }}</td>
                         <td>{{ bankAccount["accountOwner"] }}</td>
                     </tr>
                     <tr>
-                        <td>{{ trans("PrePayment::PaymentMethod.bankName") }}</td>
+                        <td>{{ trans("PrePayment::PaymentMethod.bankName", [], lang) }}</td>
                         <td>{{ bankAccount["name"] }}</td>
                     </tr>
                     <tr>
-                        <td>{{ trans("PrePayment::PaymentMethod.bankIban") }}</td>
+                        <td>{{ trans("PrePayment::PaymentMethod.bankIban", [], lang) }}</td>
                         <td>{{ bankAccount["iban"] }}</td>
                     </tr>
                     <tr>
-                        <td>{{ trans("PrePayment::PaymentMethod.bankSwift") }}</td>
+                        <td>{{ trans("PrePayment::PaymentMethod.bankSwift", [], lang) }}</td>
                         <td>{{ bankAccount["swift"] }}</td>
                     </tr>
                 </tbody>

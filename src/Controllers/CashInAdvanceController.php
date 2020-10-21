@@ -7,8 +7,12 @@ use Plenty\Plugin\Templates\Twig;
 
 class CashInAdvanceController extends Controller
 {
-	public function getBankDetails(Twig $twig)
+	public function getBankDetails(Twig $twig, $lang)
 	{
-		return $twig->render('PrePayment::BankDetailsOverlay');
+	    if ($lang === null || !strlen($lang)) {
+	        $lang = 'de';
+        }
+	    
+		return $twig->render('PrePayment::BankDetailsOverlay', ['lang' => $lang]);
 	}
 }

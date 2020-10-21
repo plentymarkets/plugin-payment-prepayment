@@ -28,7 +28,7 @@
     {
         $("#cashinadvanceModal .modal-content").html("Loading ...");
 
-        $.get("/payment/cashinadvance/bankdetails", function(data)
+        $.get("/payment/cashinadvance/bankdetails/{{ lang }}", function(data)
         {
             $('#cashinadvanceModal .modal-content').html(data);
         });
