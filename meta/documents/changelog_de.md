@@ -1,5 +1,9 @@
 # Release Notes für Vorkasse
 
+## 3.0.4 (2020-10-21)
+### Gefixt
+- Das Overlay mit den Bankdaten wird jetzt korrekt übersetzt
+
 ## 3.0.3 (2020-07-15)
 ### Gefixt
 - Assistenten kann wieder abgeschlossen werden
