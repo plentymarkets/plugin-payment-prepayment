@@ -21,7 +21,7 @@ class CashInAdvanceRouteServiceProvider extends RouteServiceProvider
                 $routerApi->put('payment/cashinadvance/settings'                           , ['uses' => 'CashInAdvance\Controllers\SettingsController@saveSettings']);
             });
        
-       $router->get('payment/cashinadvance/bankdetails', 'CashInAdvance\Controllers\CashInAdvanceController@getBankDetails');
+       $router->get('payment/cashinadvance/bankdetails/{lang}', 'CashInAdvance\Controllers\CashInAdvanceController@getBankDetails');
     }
 
 }

@@ -1,5 +1,9 @@
 # Release Notes for Cash in advance
 
+## 3.0.4 (2020-10-21)
+### Fixed
+- The overlay with the bank details is now translated correctly
+
 ## 3.0.3 (2020-07-15)
 
 ### Fixed
