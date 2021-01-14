@@ -2,6 +2,7 @@
 
 namespace CashInAdvance\Methods;
 
+use CashInAdvance\Helper\CashInAdvanceHelper;
 use Plenty\Modules\Category\Contracts\CategoryRepositoryContract;
 use Plenty\Modules\Frontend\Contracts\Checkout;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
@@ -134,9 +135,11 @@ class CashInAdvancePaymentMethod extends PaymentMethodBaseService
                 $categoryId = (int) $this->settings->getSetting('infoPageIntern', $lang);
                 if($categoryId  > 0)
                 {
+                    /** @var CashInAdvanceHelper $cashInAdvanceHelper */
+                    $cashInAdvanceHelper = pluginApp(CashInAdvanceHelper::class);
                     /** @var CategoryRepositoryContract $categoryContract */
                     $categoryContract = pluginApp(CategoryRepositoryContract::class);
-                    return $categoryContract->getUrl($categoryId, $lang);
+                    return $cashInAdvanceHelper->getDomain() . '/' . $categoryContract->getUrl($categoryId, $lang);
                 }
                 return '';
             case 2:
