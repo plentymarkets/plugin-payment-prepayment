@@ -1,13 +1,16 @@
 {
-    "version"           : "3.0.4",
+    "version"           : "3.0.5",
     "name"              : "PrePayment",
-    "marketplaceName"   : {"de":"Vorkasse","en":"Cash in advance"},
-    "license"           : "AGPL-3.0",
+    "marketplaceName"   : {
+        "de": "Vorkasse",
+        "en": "Cash in advance"
+    },
+    "license"           : "",
     "pluginIcon"        : "icon_plugin_xs.png",
     "price"             : 0.00,
     "description"       : "Cash in advance plugin for plentymarkets online stores",
     "shortDescription"  : {"de": "Zahlungsart Vorkasse für plentymarkets Webshops","en": "Payment method Cash in advance for plentymarkets online stores"},
-    "categories"        : ["3519"],
+    "categories"        : ["4083"],
     "author"            : "plentysystems AG",
     "authorIcon"        : "icon_author_xs.png",
     "email"             : "sales@plentymarkets.com",
