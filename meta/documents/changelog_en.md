@@ -1,5 +1,10 @@
 # Release Notes for Cash in advance
 
+## 3.0.6
+
+### Fixed
+- The URL for the internal info page is now generated correctly.
+
 ## 3.0.5
 
 ### Fixed

@@ -1,5 +1,10 @@
 # Release Notes für Vorkasse
 
+## 3.0.6
+
+### Behoben
+- Die URL der internen Infoseite wird nun für Fremdsprachen korrekt erzeugt.
+
 ## 3.0.5
 
 ### Behoben

@@ -3,7 +3,6 @@
 namespace CashInAdvance\Methods;
 
 use CashInAdvance\Helper\CashInAdvanceHelper;
-use Plenty\Modules\Category\Contracts\CategoryRepositoryContract;
 use Plenty\Modules\Frontend\Contracts\Checkout;
 use Plenty\Modules\Frontend\Session\Storage\Contracts\FrontendSessionStorageFactoryContract;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
@@ -11,6 +10,7 @@ use Plenty\Modules\Payment\Method\Services\PaymentMethodBaseService;
 use Plenty\Plugin\Application;
 use CashInAdvance\Services\SettingsService;
 use Plenty\Plugin\Translation\Translator;
+use Plenty\Modules\Webshop\Contracts\UrlBuilderRepositoryContract;
 
 /**
  * Class CashInAdvancePaymentMethod
@@ -137,9 +137,17 @@ class CashInAdvancePaymentMethod extends PaymentMethodBaseService
                 {
                     /** @var CashInAdvanceHelper $cashInAdvanceHelper */
                     $cashInAdvanceHelper = pluginApp(CashInAdvanceHelper::class);
-                    /** @var CategoryRepositoryContract $categoryContract */
-                    $categoryContract = pluginApp(CategoryRepositoryContract::class);
-                    return $cashInAdvanceHelper->getDomain() . '/' . $categoryContract->getUrl($categoryId, $lang);
+                    $urlBuilderRepository = pluginApp(UrlBuilderRepositoryContract::class);
+
+                    $urlQuery = $urlBuilderRepository->buildCategoryUrl($categoryId, $lang);
+
+                    $defaultLanguage = $cashInAdvanceHelper->getWebstoreConfig()->defaultLanguage;
+                    $includeLanguage = false;
+                    if ($lang != $defaultLanguage) {
+                        $includeLanguage = true;
+                    }
+
+                    return $cashInAdvanceHelper->getDomain() . $urlQuery->toRelativeUrl($includeLanguage);
                 }
                 return '';
             case 2:
